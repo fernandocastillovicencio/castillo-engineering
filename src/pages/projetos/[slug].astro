@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projetos = await getCollection('projetos');
+  return projetos.map((projeto) => ({
+    params: { slug: projeto.id },
+    props: { projeto },
+  }));
+}
+
+const { projeto } = Astro.props;
+const { Content } = await render(projeto);
+---
+
+<Layout 
+  title={projeto.data.title} 
+  description={projeto.data.description}
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        {projeto.data.title}
+      </h1>
+      {projeto.data.cliente && (
+        <p class="text-xl text-castillo-gray">
+          <span class="font-semibold">Cliente:</span> {projeto.data.cliente}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Conteúdo do Projeto -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      
+      <!-- Informações do Projeto -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="font-bold text-castillo-blue mb-2">Área</h3>
+          <p class="text-castillo-gray">{projeto.data.area}</p>
+        </div>
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="font-bold text-castillo-blue mb-2">Data</h3>
+          <p class="text-castillo-gray">{projeto.data.date ? new Date(projeto.data.date).toLocaleDateString('pt-BR') : 'N/A'}</p>
+        </div>
+      </div>
+
+      <!-- Resultado em Destaque -->
+      {projeto.data.resultado && (
+        <div class="bg-castillo-orange bg-opacity-10 border-l-4 border-castillo-orange p-6 mb-8 rounded-lg">
+          <h3 class="text-xl font-bold text-castillo-blue mb-2">Resultado Alcançado</h3>
+          <p class="text-castillo-gray text-lg">{projeto.data.resultado}</p>
+        </div>
+      )}
+
+      <!-- Software Utilizado -->
+      {projeto.data.software && (
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6 mb-8">
+          <h3 class="text-xl font-bold text-castillo-blue mb-4">
+            Software Utilizado
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {projeto.data.software.map((sw) => (
+              <span class="bg-castillo-blue text-castillo-white px-4 py-2 rounded-lg text-sm font-semibold">
+                {sw}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Conteúdo Markdown -->
+      <article class="prose prose-lg max-w-none">
+        <div class="text-castillo-gray space-y-6">
+          <Content />
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a 
+          href="/contato" 
+          class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+        >
+          Solicitar Orçamento Similar
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-12 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4 text-center">
+      <a 
+        href="/projetos" 
+        class="text-castillo-blue font-bold hover:underline inline-flex items-center"
+      >
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para todos os projetos
+      </a>
+    </div>
+  </section>
+
+</Layout>

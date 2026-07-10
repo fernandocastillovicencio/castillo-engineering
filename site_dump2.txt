@@ -1,0 +1,1076 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Home" 
+  description="Diagnóstico Energético e Otimização de Sistemas de Bombeamento e HVAC - Reduza OPEX com ROI calculado"
+>
+  
+  <!-- ============================================ -->
+  <!-- 1. HERO SECTION (Primeira Dobra)             -->
+  <!-- ============================================ -->
+  <section class="bg-castillo-blue text-castillo-white py-20 md:py-28">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+        Reduza o OPEX e aumente a confiabilidade dos seus<br class="hidden md:block" />
+        sistemas de bombeamento e HVAC
+      </h1>
+      <p class="text-lg md:text-xl text-white text-opacity-80 mb-8 max-w-3xl mx-auto">
+        Diagnósticos energéticos precisos e laudos técnicos com <strong>ROI calculado</strong>. 
+        Identificamos onde sua planta está desperdiçando energia e calculamos o 
+        <strong>payback exato</strong> para a correção.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a 
+          href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20Diagnóstico%20Energético"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity text-lg"
+        >
+          Agendar Diagnóstico Inicial
+        </a> 
+        <a 
+           href="#como-funciona" 
+            class="border-2 border-castillo-white text-castillo-white px-8 py-4 rounded-lg font-bold hover:bg-castillo-white hover:text-castillo-blue transition-colors text-lg scroll-smooth"
+            style="scroll-beha vior: smooth;"
+        >
+          Ver como funciona
+        </a>
+      </div>
+      <p class="text-sm text-white text-opacity-70 max-w-2xl mx-auto">
+        Fundada por especialista com <strong>12+ anos em consultoria industrial</strong> e 
+        <strong>Doutorado em Ciências Térmicas</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 2. SEÇÃO DE AUTORIDADE                       -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        Por que confiar na Castillo Engineering?
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">🏭</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            12+ Anos de Chão de Fábrica
+          </h3>
+          <p class="text-white text-opacity-80">
+            Experiência prática em projetos de eficiência energética e sistemas 
+            de bombeamento na <strong>Sefter Engenharia</strong>.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">🎓</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Autoridade Acadêmica
+          </h3>
+          <p class="text-white text-opacity-80">
+            Mestre e Doutor em Ciências Térmicas (<strong>PUCPR</strong>) e 
+            Professor Universitário de Engenharia.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">💰</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Foco em Resultado Financeiro
+          </h3>
+          <p class="text-white text-opacity-80">
+            Não entregamos apenas relatórios técnicos. Entregamos cálculos de 
+            <strong>ROI, Payback e redução de OPEX</strong>.
+          </p>
+        </div>
+        <!-- Card 4 -->
+        <div class="text-center p-6">
+          <div class="text-5xl mb-4">🌎</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Atuação Global
+          </h3>
+          <p class="text-white text-opacity-80">
+            Atendimento presencial na RMC e remoto para indústrias no 
+            <strong>Brasil e América do Sul</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 3. PROBLEMAS QUE RESOLVEMOS                  -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        O que está corroendo a margem da sua operação?
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Desperdício Energético Invisível
+          </h3>
+          <p class="text-white text-opacity-80">
+            Bombas e chillers operando longe do <strong>Ponto de Melhor Eficiência (BEP)</strong>, 
+            inchando sua conta de luz em até <strong>30%</strong>.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Falhas Prematuras e Cavitação
+          </h3>
+          <p class="text-white text-opacity-80">
+            Vibração excessiva e quebra frequente de rolamentos por 
+            <strong>operação inadequada do sistema</strong>.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Insegurança no CAPEX
+          </h3>
+          <p class="text-white text-opacity-80">
+            Medo de comprar equipamentos <strong>superdimensionados</strong> (jogando dinheiro fora) 
+            ou <strong>subdimensionados</strong> (parando a produção).
+          </p>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <div class="text-4xl mb-4">⚠️</div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Falta de Dados para Decisão
+          </h3>
+          <p class="text-white text-opacity-80">
+            Equipes operando no <strong>"achismo"</strong> sem laudos técnicos para justificar 
+            investimentos em inversores ou retrofit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 4. SERVIÇOS (1 Principal + 3 Secundários)    -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        Nossas Soluções
+      </h2>
+      
+      <!-- Serviço Principal (Destaque) -->
+      <div class="max-w-4xl mx-auto mb-12">
+        <div class="bg-castillo-blue text-castillo-white rounded-lg p-8 md:p-10 border-4 border-castillo-orange">
+          <div class="text-5xl mb-4">🔥</div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">
+            Diagnóstico Energético e Otimização de Sistemas
+          </h3>
+          <div class="space-y-4 text-lg">
+            <p>
+              <strong class="text-castillo-orange">O que é:</strong> Análise detalhada do ponto 
+              de operação de bombas, ventiladores e sistemas HVAC.
+            </p>
+            <p>
+              <strong class="text-castillo-orange">O que você recebe:</strong> Laudo técnico em 
+              <strong>48h</strong> com identificação de desperdícios, recomendações de retrofit 
+              (ajuste de rotor, VFDs) e cálculo exato de economia anual (R$).
+            </p>
+            <p>
+              <strong class="text-castillo-orange">Garantia:</strong> Foco total em 
+              <strong>ROI e Payback mensurável</strong>.
+            </p>
+          </div>
+          <div class="mt-8 text-center">
+            <a 
+              href="https://wa.me/5541985367273?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Diagnóstico%20Energético"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity inline-block text-lg"
+            >
+              Solicitar Orçamento
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Serviços Secundários -->
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Serviço 2 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Revisão Técnica de Projetos (Code-Checking)
+          </h3>
+          <p class="text-white text-opacity-80">
+            Validação independente de memoriais de cálculo antes da compra 
+            de equipamentos térmicos.
+          </p>
+        </div>
+        <!-- Serviço 3 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Simulação Computacional (CFD)
+          </h3>
+          <p class="text-white text-opacity-80">
+            Análise avançada de escoamento e transferência de calor para 
+            problemas complexos.
+          </p>
+        </div>
+        <!-- Serviço 4 -->
+        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Treinamentos In-Company
+          </h3>
+          <p class="text-white text-opacity-80">
+            Capacitação técnica para equipes de manutenção e engenharia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 5. COMO FUNCIONA (4 Passos)                  -->
+  <!-- ============================================ -->
+  <section id="como-funciona" class="py-16 md:py-20 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        Como trabalhamos (Do contato ao resultado)
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <!-- Passo 1 -->
+        <div class="text-center">
+          <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Reunião de Alinhamento (30 min)
+          </h3>
+          <p class="text-white text-opacity-80">
+            Entendemos o desafio da sua planta e definimos quais dados 
+            operacionais são necessários.
+          </p>
+        </div>
+        <!-- Passo 2 -->
+        <div class="text-center">
+          <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Análise Computacional
+          </h3>
+          <p class="text-white text-opacity-80">
+            Processamos os dados do seu sistema cruzando com as curvas 
+            dos fabricantes para identificar ineficiências.
+          </p>
+        </div>
+        <!-- Passo 3 -->
+        <div class="text-center">
+          <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Entrega do Laudo Técnico
+          </h3>
+          <p class="text-white text-opacity-80">
+            Você recebe um relatório claro, com gráficos, apontando o 
+            problema, a solução e o retorno financeiro (ROI).
+          </p>
+        </div>
+        <!-- Passo 4 -->
+        <div class="text-center">
+          <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+            4
+          </div>
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">
+            Suporte à Decisão
+          </h3>
+          <p class="text-white text-opacity-80">
+            Tiramos todas as dúvidas da sua equipe e da diretoria para 
+            viabilizar a implementação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 6. FAQ (Matando Objeções)                    -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        Perguntas Frequentes
+      </h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <!-- FAQ 1 -->
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">
+            P: Vocês atendem apenas em Curitiba?
+          </h3>
+          <p class="text-white text-opacity-80">
+            <strong>R:</strong> Atendemos presencialmente a Região Metropolitana de Curitiba. 
+            Para o restante do Brasil e América do Sul, realizamos o diagnóstico e a consultoria 
+            de forma <strong>100% remota</strong>, com a mesma precisão.
+          </p>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">
+            P: Preciso parar a produção para vocês fazerem o diagnóstico?
+          </h3>
+          <p class="text-white text-opacity-80">
+            <strong>R:</strong> <strong>Não.</strong> Trabalhamos com a análise de dados operacionais 
+            históricos e curvas de fabricantes. A visita técnica só é necessária em casos muito específicos.
+          </p>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">
+            P: O laudo técnico tem validade legal?
+          </h3>
+          <p class="text-white text-opacity-80">
+            <strong>R:</strong> <strong>Sim.</strong> Todos os nossos pareceres e laudos são emitidos 
+            por Engenheiro Mecânico com registro ativo no <strong>CREA-PR</strong>.
+          </p>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">
+            P: Quanto tempo leva para receber o laudo?
+          </h3>
+          <p class="text-white text-opacity-80">
+            <strong>R:</strong> Para diagnósticos padrão de bombeamento e HVAC, entregamos o laudo 
+            técnico completo em até <strong>48 horas úteis</strong> após o recebimento dos dados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 7. CTA FINAL (Antes do Footer)               -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-blue text-castillo-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Pronto para identificar o desperdício na sua planta?
+      </h2>
+      <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
+        Agende uma conversa técnica inicial sem compromisso.
+      </p>
+      <a 
+        href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20técnica"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity inline-block text-lg"
+      >
+        Falar com o Engenheiro no WhatsApp
+      </a>
+    </div>
+  </section>
+
+</Layout>---
+import '../styles/global.css';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Castillo Engineering - Diagnóstico Energético e Otimização de Sistemas' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/images/logo-padrao.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} | Castillo Engineering</title>
+  </head>
+  <body class="bg-castillo-white flex flex-col min-h-screen">
+    
+  <!-- HEADER -->
+  <header class="bg-castillo-blue text-castillo-white sticky top-0 z-40 shadow-md">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center">
+          <img 
+            src="/images/castillo-logo_horizontal-negativo.svg" 
+            alt="Castillo Engineering" 
+            class="h-8 md:h-10 lg:h-12 w-auto object-contain"
+          />
+        </a>
+        
+        <!-- Navegação Desktop -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="/" class="hover:text-castillo-orange transition-colors font-medium">Home</a>
+          <a href="/servicos" class="hover:text-castillo-orange transition-colors font-medium">Serviços</a>
+          <a href="/projetos" class="hover:text-castillo-orange transition-colors font-medium">Projetos</a>
+          <a href="/sobre" class="hover:text-castillo-orange transition-colors font-medium">Sobre</a>
+          <a 
+            href="/contato" 
+            class="bg-castillo-orange text-castillo-white px-5 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity"
+          >
+            Contato
+          </a>
+        </nav>
+        
+        <!-- Botão Menu Mobile -->
+        <button 
+          id="mobile-menu-btn" 
+          class="md:hidden text-castillo-white p-2 focus:outline-none"
+          aria-label="Abrir menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Menu Mobile (Escondido por padrão) -->
+      <nav 
+        id="mobile-menu" 
+        class="hidden md:hidden mt-4 pb-4 border-t border-castillo-gray pt-4"
+      >
+        <div class="flex flex-col gap-4">
+          <a href="/" class="hover:text-castillo-orange transition-colors font-medium">Home</a>
+          <a href="/servicos" class="hover:text-castillo-orange transition-colors font-medium">Serviços</a>
+          <a href="/projetos" class="hover:text-castillo-orange transition-colors font-medium">Projetos</a>
+          <a href="/sobre" class="hover:text-castillo-orange transition-colors font-medium">Sobre</a>
+          <a 
+            href="/contato" 
+            class="bg-castillo-orange text-castillo-white px-5 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity text-center"
+          >
+            Contato
+          </a>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- JavaScript para Menu Mobile -->
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    </script>
+  </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-castillo-blue text-castillo-white mt-auto">
+      <div class="container mx-auto px-4 py-8">
+        <!-- CTA Final -->
+        <div class="text-center mb-8 pb-8 border-b border-castillo-gray">
+          <h2 class="text-2xl font-bold mb-4">Pronto para identificar o desperdício na sua planta?</h2>
+          <p class="text-castillo-gray mb-6">Agende uma conversa técnica inicial sem compromisso.</p>
+          <a 
+            href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Diagnóstico%20Energético"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+          >
+            Falar com o Engenheiro no WhatsApp
+          </a>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Coluna 1: Sobre -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Castillo Engineering LTDA</h3>
+            <p class="text-castillo-gray text-sm">
+              Soluções em Engenharia Térmica, CFD e Eficiência Energética.
+            </p>
+          </div>
+          
+          <!-- Coluna 2: Links -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Links Rápidos</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="/servicos" class="text-castillo-gray hover:text-castillo-orange">Serviços</a></li>
+              <li><a href="/projetos" class="text-castillo-gray hover:text-castillo-orange">Projetos</a></li>
+              <li><a href="/sobre" class="text-castillo-gray hover:text-castillo-orange">Sobre</a></li>
+              <li><a href="/contato" class="text-castillo-gray hover:text-castillo-orange">Contato</a></li>
+            </ul>
+          </div>
+          
+          <!-- Coluna 3: Contato (Minimalista - Sem Endereço Residencial) -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contato</h3>
+            <ul class="space-y-2 text-sm text-castillo-gray">
+              <li>Curitiba/PR - Brasil</li>
+              <li>Atendimento em todo Brasil e América do Sul</li>
+              <li>fernando@castilloeng.com.br</li>
+              <li>(41) 98536-7273</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Copyright + Nota Legal -->
+        <div class="border-t border-castillo-gray mt-8 pt-8 text-center text-sm text-castillo-gray">
+          <p>&copy; 2026 Castillo Engineering LTDA. Todos os direitos reservados.</p>
+          <p class="mt-2 text-xs">Engenheiro Mecânico - CREA-PR Ativo | CNPJ: XX.XXX.XXX/0001-XX</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON (Flutuante - Sempre Visível) -->
+    <WhatsAppButton />
+
+  </body>
+</html>@import "tailwindcss";
+
+@theme {
+  /* Cores da Marca - Castillo Engineering */
+  --color-castillo-blue: #0a2b4d;
+  --color-castillo-gray: #6b7980;
+  --color-castillo-white: #ffffff;
+  --color-castillo-orange: #f97316;
+}
+
+/* Scroll Suave para Todo o Site */
+html {
+  scroll-behavior: smooth;
+}---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const servicos = await getCollection('servicos');
+// Ordenar por ordem definida no frontmatter
+servicos.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+---
+
+<Layout 
+  title="Serviços" 
+  description="CFD, Eficiência Energética, HVAC, Bombeamento e mais soluções em engenharia térmica"
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Nossos Serviços
+      </h1>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        Soluções completas em engenharia térmica, simulação computacional 
+        e eficiência energética para indústrias e edificações.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Serviços -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {servicos.map((servico) => (
+          <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6 hover:shadow-lg transition-shadow flex flex-col">
+            <h3 class="text-xl font-bold text-castillo-blue mb-3">
+              {servico.data.title}
+            </h3>
+            <p class="text-castillo-gray mb-4 flex-grow">
+              {servico.data.description}
+            </p>
+            {servico.data.software && (
+              <div class="mb-4">
+                <span class="text-sm font-semibold text-castillo-blue">Software:</span>
+                <span class="text-sm text-castillo-gray ml-2">
+                  {servico.data.software.join(', ')}
+                </span>
+              </div>
+            )}
+            <a 
+              href={`/servicos/${servico.slug}`}
+              class="text-castillo-orange font-bold hover:underline inline-flex items-center"
+            >
+              Saiba mais
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-6">
+        Precisa de um Serviço Personalizado?
+      </h2>
+      <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
+        Entre em contato e discutimos como podemos ajudar sua empresa 
+        com soluções sob medida.
+      </p>
+      <a 
+        href="/contato" 
+        class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+      >
+        Solicitar Orçamento
+      </a>
+    </div>
+  </section>
+
+</Layout>
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projetos = await getCollection('projetos');
+// Ordenar por ordem definida no frontmatter
+projetos.sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+---
+
+<Layout 
+  title="Projetos" 
+  description="Cases de sucesso em CFD, eficiência energética e engenharia térmica"
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Projetos e Cases
+      </h1>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        Conheça alguns dos projetos realizados pela Castillo Engineering 
+        em diversos setores da indústria.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de Projetos -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8">
+        {projetos.map((projeto) => (
+          <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6 hover:shadow-lg transition-shadow flex flex-col">
+            <div class="mb-4">
+              <span class="bg-castillo-gray bg-opacity-20 text-castillo-blue px-3 py-1 rounded-lg text-sm font-semibold">
+                {projeto.data.area}
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-castillo-blue mb-3">
+              {projeto.data.title}
+            </h3>
+            {projeto.data.cliente && (
+              <p class="text-castillo-gray mb-2">
+                <span class="font-semibold">Cliente:</span> {projeto.data.cliente}
+              </p>
+            )}
+            <p class="text-castillo-gray mb-4 flex-grow">
+              {projeto.data.description}
+            </p>
+            {projeto.data.resultado && (
+              <div class="bg-castillo-orange bg-opacity-10 border-l-4 border-castillo-orange p-4 mb-4">
+                <p class="text-castillo-blue font-bold">Resultado:</p>
+                <p class="text-castillo-gray text-sm">{projeto.data.resultado}</p>
+              </div>
+            )}
+            {projeto.data.software && (
+              <div class="mb-4">
+                <span class="text-sm font-semibold text-castillo-blue">Software:</span>
+                <span class="text-sm text-castillo-gray ml-2">
+                  {projeto.data.software.join(', ')}
+                </span>
+              </div>
+            )}
+            <a 
+              href={`/projetos/${projeto.slug}`}
+              class="text-castillo-orange font-bold hover:underline inline-flex items-center"
+            >
+              Ver detalhes
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-6">
+        Quer Ver Seu Projeto Aqui?
+      </h2>
+      <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
+        Entre em contato e descubra como podemos ajudar sua empresa 
+        a alcançar resultados semelhantes.
+      </p>
+      <a 
+        href="/contato" 
+        class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+      >
+        Solicitar Orçamento
+      </a>
+    </div>
+  </section>
+
+</Layout>---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Sobre" 
+  description="Castillo Engineering - PhD em Ciências Térmicas, 12+ anos de experiência em CFD e eficiência energética"
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Sobre a Castillo Engineering
+      </h1>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        Soluções especializadas em engenharia térmica com base científica 
+        e aplicação prática comprovada.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sobre o Fundador -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-8 text-center">
+        Sobre o Fundador
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <!-- Foto (placeholder) -->
+        <div class="md:col-span-1">
+          <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-8 text-center">
+            <div class="text-6xl mb-4">👨‍</div>
+            <p class="text-castillo-gray text-sm">Foto em breve</p>
+          </div>
+        </div>
+        
+        <!-- Informações -->
+        <div class="md:col-span-2 space-y-4">
+          <h3 class="text-2xl font-bold text-castillo-blue">PhD em Ciências Térmicas</h3>
+          <p class="text-castillo-gray">
+            Com mais de <strong>12 anos de experiência</strong> em simulação computacional 
+            e eficiência energética, atuo na resolução de problemas complexos em 
+            termodinâmica, escoamento de fluidos e transferência de calor.
+          </p>
+          <p class="text-castillo-gray">
+            Minha abordagem combina <strong>rigor acadêmico</strong> com <strong>aplicação prática</strong>, 
+            garantindo soluções tecnicamente sólidas e economicamente viáveis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="py-16 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-12 text-center">
+        Diferenciais
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl mb-4">🎓</div>
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">PhD em Ciências Térmicas</h3>
+          <p class="text-castillo-gray text-sm">Formação acadêmica de excelência</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">⚙️</div>
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">12+ Anos de Experiência</h3>
+          <p class="text-castillo-gray text-sm">Projetos reais em múltiplos setores</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">💻</div>
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">OpenFOAM & Ansys</h3>
+          <p class="text-castillo-gray text-sm">Ferramentas líderes de mercado</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">📄</div>
+          <h3 class="text-lg font-bold text-castillo-blue mb-2">Laudos Técnicos</h3>
+          <p class="text-castillo-gray text-sm">Documentação para CREA e clientes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de Atuação -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-8 text-center">
+        Áreas de Atuação
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">🔥 Termodinâmica</h3>
+          <ul class="text-castillo-gray space-y-2">
+            <li>• Ciclos de potência e refrigeração</li>
+            <li>• Trocadores de calor</li>
+            <li>• Sistemas de cogeração</li>
+          </ul>
+        </div>
+        <div class="border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">💨 Mecânica dos Fluidos</h3>
+          <ul class="text-castillo-gray space-y-2">
+            <li>• Escoamento interno e externo</li>
+            <li>• Bombas e ventiladores</li>
+            <li>• Aerodinâmica</li>
+          </ul>
+        </div>
+        <div class="border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">🏢 HVAC</h3>
+          <ul class="text-castillo-gray space-y-2">
+            <li>• Climatização de edificações</li>
+            <li>• Ventilação industrial</li>
+            <li>• Qualidade do ar interior</li>
+          </ul>
+        </div>
+        <div class="border-2 border-castillo-blue rounded-lg p-6">
+          <h3 class="text-xl font-bold text-castillo-blue mb-3">⚡ Eficiência Energética</h3>
+          <ul class="text-castillo-gray space-y-2">
+            <li>• Auditorias energéticas</li>
+            <li>• Otimização de sistemas</li>
+            <li>• Certificações (PROCEL, LEED)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-castillo-blue text-castillo-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">
+        Vamos Conversar Sobre Seu Projeto?
+      </h2>
+      <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
+        Entre em contato e descubra como podemos ajudar sua empresa 
+        com soluções personalizadas em engenharia térmica.
+      </p>
+      <a 
+        href="/contato" 
+        class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+      >
+        Fale Conosco
+      </a>
+    </div>
+  </section>
+
+</Layout>---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Contato" 
+  description="Entre em contato com a Castillo Engineering para orçamento de projetos em CFD, eficiência energética e engenharia térmica"
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Entre em Contato
+      </h1>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        Solicite um orçamento ou tire suas dúvidas sobre nossos serviços 
+        em engenharia térmica e simulação computacional.
+      </p>
+    </div>
+  </section>
+
+  <!-- Formulário e Informações -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid md:grid-cols-2 gap-12">
+        
+        <!-- Formulário -->
+        <div>
+          <h2 class="text-2xl font-bold text-castillo-blue mb-6">
+            Envie uma Mensagem
+          </h2>
+          <form class="space-y-6">
+            <div>
+              <label for="nome" class="block text-castillo-blue font-semibold mb-2">
+                Nome Completo *
+              </label>
+              <input 
+                type="text" 
+                id="nome" 
+                name="nome" 
+                required
+                class="w-full px-4 py-3 border-2 border-castillo-gray rounded-lg focus:border-castillo-blue focus:outline-none transition-colors"
+                placeholder="Seu nome"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-castillo-blue font-semibold mb-2">
+                E-mail *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="w-full px-4 py-3 border-2 border-castillo-gray rounded-lg focus:border-castillo-blue focus:outline-none transition-colors"
+                placeholder="seu@email.com"
+              />
+            </div>
+            <div>
+              <label for="empresa" class="block text-castillo-blue font-semibold mb-2">
+                Empresa
+              </label>
+              <input 
+                type="text" 
+                id="empresa" 
+                name="empresa" 
+                class="w-full px-4 py-3 border-2 border-castillo-gray rounded-lg focus:border-castillo-blue focus:outline-none transition-colors"
+                placeholder="Nome da sua empresa"
+              />
+            </div>
+            <div>
+              <label for="assunto" class="block text-castillo-blue font-semibold mb-2">
+                Assunto *
+              </label>
+              <select 
+                id="assunto" 
+                name="assunto" 
+                required
+                class="w-full px-4 py-3 border-2 border-castillo-gray rounded-lg focus:border-castillo-blue focus:outline-none transition-colors"
+              >
+                <option value="">Selecione um assunto</option>
+                <option value="orcamento">Solicitar Orçamento</option>
+                <option value="cfd">CFD & Simulação Computacional</option>
+                <option value="eficiencia">Eficiência Energética</option>
+                <option value="hvac">HVAC & Climatização</option>
+                <option value="treinamento">Treinamento/Capacitação</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div>
+              <label for="mensagem" class="block text-castillo-blue font-semibold mb-2">
+                Mensagem *
+              </label>
+              <textarea 
+                id="mensagem" 
+                name="mensagem" 
+                required
+                rows="5"
+                class="w-full px-4 py-3 border-2 border-castillo-gray rounded-lg focus:border-castillo-blue focus:outline-none transition-colors"
+                placeholder="Descreva seu projeto ou dúvida..."
+              ></textarea>
+            </div>
+            <button 
+              type="submit"
+              class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity w-full"
+            >
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+
+        <!-- Informações de Contato -->
+        <div>
+          <h2 class="text-2xl font-bold text-castillo-blue mb-6">
+            Informações de Contato
+          </h2>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">📍</div>
+              <div>
+                <h3 class="font-bold text-castillo-blue">Localização</h3>
+                <p class="text-castillo-gray">Curitiba/PR - Brasil</p>
+                <p class="text-castillo-gray text-sm">Atendimento presencial e remoto</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">📧</div>
+              <div>
+                <h3 class="font-bold text-castillo-blue">E-mail</h3>
+                <p class="text-castillo-gray">contato@castilloengineering.com.br</p>
+                <p class="text-castillo-gray text-sm">Resposta em até 24h úteis</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="text-2xl">💼</div>
+              <div>
+                <h3 class="font-bold text-castillo-blue">Horário de Atendimento</h3>
+                <p class="text-castillo-gray">Segunda a Sexta</p>
+                <p class="text-castillo-gray text-sm">8:00 às 18:00 (BRT)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Redes Sociais (placeholder) -->
+          <div class="mt-8">
+            <h3 class="font-bold text-castillo-blue mb-4">Redes Sociais</h3>
+            <div class="flex gap-4">
+              <a href="#" class="bg-castillo-blue text-castillo-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm">
+                LinkedIn
+              </a>
+              <a href="#" class="bg-castillo-blue text-castillo-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity text-sm">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- Nota sobre orçamento -->
+          <div class="mt-8 bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+            <h3 class="font-bold text-castillo-blue mb-2">💡 Dica para Orçamentos</h3>
+            <p class="text-castillo-gray text-sm">
+              Para orçamentos mais precisos, inclua informações sobre:
+            </p>
+            <ul class="text-castillo-gray text-sm mt-2 space-y-1">
+              <li>• Tipo de sistema ou equipamento</li>
+              <li>• Objetivos do projeto</li>
+              <li>• Prazo desejado</li>
+              <li>• Dados técnicos disponíveis</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa (placeholder) -->
+  <section class="py-16 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-castillo-blue mb-6">
+        Atendemos em Todo o Brasil
+      </h2>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        Embora estejemos baseados em Curitiba/PR, atendemos clientes 
+        em todo o território nacional de forma remota e presencial.
+      </p>
+    </div>
+  </section>
+
+</Layout>
