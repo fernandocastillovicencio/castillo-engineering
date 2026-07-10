@@ -3,99 +3,82 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="Home" 
-  description="Diagnóstico Energético e Otimização de Sistemas de Bombeamento e HVAC - Reduza OPEX com ROI calculado"
+  title="Diagnóstico Termodinâmico Industrial" 
+  description="Reduza o custo de energia térmica da sua indústria usando dados que você já coleta. Sem CAPEX, sem parar a produção. Laudo com ART e cálculo de ROI."
 >
   
   <!-- ============================================ -->
-  <!-- 1. HERO SECTION (Primeira Dobra)             -->
+  <!-- 1. HERO SECTION (Proposta de Valor DPE)      -->
   <!-- ============================================ -->
   <section class="bg-castillo-blue text-castillo-white py-20 md:py-28">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-        Reduza o OPEX e aumente a confiabilidade dos seus<br class="hidden md:block" />
-        sistemas de bombeamento e HVAC
+        Reduza o custo de energia térmica da sua indústria usando dados que você já coleta.
       </h1>
       <p class="text-lg md:text-xl text-white text-opacity-80 mb-8 max-w-3xl mx-auto">
-        Diagnósticos energéticos precisos e laudos técnicos com <strong>ROI calculado</strong>. 
-        Identificamos onde sua planta está desperdiçando energia e calculamos o 
-        <strong>payback exato</strong> para a correção.
+        Diagnóstico termodinâmico baseado nos dados de processo da sua operação. 
+        <strong>Sem necessidade de novos equipamentos</strong>, sem parar a produção, 
+        com laudo técnico e cálculo de retorno financeiro.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <a 
-          href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20Diagnóstico%20Energético"
+          href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20Diagnóstico%20Preliminar%20Sem%20Custo"
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity text-lg"
+          class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg"
         >
-          Agendar Diagnóstico Inicial
+          Solicitar Diagnóstico Preliminar Sem Custo
         </a> 
         <a 
-           href="#como-funciona" 
-            class="border-2 border-castillo-white text-castillo-white px-8 py-4 rounded-lg font-bold hover:bg-castillo-white hover:text-castillo-blue transition-colors text-lg scroll-smooth"
-            style="scroll-beha vior: smooth;"
+           href="#metodo" 
+           class="border-2 border-castillo-white text-castillo-white px-8 py-4 rounded-lg font-bold hover:bg-castillo-white hover:text-castillo-blue transition-colors text-lg"
         >
-          Ver como funciona
+          Como funciona o método
         </a>
       </div>
       <p class="text-sm text-white text-opacity-70 max-w-2xl mx-auto">
-        Fundada por especialista com <strong>12+ anos em consultoria industrial</strong> e 
-        <strong>Doutorado em Ciências Térmicas</strong>.
+        Foco em indústrias de Alimentos e Bebidas | Método Analytical-First | Laudos com ART
       </p>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- 2. SEÇÃO DE AUTORIDADE                       -->
+  <!-- 2. PROBLEMA (Fala a linguagem do DPE)        -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        Por que confiar na Castillo Engineering?
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
+        Sua indústria registra temperatura e pressão por obrigação sanitária.
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Card 1 -->
-        <div class="text-center p-6">
-          <div class="text-5xl mb-4">🏭</div>
+      <p class="text-xl text-castillo-gray text-center mb-12 max-w-3xl mx-auto">
+        Mas esses dados estão gerando economia real ou apenas ocupando espaço no servidor?
+      </p>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Dor 1 -->
+        <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            12+ Anos de Chão de Fábrica
+            Margem apertada pelo OPEX
           </h3>
-          <p class="text-white text-opacity-80">
-            Experiência prática em projetos de eficiência energética e sistemas 
-            de bombeamento na <strong>Sefter Engenharia</strong>.
+          <p class="text-castillo-gray">
+            O custo operacional de vapor, água quente e refrigeração corrói sua margem de lucro, mas a diretoria só aprova investimentos se o retorno financeiro estiver claro no papel.
           </p>
         </div>
-        <!-- Card 2 -->
-        <div class="text-center p-6">
-          <div class="text-5xl mb-4">🎓</div>
+        <!-- Dor 2 -->
+        <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Autoridade Acadêmica
+            Manutenção operando "no escuro"
           </h3>
-          <p class="text-white text-opacity-80">
-            Mestre e Doutor em Ciências Térmicas (<strong>PUCPR</strong>) e 
-            Professor Universitário de Engenharia.
+          <p class="text-castillo-gray">
+            Sua equipe atua no corretivo ou no preventivo baseado em tempo. Falta um diagnóstico termodinâmico para saber o real estado e a eficiência das suas utilidades.
           </p>
         </div>
-        <!-- Card 3 -->
-        <div class="text-center p-6">
-          <div class="text-5xl mb-4">💰</div>
+        <!-- Dor 3 -->
+        <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Foco em Resultado Financeiro
+            O mito de que precisa comprar CAPEX
           </h3>
-          <p class="text-white text-opacity-80">
-            Não entregamos apenas relatórios técnicos. Entregamos cálculos de 
-            <strong>ROI, Payback e redução de OPEX</strong>.
-          </p>
-        </div>
-        <!-- Card 4 -->
-        <div class="text-center p-6">
-          <div class="text-5xl mb-4">🌎</div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Atuação Global
-          </h3>
-          <p class="text-white text-opacity-80">
-            Atendimento presencial na RMC e remoto para indústrias no 
-            <strong>Brasil e América do Sul</strong>.
+          <p class="text-castillo-gray">
+            Você evita buscar eficiência porque acha que precisa trocar caldeiras, comprar sensores caros ou parar a fábrica. Nem sempre é verdade.
           </p>
         </div>
       </div>
@@ -103,200 +86,67 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 3. PROBLEMAS QUE RESOLVEMOS                  -->
+  <!-- 3. MÉTODO (Analytical-First do DPE)          -->
   <!-- ============================================ -->
-  <section class="py-16 md:py-20 bg-castillo-gray bg-opacity-20">
+  <section id="metodo" class="py-16 md:py-20 bg-castillo-gray bg-opacity-10">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        O que está corroendo a margem da sua operação?
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
+        O Método Analytical-First
       </h2>
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Card 1 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <div class="text-4xl mb-4">⚠️</div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Desperdício Energético Invisível
-          </h3>
-          <p class="text-white text-opacity-80">
-            Bombas e chillers operando longe do <strong>Ponto de Melhor Eficiência (BEP)</strong>, 
-            inchando sua conta de luz em até <strong>30%</strong>.
-          </p>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <div class="text-4xl mb-4">⚠️</div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Falhas Prematuras e Cavitação
-          </h3>
-          <p class="text-white text-opacity-80">
-            Vibração excessiva e quebra frequente de rolamentos por 
-            <strong>operação inadequada do sistema</strong>.
-          </p>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <div class="text-4xl mb-4">⚠️</div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Insegurança no CAPEX
-          </h3>
-          <p class="text-white text-opacity-80">
-            Medo de comprar equipamentos <strong>superdimensionados</strong> (jogando dinheiro fora) 
-            ou <strong>subdimensionados</strong> (parando a produção).
-          </p>
-        </div>
-        <!-- Card 4 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <div class="text-4xl mb-4">⚠️</div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Falta de Dados para Decisão
-          </h3>
-          <p class="text-white text-opacity-80">
-            Equipes operando no <strong>"achismo"</strong> sem laudos técnicos para justificar 
-            investimentos em inversores ou retrofit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 4. SERVIÇOS (1 Principal + 3 Secundários)    -->
-  <!-- ============================================ -->
-  <section class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        Nossas Soluções
-      </h2>
+      <p class="text-xl text-castillo-gray text-center mb-12 max-w-3xl mx-auto">
+        Uma abordagem em 4 etapas para transformar seus dados operacionais em economia real, sem complexidade desnecessária.
+      </p>
       
-      <!-- Serviço Principal (Destaque) -->
-      <div class="max-w-4xl mx-auto mb-12">
-        <div class="bg-castillo-blue text-castillo-white rounded-lg p-8 md:p-10 border-4 border-castillo-orange">
-          <div class="text-5xl mb-4">🔥</div>
-          <h3 class="text-2xl md:text-3xl font-bold mb-4">
-            Diagnóstico Energético e Otimização de Sistemas
-          </h3>
-          <div class="space-y-4 text-lg">
-            <p>
-              <strong class="text-castillo-orange">O que é:</strong> Análise detalhada do ponto 
-              de operação de bombas, ventiladores e sistemas HVAC.
-            </p>
-            <p>
-              <strong class="text-castillo-orange">O que você recebe:</strong> Laudo técnico em 
-              <strong>48h</strong> com identificação de desperdícios, recomendações de retrofit 
-              (ajuste de rotor, VFDs) e cálculo exato de economia anual (R$).
-            </p>
-            <p>
-              <strong class="text-castillo-orange">Garantia:</strong> Foco total em 
-              <strong>ROI e Payback mensurável</strong>.
-            </p>
-          </div>
-          <div class="mt-8 text-center">
-            <a 
-              href="https://wa.me/5541985367273?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Diagnóstico%20Energético"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity inline-block text-lg"
-            >
-              Solicitar Orçamento
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Serviços Secundários -->
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <!-- Serviço 2 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Revisão Técnica de Projetos (Code-Checking)
-          </h3>
-          <p class="text-white text-opacity-80">
-            Validação independente de memoriais de cálculo antes da compra 
-            de equipamentos térmicos.
-          </p>
-        </div>
-        <!-- Serviço 3 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Simulação Computacional (CFD)
-          </h3>
-          <p class="text-white text-opacity-80">
-            Análise avançada de escoamento e transferência de calor para 
-            problemas complexos.
-          </p>
-        </div>
-        <!-- Serviço 4 -->
-        <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-6">
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Treinamentos In-Company
-          </h3>
-          <p class="text-white text-opacity-80">
-            Capacitação técnica para equipes de manutenção e engenharia.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 5. COMO FUNCIONA (4 Passos)                  -->
-  <!-- ============================================ -->
-  <section id="como-funciona" class="py-16 md:py-20 bg-castillo-gray bg-opacity-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        Como trabalhamos (Do contato ao resultado)
-      </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
         <!-- Passo 1 -->
         <div class="text-center">
           <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
             1
           </div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Reunião de Alinhamento (30 min)
+          <h3 class="text-lg font-bold text-castillo-blue mb-3">
+            NDA e Coleta de Dados
           </h3>
-          <p class="text-white text-opacity-80">
-            Entendemos o desafio da sua planta e definimos quais dados 
-            operacionais são necessários.
+          <p class="text-castillo-gray text-sm">
+            Assinamos um Acordo de Confidencialidade. Você nos envia os dados de processo que sua planta já coleta por exigência sanitária.
           </p>
         </div>
+        
         <!-- Passo 2 -->
         <div class="text-center">
           <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
             2
           </div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Análise Computacional
+          <h3 class="text-lg font-bold text-castillo-blue mb-3">
+            Modelagem Analítica
           </h3>
-          <p class="text-white text-opacity-80">
-            Processamos os dados do seu sistema cruzando com as curvas 
-            dos fabricantes para identificar ineficiências.
+          <p class="text-castillo-gray text-sm">
+            Aplicamos termodinâmica clássica e normas técnicas (ASME, ABNT) aos seus dados. Sem dor de cabeça, direto ao ponto.
           </p>
         </div>
+        
         <!-- Passo 3 -->
         <div class="text-center">
           <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
             3
           </div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Entrega do Laudo Técnico
+          <h3 class="text-lg font-bold text-castillo-blue mb-3">
+            Laudo com ART
           </h3>
-          <p class="text-white text-opacity-80">
-            Você recebe um relatório claro, com gráficos, apontando o 
-            problema, a solução e o retorno financeiro (ROI).
+          <p class="text-castillo-gray text-sm">
+            Você recebe um documento formal com responsabilidade técnica delimitada, apontando onde há perda e o potencial de economia.
           </p>
         </div>
+        
         <!-- Passo 4 -->
         <div class="text-center">
           <div class="bg-castillo-blue text-castillo-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
             4
           </div>
-          <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Suporte à Decisão
+          <h3 class="text-lg font-bold text-castillo-blue mb-3">
+            ROI Mensurável
           </h3>
-          <p class="text-white text-opacity-80">
-            Tiramos todas as dúvidas da sua equipe e da diretoria para 
-            viabilizar a implementação.
+          <p class="text-castillo-gray text-sm">
+            Cada recomendação vem acompanhada do cálculo de payback. Você leva o laudo para a diretoria com números concretos.
           </p>
         </div>
       </div>
@@ -304,7 +154,124 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 6. FAQ (Matando Objeções)                    -->
+  <!-- 4. ESTEIRA DE PRODUTOS (Sem preços)          -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
+        Como podemos ajudar sua operação
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
+        
+        <!-- PRODUTO PRINCIPAL (Destaque) -->
+        <div class="bg-castillo-blue text-castillo-white rounded-lg p-8 md:p-10 border-4 border-castillo-orange flex flex-col">
+          <span class="text-castillo-orange font-bold text-sm uppercase tracking-wider mb-2">Produto Principal</span>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4">
+            Laudo de Engenharia Analítica
+          </h3>
+          <div class="space-y-3 text-white text-opacity-90 flex-grow">
+            <p>
+              Modelagem termodinâmica completa a partir dos dados da sua planta. Identificação exata de ineficiências e oportunidades de redução de OPEX.
+            </p>
+            <ul class="list-disc list-inside text-sm space-y-1 mt-4">
+              <li>Diagnóstico detalhado de perdas térmicas e fluidodinâmicas</li>
+              <li>Plano de ação com priorização técnica</li>
+              <li>Cálculo exato de economia anual e retorno financeiro (ROI)</li>
+              <li><strong>Entregue com ART</strong> e delimitação de escopo</li>
+            </ul>
+          </div>
+          <div class="mt-8">
+            <a 
+              href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Laudo%20de%20Engenharia%20Analítica"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all inline-block text-lg w-full text-center"
+            >
+              Solicitar Proposta
+            </a>
+          </div>
+        </div>
+
+        <!-- PORTA DE ENTRADA (Secundário) -->
+        <div class="bg-castillo-gray bg-opacity-10 border-2 border-castillo-blue rounded-lg p-8 md:p-10 flex flex-col">
+          <span class="text-castillo-blue font-bold text-sm uppercase tracking-wider mb-2">Porta de Entrada</span>
+          <h3 class="text-2xl md:text-3xl font-bold text-castillo-blue mb-4">
+            Check-up Termodinâmico
+          </h3>
+          <div class="space-y-3 text-castillo-gray flex-grow">
+            <p>
+              Um parecer técnico rápido para você validar se há oportunidade real de economia na sua planta antes de comprometer orçamento.
+            </p>
+            <ul class="list-disc list-inside text-sm space-y-1 mt-4">
+              <li>Análise preliminar dos dados operacionais</li>
+              <li>Identificação de tendências de ineficiência</li>
+              <li>Indicação de viabilidade para o Laudo Completo</li>
+            </ul>
+          </div>
+          <div class="mt-8">
+            <a 
+              href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20Check-up%20Termodinâmico"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-2 border-castillo-blue text-castillo-blue px-8 py-4 rounded-lg font-bold hover:bg-castillo-blue hover:text-castillo-white transition-colors inline-block text-lg w-full text-center"
+            >
+              Agendar Check-up
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- UPSELLS DISCRETOS (Apenas texto) -->
+      <div class="max-w-3xl mx-auto text-center text-castillo-gray text-sm border-t border-castillo-gray border-opacity-20 pt-8">
+        <p class="mb-2"><strong class="text-castillo-blue">Necessidade específica?</strong></p>
+        <p>
+          Para problemas que exigem simulação detalhada, oferecemos <strong>Estudos Computacionais Avançados (CFD)</strong> 
+          e <strong>Consultoria Técnica sob demanda</strong>. Solicite no WhatsApp e avaliamos a melhor abordagem para o seu caso.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 5. CREDIBILIDADE (Institucional sem CV)      -->
+  <!-- ============================================ -->
+  <section class="py-16 md:py-20 bg-castillo-gray bg-opacity-10">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-8 md:p-12 text-center shadow-sm">
+        <h2 class="text-2xl md:text-3xl font-bold text-castillo-blue mb-6">
+          Responsabilidade Técnica Formalizada
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6 text-left text-castillo-gray">
+          <div class="flex items-start gap-3">
+            <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
+            <p><strong class="text-castillo-blue">Castillo Engineering LTDA</strong> — Curitiba, PR</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
+            <p><strong class="text-castillo-blue">CREA-PR Ativo</strong> — Engenheiro Mecânico com atribuições plenas</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
+            <p><strong class="text-castillo-blue">Art. 12, Res. CONFEA 218/73</strong> — Atribuições de Engenharia Mecânica</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
+            <p><strong class="text-castillo-blue">NDA e ART</strong> — Confidencialidade e responsabilidade técnica em todo projeto</p>
+          </div>
+          <div class="flex items-start gap-3 md:col-span-2 justify-center">
+            <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
+            <p>Método analítico baseado em normas técnicas nacionais e internacionais (<strong class="text-castillo-blue">ABNT, ASME</strong>)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- 6. FAQ (Matando objeções do DPE)             -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-white">
     <div class="container mx-auto px-4">
@@ -312,71 +279,68 @@ import Layout from '../layouts/Layout.astro';
         Perguntas Frequentes
       </h2>
       <div class="max-w-3xl mx-auto space-y-6">
-        <!-- FAQ 1 -->
-        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+        
+        <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            P: Vocês atendem apenas em Curitiba?
+            Preciso comprar sensores ou investir em novos equipamentos?
           </h3>
-          <p class="text-white text-opacity-80">
-            <strong>R:</strong> Atendemos presencialmente a Região Metropolitana de Curitiba. 
-            Para o restante do Brasil e América do Sul, realizamos o diagnóstico e a consultoria 
-            de forma <strong>100% remota</strong>, com a mesma precisão.
+          <p class="text-castillo-gray">
+            <strong class="text-castillo-blue">Não.</strong> O método Analytical-First trabalha exclusivamente com os dados de processo que a sua indústria já coleta por exigência sanitária e operacional. Nenhum CAPEX é necessário para o diagnóstico.
           </p>
         </div>
-        <!-- FAQ 2 -->
-        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+
+        <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            P: Preciso parar a produção para vocês fazerem o diagnóstico?
+            Preciso parar a fábrica para vocês fazerem o diagnóstico?
           </h3>
-          <p class="text-white text-opacity-80">
-            <strong>R:</strong> <strong>Não.</strong> Trabalhamos com a análise de dados operacionais 
-            históricos e curvas de fabricantes. A visita técnica só é necessária em casos muito específicos.
+          <p class="text-castillo-gray">
+            <strong class="text-castillo-blue">Não.</strong> A análise é feita a partir de dados históricos e das curvas de operação atuais. Não há intervenção física na planta durante a fase de laudo.
           </p>
         </div>
-        <!-- FAQ 3 -->
-        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+
+        <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            P: O laudo técnico tem validade legal?
+            O laudo tem validade jurídica? E a segurança dos meus dados?
           </h3>
-          <p class="text-white text-opacity-80">
-            <strong>R:</strong> <strong>Sim.</strong> Todos os nossos pareceres e laudos são emitidos 
-            por Engenheiro Mecânico com registro ativo no <strong>CREA-PR</strong>.
+          <p class="text-castillo-gray">
+            <strong class="text-castillo-blue">Sim.</strong> Todos os laudos são emitidos com ART (Anotação de Responsabilidade Técnica) e escopo rigorosamente delimitado. Antes de qualquer troca de dados, assinamos um NDA (Acordo de Confidencialidade).
           </p>
         </div>
-        <!-- FAQ 4 -->
-        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6">
+
+        <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            P: Quanto tempo leva para receber o laudo?
+            Vocês atendem meu setor e minha região?
           </h3>
-          <p class="text-white text-opacity-80">
-            <strong>R:</strong> Para diagnósticos padrão de bombeamento e HVAC, entregamos o laudo 
-            técnico completo em até <strong>48 horas úteis</strong> após o recebimento dos dados.
+          <p class="text-castillo-gray">
+            Nosso foco inicial é a <strong class="text-castillo-blue">indústria de Alimentos e Bebidas na Região Metropolitana de Curitiba (RMC)</strong>, onde atuamos presencialmente. Para outras regiões, avaliamos a demanda remotamente.
           </p>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- 7. CTA FINAL (Antes do Footer)               -->
+  <!-- 7. CTA FINAL (Fechamento)                    -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-blue text-castillo-white">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Pronto para identificar o desperdício na sua planta?
+        Identifique o desperdício térmico na sua operação.
       </h2>
       <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
-        Agende uma conversa técnica inicial sem compromisso.
+        Agende uma conversa técnica inicial sem compromisso e descubra o potencial de economia escondido nos seus dados.
       </p>
       <a 
         href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20técnica"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all transition-opacity inline-block text-lg"
+        class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all inline-block text-lg"
       >
-        Falar com o Engenheiro no WhatsApp
+        Falar com um Engenheiro no WhatsApp
       </a>
     </div>
   </section>
+
 
 </Layout>
