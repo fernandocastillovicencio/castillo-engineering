@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores da Marca - Castillo Engineering */
+  --color-castillo-blue: #0a2b4d;
+  --color-castillo-gray: #6b7980;
+  --color-castillo-white: #ffffff;
+  --color-castillo-orange: #f97316;
+}
+
+/* Scroll Suave para Todo o Site */
+html {
+  scroll-behavior: smooth;
+}

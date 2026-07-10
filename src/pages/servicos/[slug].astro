@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const servicos = await getCollection('servicos');
+  return servicos.map((servico) => ({
+    params: { slug: servico.id },
+    props: { servico },
+  }));
+}
+
+const { servico } = Astro.props;
+const { Content } = await render(servico);
+---
+
+<Layout 
+  title={servico.data.title} 
+  description={servico.data.description}
+>
+  
+  <!-- Hero Section -->
+  <section class="bg-castillo-blue text-castillo-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        {servico.data.title}
+      </h1>
+      <p class="text-xl text-castillo-gray max-w-2xl mx-auto">
+        {servico.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo do Serviço -->
+  <section class="py-16 bg-castillo-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      
+      <!-- Software Utilizado -->
+      {servico.data.software && (
+        <div class="bg-castillo-gray bg-opacity-20 rounded-lg p-6 mb-8">
+          <h2 class="text-xl font-bold text-castillo-blue mb-4">
+            Software Utilizado
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            {servico.data.software.map((sw) => (
+              <span class="bg-castillo-blue text-castillo-white px-4 py-2 rounded-lg text-sm font-semibold">
+                {sw}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Conteúdo Markdown -->
+      <article class="prose prose-lg max-w-none">
+        <div class="text-castillo-gray space-y-6">
+          <h2 class="text-2xl font-bold text-castillo-blue">Sobre Este Serviço</h2>
+          <Content />
+        </div>
+      </article>
+
+      <!-- CTA -->
+      <div class="mt-12 text-center">
+        <a 
+          href="/contato" 
+          class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+        >
+          Solicitar Orçamento
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Navegação entre Serviços -->
+  <section class="py-12 bg-castillo-gray bg-opacity-20">
+    <div class="container mx-auto px-4 text-center">
+      <a 
+        href="/servicos" 
+        class="text-castillo-blue font-bold hover:underline inline-flex items-center"
+      >
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Voltar para todos os serviços
+      </a>
+    </div>
+  </section>
+
+</Layout>
