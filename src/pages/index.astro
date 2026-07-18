@@ -3,22 +3,23 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="Diagnóstico Termodinâmico Industrial" 
-  description="Reduza o custo de energia térmica da sua indústria usando dados que você já coleta. Sem CAPEX, sem parar a produção. Laudo com ART e cálculo de ROI."
+  title="Diagnóstico de Eficiência Térmica Industrial" 
+  description="Reduza o custo de vapor e energia na sua indústria de alimentos. Análise técnica feita com dados que você já coleta, sem precisar comprar equipamentos."
 >
   
   <!-- ============================================ -->
-  <!-- 1. HERO SECTION (Proposta de Valor DPE)      -->
+  <!-- 1. HERO SECTION                              -->
   <!-- ============================================ -->
   <section class="bg-castillo-blue text-castillo-white py-20 md:py-28">
     <div class="container mx-auto px-4 text-center">
+      <!-- Mudança: "Energia térmica" mantido, mas o subtítulo traz para o chão de fábrica (vapor/água quente) -->
       <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-        Reduza o custo de energia térmica da sua indústria usando dados que você já coleta.
+        Reduza o custo de vapor e energia na sua indústria usando dados que você já coleta.
       </h1>
       <p class="text-lg md:text-xl text-white text-opacity-80 mb-8 max-w-3xl mx-auto">
-        Diagnóstico termodinâmico baseado nos dados de processo da sua operação. 
-        <strong>Sem necessidade de novos equipamentos</strong>, sem parar a produção, 
-        com laudo técnico e cálculo de retorno financeiro.
+        Análise técnica da sua operação para encontrar onde há desperdício. 
+        <strong>Sem precisar comprar equipamentos novos</strong>, sem parar a produção 
+        e com laudo registrado no CREA para você apresentar à diretoria.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <a 
@@ -27,58 +28,60 @@ import Layout from '../layouts/Layout.astro';
           rel="noopener noreferrer"
           class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg"
         >
-          Solicitar Diagnóstico Preliminar Sem Custo
+          Quero um Diagnóstico Preliminar Sem Custo
         </a> 
         <a 
            href="#metodo" 
            class="border-2 border-castillo-white text-castillo-white px-8 py-4 rounded-lg font-bold hover:bg-castillo-white hover:text-castillo-blue transition-colors text-lg"
         >
-          Como funciona o método
+          Como funciona
         </a>
       </div>
+      <!-- Mudança: Retirado "Método Analytical-First" (jargão interno). Foco no que importa pro cliente. -->
       <p class="text-sm text-white text-opacity-70 max-w-2xl mx-auto">
-        Foco em indústrias de Alimentos e Bebidas | Método Analytical-First | Laudos com ART
+        Foco em Indústrias de Alimentos e Bebidas (RMC) | Laudos com ART e NDA
       </p>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- 2. PROBLEMA (Fala a linguagem do DPE)        -->
+  <!-- 2. PROBLEMA (Linguagem de chão de fábrica)   -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-white">
     <div class="container mx-auto px-4">
+      <!-- Mudança: Linguagem mais visceral. "Ocupar espaço no servidor" é ótimo, mantido. -->
       <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        Sua indústria registra temperatura e pressão por obrigação sanitária.
+        Sua indústria registra temperatura e pressão por exigência sanitária.
       </h2>
       <p class="text-xl text-castillo-gray text-center mb-12 max-w-3xl mx-auto">
-        Mas esses dados estão gerando economia real ou apenas ocupando espaço no servidor?
+        Mas esses dados estão gerando economia real ou apenas cumprindo norma?
       </p>
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Dor 1 -->
+        <!-- Dor 1: Trocado OPEX por linguagem de dor real -->
         <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Margem apertada pelo OPEX
+            Conta de vapor e energia alta
           </h3>
           <p class="text-castillo-gray">
-            O custo operacional de vapor, água quente e refrigeração corrói sua margem de lucro, mas a diretoria só aprova investimentos se o retorno financeiro estiver claro no papel.
+            O custo operacional das suas caldeiras, chillers e bombas pesa no fim do mês. Você sabe que dá pra otimizar, mas precisa de números concretos para pedir melhorias à diretoria.
           </p>
         </div>
-        <!-- Dor 2 -->
+        <!-- Dor 2: Mantido, muito bom -->
         <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            Manutenção operando "no escuro"
+            Manutenção operando no "achismo"
           </h3>
           <p class="text-castillo-gray">
-            Sua equipe atua no corretivo ou no preventivo baseado em tempo. Falta um diagnóstico termodinâmico para saber o real estado e a eficiência das suas utilidades.
+            Sua equipe atua no corretivo ou no preventivo por tempo. Falta uma análise técnica para saber o real estado de eficiência das suas utilidades antes que quebre.
           </p>
         </div>
-        <!-- Dor 3 -->
+        <!-- Dor 3: Trocado CAPEX por "comprar equipamento" -->
         <div class="bg-castillo-gray bg-opacity-10 border-l-4 border-castillo-orange rounded-r-lg p-6">
           <h3 class="text-xl font-bold text-castillo-blue mb-3">
-            O mito de que precisa comprar CAPEX
+            Medo de ter que comprar equipamento
           </h3>
           <p class="text-castillo-gray">
-            Você evita buscar eficiência porque acha que precisa trocar caldeiras, comprar sensores caros ou parar a fábrica. Nem sempre é verdade.
+            Você evita chamar consultoria porque acha que vão recomendar a troca da caldeira ou a compra de sensores caros que vão parar a fábrica.
           </p>
         </div>
       </div>
@@ -86,15 +89,16 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 3. MÉTODO (Analytical-First do DPE)          -->
+  <!-- 3. MÉTODO (Sem jargões de consultoria)       -->
   <!-- ============================================ -->
+  <!-- Mudança: Retirado "Método Analytical-First" do título. O cliente quer saber "Como funciona", não qual é o nome do seu método. -->
   <section id="metodo" class="py-16 md:py-20 bg-castillo-gray bg-opacity-10">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        O Método Analytical-First
+        Como funciona a nossa análise
       </h2>
       <p class="text-xl text-castillo-gray text-center mb-12 max-w-3xl mx-auto">
-        Uma abordagem em 4 etapas para transformar seus dados operacionais em economia real, sem complexidade desnecessária.
+        Um processo direto em 4 etapas para transformar os dados da sua planta em economia de verdade.
       </p>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -104,10 +108,11 @@ import Layout from '../layouts/Layout.astro';
             1
           </div>
           <h3 class="text-lg font-bold text-castillo-blue mb-3">
-            NDA e Coleta de Dados
+            Sigilo e Coleta
           </h3>
+          <!-- Mudança: "NDA" virou "Termo de Sigilo", que soa menos advogado e mais prático. -->
           <p class="text-castillo-gray text-sm">
-            Assinamos um Acordo de Confidencialidade. Você nos envia os dados de processo que sua planta já coleta por exigência sanitária.
+            Assinamos um Termo de Confidencialidade. Você nos envia os dados de processo que seu operador já anota no turno.
           </p>
         </div>
         
@@ -117,10 +122,11 @@ import Layout from '../layouts/Layout.astro';
             2
           </div>
           <h3 class="text-lg font-bold text-castillo-blue mb-3">
-            Modelagem Analítica
+            Cálculos de Engenharia
           </h3>
+          <!-- Mudança: "Modelagem Analítica" virou "Cruzamos seus dados". Mais palpável. -->
           <p class="text-castillo-gray text-sm">
-            Aplicamos termodinâmica clássica e normas técnicas (ASME, ABNT) aos seus dados. Sem dor de cabeça, direto ao ponto.
+            Cruzamos seus dados de temperatura, pressão e vazão com as curvas dos equipamentos usando normas da ABNT e ASME.
           </p>
         </div>
         
@@ -132,8 +138,9 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="text-lg font-bold text-castillo-blue mb-3">
             Laudo com ART
           </h3>
+          <!-- Mudança: Foco em blindar o cliente. -->
           <p class="text-castillo-gray text-sm">
-            Você recebe um documento formal com responsabilidade técnica delimitada, apontando onde há perda e o potencial de economia.
+            Você recebe um laudo formal, com registro no CREA. Um documento que você pode colocar na mesa da diretoria com segurança jurídica.
           </p>
         </div>
         
@@ -143,10 +150,11 @@ import Layout from '../layouts/Layout.astro';
             4
           </div>
           <h3 class="text-lg font-bold text-castillo-blue mb-3">
-            ROI Mensurável
+            Quanto você vai economizar
           </h3>
+          <!-- Mudança: "ROI Mensurável" virou linguagem de dinheiro. -->
           <p class="text-castillo-gray text-sm">
-            Cada recomendação vem acompanhada do cálculo de payback. Você leva o laudo para a diretoria com números concretos.
+            Cada recomendação vem com o cálculo de quanto vai cair na conta de energia e em quantos meses se paga o investimento.
           </p>
         </div>
       </div>
@@ -154,7 +162,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 4. ESTEIRA DE PRODUTOS (Sem preços)          -->
+  <!-- 4. ESTEIRA DE PRODUTOS                       -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-white">
     <div class="container mx-auto px-4">
@@ -164,21 +172,21 @@ import Layout from '../layouts/Layout.astro';
       
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-10">
         
-        <!-- PRODUTO PRINCIPAL (Destaque) -->
+        <!-- PRODUTO PRINCIPAL -->
         <div class="bg-castillo-blue text-castillo-white rounded-lg p-8 md:p-10 border-4 border-castillo-orange flex flex-col">
-          <span class="text-castillo-orange font-bold text-sm uppercase tracking-wider mb-2">Produto Principal</span>
+          <span class="text-castillo-orange font-bold text-sm uppercase tracking-wider mb-2">Solução Completa</span>
           <h3 class="text-2xl md:text-3xl font-bold mb-4">
             Laudo de Engenharia Analítica
           </h3>
           <div class="space-y-3 text-white text-opacity-90 flex-grow">
             <p>
-              Modelagem termodinâmica completa a partir dos dados da sua planta. Identificação exata de ineficiências e oportunidades de redução de OPEX.
+              Uma radiografia completa do seu sistema de vapor, água quente ou refrigeração. Mostramos exatamente onde está o desperdício e o que fazer.
             </p>
             <ul class="list-disc list-inside text-sm space-y-1 mt-4">
-              <li>Diagnóstico detalhado de perdas térmicas e fluidodinâmicas</li>
-              <li>Plano de ação com priorização técnica</li>
-              <li>Cálculo exato de economia anual e retorno financeiro (ROI)</li>
-              <li><strong>Entregue com ART</strong> e delimitação de escopo</li>
+              <li>Levantamento detalhado das perdas térmicas e de pressão</li>
+              <li>Plano de ação priorizado (o que fazer primeiro)</li>
+              <li>Cálculo de economia em Reais e tempo de retorno (payback)</li>
+              <li><strong>Registrado no CREA (ART)</strong> para sua segurança</li>
             </ul>
           </div>
           <div class="mt-8">
@@ -188,25 +196,25 @@ import Layout from '../layouts/Layout.astro';
               rel="noopener noreferrer"
               class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all inline-block text-lg w-full text-center"
             >
-              Solicitar Proposta
+              Quero saber mais
             </a>
           </div>
         </div>
 
-        <!-- PORTA DE ENTRADA (Secundário) -->
+        <!-- PORTA DE ENTRADA -->
         <div class="bg-castillo-gray bg-opacity-10 border-2 border-castillo-blue rounded-lg p-8 md:p-10 flex flex-col">
-          <span class="text-castillo-blue font-bold text-sm uppercase tracking-wider mb-2">Porta de Entrada</span>
+          <span class="text-castillo-blue font-bold text-sm uppercase tracking-wider mb-2">Para começar</span>
           <h3 class="text-2xl md:text-3xl font-bold text-castillo-blue mb-4">
             Check-up Termodinâmico
           </h3>
           <div class="space-y-3 text-castillo-gray flex-grow">
             <p>
-              Um parecer técnico rápido para você validar se há oportunidade real de economia na sua planta antes de comprometer orçamento.
+              Um parecer rápido para você testar na prática. Ideal se você quer validar se existe oportunidade real antes de envolver a diretoria num projeto maior.
             </p>
             <ul class="list-disc list-inside text-sm space-y-1 mt-4">
-              <li>Análise preliminar dos dados operacionais</li>
-              <li>Identificação de tendências de ineficiência</li>
-              <li>Indicação de viabilidade para o Laudo Completo</li>
+              <li>Análise superficial dos seus dados operacionais</li>
+              <li>Identificação de anomalias óbvias no processo</li>
+              <li>Indicação clara se vale a pena fazer o Laudo Completo</li>
             </ul>
           </div>
           <div class="mt-8">
@@ -223,12 +231,12 @@ import Layout from '../layouts/Layout.astro';
 
       </div>
 
-      <!-- UPSELLS DISCRETOS (Apenas texto) -->
+      <!-- UPSELLS DISCRETOS -->
       <div class="max-w-3xl mx-auto text-center text-castillo-gray text-sm border-t border-castillo-gray border-opacity-20 pt-8">
-        <p class="mb-2"><strong class="text-castillo-blue">Necessidade específica?</strong></p>
+        <p class="mb-2"><strong class="text-castillo-blue">Tem um problema muito específico?</strong></p>
         <p>
-          Para problemas que exigem simulação detalhada, oferecemos <strong>Estudos Computacionais Avançados (CFD)</strong> 
-          e <strong>Consultoria Técnica sob demanda</strong>. Solicite no WhatsApp e avaliamos a melhor abordagem para o seu caso.
+          Para casos que exigem simulação detalhada de escoamento, fazemos <strong>estudos computacionais avançados (CFD)</strong> 
+          e <strong>consultoria por hora</strong>. Fale conosco no WhatsApp para avaliarmos.
         </p>
       </div>
 
@@ -236,8 +244,9 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 5. CREDIBILIDADE (Institucional sem CV)      -->
+  <!-- 5. CREDIBILIDADE                             -->
   <!-- ============================================ -->
+  <!-- Mantido idêntico. Aqui o jargão jurídico/técnico é BEM VINDO, pois blinda o Carlos. -->
   <section class="py-16 md:py-20 bg-castillo-gray bg-opacity-10">
     <div class="container mx-auto px-4 max-w-4xl">
       <div class="bg-castillo-white border-2 border-castillo-blue rounded-lg p-8 md:p-12 text-center shadow-sm">
@@ -263,7 +272,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="flex items-start gap-3 md:col-span-2 justify-center">
             <span class="text-castillo-orange font-bold text-xl mt-1">•</span>
-            <p>Método analítico baseado em normas técnicas nacionais e internacionais (<strong class="text-castillo-blue">ABNT, ASME</strong>)</p>
+            <p>Análise baseada em normas técnicas nacionais e internacionais (<strong class="text-castillo-blue">ABNT, ASME</strong>)</p>
           </div>
         </div>
       </div>
@@ -271,7 +280,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 6. FAQ (Matando objeções do DPE)             -->
+  <!-- 6. FAQ (Ajuste fino nas respostas)           -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-white">
     <div class="container mx-auto px-4">
@@ -285,34 +294,34 @@ import Layout from '../layouts/Layout.astro';
             Preciso comprar sensores ou investir em novos equipamentos?
           </h3>
           <p class="text-castillo-gray">
-            <strong class="text-castillo-blue">Não.</strong> O método Analytical-First trabalha exclusivamente com os dados de processo que a sua indústria já coleta por exigência sanitária e operacional. Nenhum CAPEX é necessário para o diagnóstico.
+            <strong class="text-castillo-blue">Não.</strong> Trabalhamos exclusivamente com os dados que a sua indústria já coleta por exigência da vigilância sanitária e controle de processo. Você não gasta nada com hardware na fase de diagnóstico.
           </p>
         </div>
 
         <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            Preciso parar a fábrica para vocês fazerem o diagnóstico?
+            Preciso parar a fábrica para vocês fazerem o levantamento?
           </h3>
           <p class="text-castillo-gray">
-            <strong class="text-castillo-blue">Não.</strong> A análise é feita a partir de dados históricos e das curvas de operação atuais. Não há intervenção física na planta durante a fase de laudo.
+            <strong class="text-castillo-blue">Não.</strong> A análise é 100% feita a partir dos dados históricos que a sua planta já possui. Não interferimos na produção.
           </p>
         </div>
 
         <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            O laudo tem validade jurídica? E a segurança dos meus dados?
+            E a segurança das minhas informações? O laudo tem validade?
           </h3>
           <p class="text-castillo-gray">
-            <strong class="text-castillo-blue">Sim.</strong> Todos os laudos são emitidos com ART (Anotação de Responsabilidade Técnica) e escopo rigorosamente delimitado. Antes de qualquer troca de dados, assinamos um NDA (Acordo de Confidencialidade).
+            <strong class="text-castillo-blue">Sim.</strong> Antes de qualquer trabalho, assinamos um Termo de Confidencialidade (NDA). O laudo final é registrado no CREA (ART), o que garante validade jurídica e te protege tecnicamente perante a diretoria e auditores.
           </p>
         </div>
 
         <div class="bg-castillo-gray bg-opacity-10 rounded-lg p-6">
           <h3 class="text-lg font-bold text-castillo-blue mb-2">
-            Vocês atendem meu setor e minha região?
+            Meu setor é atendido? Sou de fora de Curitiba.
           </h3>
           <p class="text-castillo-gray">
-            Nosso foco inicial é a <strong class="text-castillo-blue">indústria de Alimentos e Bebidas na Região Metropolitana de Curitiba (RMC)</strong>, onde atuamos presencialmente. Para outras regiões, avaliamos a demanda remotamente.
+            Nosso foco é a <strong class="text-castillo-blue">indústria de Alimentos e Bebidas na Região Metropolitana de Curitiba</strong>, onde atendemos presencialmente. Para indústrias em outros estados, avaliamos a possibilidade de fazermos a análise de forma remota.
           </p>
         </div>
 
@@ -321,18 +330,18 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ============================================ -->
-  <!-- 7. CTA FINAL (Fechamento)                    -->
+  <!-- 7. CTA FINAL                                 -->
   <!-- ============================================ -->
   <section class="py-16 md:py-20 bg-castillo-blue text-castillo-white">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Identifique o desperdício térmico na sua operação.
+        Descubra onde sua planta está desperdiçando dinheiro.
       </h2>
       <p class="text-xl text-castillo-gray mb-8 max-w-2xl mx-auto">
-        Agende uma conversa técnica inicial sem compromisso e descubra o potencial de economia escondido nos seus dados.
+        Fale com um engenheiro sem compromisso. Veja se seus dados têm potencial de economia.
       </p>
       <a 
-        href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20técnica"
+        href="https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20engenheiro"
         target="_blank"
         rel="noopener noreferrer"
         class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all inline-block text-lg"
@@ -341,6 +350,5 @@ import Layout from '../layouts/Layout.astro';
       </a>
     </div>
   </section>
-
 
 </Layout>
