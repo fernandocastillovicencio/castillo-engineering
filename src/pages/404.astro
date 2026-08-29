@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página não encontrada | Castillo Engenharia"
+  description="Página não encontrada. Volte ao início ou converse conosco."
+>
+  <section class="py-20 md:py-28 bg-castillo-white">
+    <div class="container mx-auto px-4 text-center max-w-2xl">
+      <h1 class="text-6xl md:text-8xl font-bold text-castillo-blue mb-4">404</h1>
+      <p class="text-xl text-castillo-slate mb-8">
+        Página não encontrada.
+      </p>
+      <p class="text-castillo-slate mb-8">
+        O link pode estar desatualizado ou o endereço foi digitado incorretamente.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all"
+        >
+          Voltar ao início
+        </a>
+        <a
+          href="https://wa.me/5541933009505?text=Olá,%20encontrei%20um%20link%20quebrado%20no%20site%20da%20Castillo%20Engenharia."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border-2 border-castillo-blue text-castillo-blue px-8 py-4 rounded-lg font-bold hover:bg-castillo-blue hover:text-castillo-white transition-all"
+        >
+          Fale no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

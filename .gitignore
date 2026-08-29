@@ -1,5 +1,50 @@
 # Dependências
 node_modules/
+.pnpm-store/
+yarn-error.log*
+package-lock.json?  # Opcional: muitos preferem commitar o lockfile, mas se quiser ignorar, descomente
+
+# Build e arquivos gerados
+dist/
+.astro/
+.output/
+build/
+*.log
+*.tsbuildinfo
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Arquivos de sistema
+*.sass-cache/
+*.scssc
+*.lessc
+*.css.map
+
+# Arquivos de cobertura de teste
+coverage/
+.nyc_output/
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+
+# Vercel (opcional, mas se usar o CLI local)
+.vercel/
+
+# Dependências
+node_modules/
 
 # Pasta de build do Astro (gerada ao rodar 'npm run build')
 dist/

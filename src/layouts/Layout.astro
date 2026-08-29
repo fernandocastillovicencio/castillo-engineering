@@ -2,19 +2,52 @@
 import '../styles/global.css';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
+// GA4 — métricas de visitas e conversões (configuração: ver site-rev §8.2).
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID ?? '';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-// SEO otimizado com base no DPE
-const { 
-  title, 
-  description = 'Diagnóstico termodinâmico industrial sem CAPEX. Reduza o custo de energia térmica usando dados que sua planta já coleta. Castillo Engineering - Curitiba, PR.' 
+const {
+  title,
+  description = 'Engenharia de fluidos e térmica industrial: encontre onde sua planta perde calor, vapor, frio e dinheiro. Conversa de 30 minutos, sem compromisso.'
 } = Astro.props;
 
-// Link do WhatsApp padronizado (vai ser usado no menu e no footer)
-const whatsappLink = "https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20Diagnóstico%20Preliminar%20Sem%20Custo";
+const siteUrl = 'https://castilloeng.com.br';
+const whatsappLink = 'https://wa.me/5541933009505?text=Olá,%20vi%20o%20site%20da%20Castillo%20Engenharia%20e%20gostaria%20de%20agendar%20uma%20conversa%20de%2030%20minutos%20sobre%20um%20possível%20problema%20térmico%20na%20minha%20planta.%20Pode%20me%20ajudar?';
+
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@type': ['ProfessionalService', 'LocalBusiness'],
+  '@id': `${siteUrl}/#org`,
+  name: 'Castillo Engenharia',
+  legalName: 'Castillo Engineering LTDA',
+  url: siteUrl,
+  email: 'contato@castilloeng.com.br',
+  telephone: '+55-41-93300-9505',
+  identifier: '67.015.526/0001-16',
+  description: 'Engenharia de fluidos e térmica industrial. Diagnóstico e solução de problemas, otimização de processos, simulação computacional e CFD, software técnico sob demanda.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Curitiba',
+    addressRegion: 'PR',
+    postalCode: '81510-210', 
+    addressCountry: 'BR'
+  },
+  areaServed: ['Brasil', 'América do Sul'],
+  knowsAbout: [
+    'Engenharia de fluidos e térmica',
+    'Eficiência energética',
+    'Solução de problemas térmicos',
+    'Otimização de processos',
+    'Sistemas de bombeamento',
+    'Sistemas de refrigeração',
+    'CFD',
+    'Software técnico'
+  ]
+};
 ---
 
 <!doctype html>
@@ -22,111 +55,161 @@ const whatsappLink = "https://wa.me/5541985367273?text=Olá,%20vim%20pelo%20site
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Corrigido: apontando para o SVG real que existe na sua pasta -->
-    <link rel="icon" type="image/svg+xml" href="/images/castillo-logo_horizontal-negativo.svg" />
-    
+    <link rel="icon" type="image/svg+xml" href="/images/castillo-symbol.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    
-    <!-- SEO: Título dinâmico melhorado -->
-    <title>{title} | Castillo Engineering</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0F2A3E" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl + Astro.url.pathname} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/images/og-castillo.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/images/og-castillo.png`} />
+
+    <!-- Trilíngue / hreflang (EN e ES entram na fase trilíngue) -->
+    <link rel="alternate" hreflang="pt-br" href={`${siteUrl}/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Schema.org: LocalBusiness + ProfessionalService -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    {GA4_ID && (
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+    )}
+    {GA4_ID && (
+      <script is:inline define:vars={{ GA4_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA4_ID);
+      </script>
+    )}
+    {GA4_ID && (
+      <script is:inline>
+        document.addEventListener('click', function (e) {
+          var alvo = e.target;
+          var el = alvo && alvo.closest ? alvo.closest('a') : null;
+          if (!el || typeof gtag !== 'function') return;
+          var href = el.getAttribute('href') || '';
+          if (href.indexOf('wa.me') !== -1) {
+            gtag('event', 'whatsapp_click', { event_category: 'contato', event_label: el.textContent.trim().slice(0, 40) });
+          } else if (href === '#contato') {
+            gtag('event', 'cta_click', { event_category: 'contato', event_label: el.textContent.trim().slice(0, 40) });
+          }
+        });
+      </script>
+    )}
+
+    <title>{title}</title>
   </head>
-  
+
   <body class="bg-castillo-white flex flex-col min-h-screen">
-    
-    <!-- HEADER SIMPLIFICADO (Single Page) -->
-    <header class="bg-castillo-blue text-castillo-white sticky top-0 z-40 shadow-md">
-      <div class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-between">
-          <!-- Logo -->
-          <a href="/" class="flex items-center">
-            <img 
-              src="/images/castillo-logo_horizontal-negativo.svg" 
-              alt="Castillo Engineering - Diagnóstico Termodinâmico" 
-              class="h-8 md:h-10 lg:h-12 w-auto object-contain"
+
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-castillo-blue focus:text-castillo-white focus:px-4 focus:py-2 focus:rounded-lg">Pular para o conteúdo</a>
+
+    <header class="bg-castillo-blue text-castillo-white sticky top-0 z-40 shadow-md overflow-visible">
+      <div class="container mx-auto px-4 py-4 overflow-visible">
+        <div class="flex items-center justify-between gap-3">
+          <a href="/" class="flex items-center" aria-label="Castillo Engenharia — página inicial">
+            <img
+              src="/images/castillo-logo-horizontal-negative.svg"
+              alt="Logo da Castillo Engenharia - Engenharia de Fluidos e Térmica Industrial"
+              class="h-16 md:h-15 lg:h-20 w-auto object-contain"
             />
           </a>
-          
-          <!-- Único CTA do Menu (Desktop e Mobile) -->
-          <!-- Removido: Menu Hambúrguer e links de navegação interna -->
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-castillo-orange text-castillo-white px-5 py-2.5 rounded-lg font-bold hover:opacity-90 transition-opacity text-sm md:text-base"
-          >
-            Solicitar Diagnóstico
-          </a>
+          <div class="flex items-center gap-2">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="md:hidden bg-green-500 text-white px-4 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors text-sm whitespace-nowrap"
+              aria-label="Conversar no WhatsApp"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="/#contato"
+              class="bg-castillo-orange text-castillo-white px-5 py-3 md:px-6 rounded-lg font-bold hover:opacity-90 transition-opacity text-sm md:text-base whitespace-normal md:whitespace-nowrap text-center"
+            >
+              <span class="md:hidden">Agendar conversa</span>
+              <span class="hidden md:inline">Agendar conversa (sem compromisso)</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL (Onde o index.astro vai renderizar) -->
-    <main class="flex-grow">
+    <main id="conteudo" class="flex-grow">
       <slot />
     </main>
 
-    <!-- FOOTER REESTRUTURADO (Foco institucional e correto) -->
     <footer class="bg-castillo-blue text-castillo-white mt-auto">
       <div class="container mx-auto px-4 py-8">
-        
-        <!-- CTA Final do Footer -->
-        <div class="text-center mb-8 pb-8 border-b border-castillo-gray">
-          <h2 class="text-2xl font-bold mb-4">Pronto para identificar o desperdício térmico na sua operação?</h2>
-          <p class="text-castillo-gray mb-6">Converse sem compromisso com um engenheiro especialista.</p>
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-castillo-orange text-castillo-white px-8 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
+        <div class="text-center mb-8 pb-8 border-b border-white/20">
+          <h2 class="text-2xl font-bold mb-4">Quer saber onde sua operação pode melhorar?</h2>
+          <p class="text-white/70 mb-6">Converse sem compromisso com um engenheiro especialista.</p>
+          <a
+            href="/#contato"
+            class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-opacity inline-block"
           >
-            Falar no WhatsApp
+            Agendar conversa (sem compromisso)
           </a>
         </div>
-        
+
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Coluna 1: Sobre (Alinhado ao DPE) -->
           <div>
             <h3 class="text-lg font-bold mb-4">Castillo Engineering LTDA</h3>
-            <p class="text-castillo-gray text-sm">
-              Consultoria especializada em eficiência térmica industrial. 
-              Diagnóstico a partir de dados que o cliente já possui, sem exigir investimentos adicionais.
+            <p class="text-white/70 text-sm">
+              Consultoria em engenharia de fluidos e térmica — solução de problemas, otimização de processos, simulação computacional, software sob demanda.
+            </p>
+            <p class="text-white/70 text-sm mt-3">
+              CREA-PR ativo · ART quando o serviço exigir, ou a pedido do cliente (Lei 6.496/1977)
             </p>
           </div>
-          
-          <!-- Coluna 2: Responsabilidade Técnica (Credibilidade) -->
+
           <div>
-            <h3 class="text-lg font-bold mb-4">Responsabilidade Técnica</h3>
-            <ul class="space-y-2 text-sm text-castillo-gray">
-              <li>Engenheiro Mecânico — CREA-PR Ativo</li>
-              <li>Atribuições plenas (Art. 12, Res. CONFEA 218/73)</li>
-              <li>Laudos com ART e NDA padrão</li>
-              <li>Método baseado em normas (ABNT, ASME)</li>
+            <h3 class="text-lg font-bold mb-4">Navegação</h3>
+            <ul class="space-y-2 text-sm text-white/70">
+              <li><a href="/" class="underline hover:text-castillo-orange">Início</a></li>
+              <li><a href="/methodology" class="underline hover:text-castillo-orange">Metodologia</a></li>
+              <li><a href="/prices" class="underline hover:text-castillo-orange">Investimento</a></li>
+              <li><a href="/privacy-lgpd" class="underline hover:text-castillo-orange">Política de Privacidade (LGPD)</a></li>
             </ul>
           </div>
-          
-          <!-- Coluna 3: Contato (Corrigido) -->
+
           <div>
             <h3 class="text-lg font-bold mb-4">Contato</h3>
-            <ul class="space-y-2 text-sm text-castillo-gray">
-              <li>Curitiba/PR — Brasil</li>
-              <li>Foco: Indústria de Alimentos e Bebidas (RMC)</li>
-              <!-- Corrigido: E-mail real -->
-              <li>contato@castilloeng.com.br</li>
-              <li>(41) 98536-7273</li>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li>Atendimento remoto — Brasil e América do Sul</li>
+              <li><a href="mailto:contato@castilloeng.com.br" class="underline hover:text-castillo-orange">contato@castilloeng.com.br</a></li>
+              <li><a href="https://wa.me/5541933009505" target="_blank" rel="noopener noreferrer" class="underline hover:text-castillo-orange">(41) 9 3300-9505</a></li>
+              <li class="pt-2 border-t border-white/20 mt-2">CNPJ: 67.015.526/0001-16</li>
+              <li class="leading-relaxed">CEP: 81.510-210 — Curitiba/PR — Brasil</li>
             </ul>
           </div>
         </div>
-        
-        <!-- Copyright -->
-        <div class="border-t border-castillo-gray mt-8 pt-8 text-center text-sm text-castillo-gray">
+
+        <div class="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/70">
           <p>&copy; 2026 Castillo Engineering LTDA. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
 
-    <!-- WHATSAPP BUTTON (Flutuante) -->
     <WhatsAppButton />
 
   </body>
