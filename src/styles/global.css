@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cores da Marca - Castillo Engineering */
-  --color-castillo-blue: #0a2b4d;
-  --color-castillo-gray: #6b7980;
+  /* Cores da Marca — Castillo Engenharia (Brand Color Guide v1) */
+  --color-castillo-blue: #0F2A3E;
+  --color-castillo-orange: #D97706;
   --color-castillo-white: #ffffff;
-  --color-castillo-orange: #f97316;
+  --color-castillo-slate: #1E293B;
+  --color-castillo-muted: #94A3B8;
+  --color-castillo-ice: #F8FAFC;
 }
 
 /* Scroll Suave para Todo o Site */
 html {
   scroll-behavior: smooth;
+}
+
+/* Compensa o header fixo ao navegar por âncoras */
+section[id] {
+  scroll-margin-top: 5rem;
 }
