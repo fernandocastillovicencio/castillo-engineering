@@ -4,13 +4,12 @@
 # A editora acessa: https://castilloeng.com.br/admin/
 # E edita TODOS os textos por formulários — sem ver YAML nem Markdown.
 #
-# ⚠️ PREENCHA ESTES DADOS ANTES DE USAR (instruções no ADMIN-README.md):
 backend:
   name: github
-  repo: SEU-USUARIO/SEU-REPOSITORIO
+  repo: fernandocastillovicencio/castillo-engineering
   branch: main
   base_url: https://castillo-cms-auth.vercel.app
-  auth_endpoint: api/auth
+  auth_endpoint: auth
 
 locale: "pt_br"
 site_url: "https://castilloeng.com.br"
