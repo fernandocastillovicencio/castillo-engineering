@@ -1,11 +1,13 @@
-/*
-  Headers de segurança — Cloudflare Pages (aplicados a todas as rotas).
-  CSP: 'unsafe-inline' em script/style é necessário para o Astro + gtag do GA4.
-  frame-ancestors 'none' impede que o site seja embutido em iframes de terceiros (clickjacking).
-*/
+# Headers de segurança — Cloudflare Pages (aplicados a todas as rotas).
+# CSP: unsafe-inline é necessário para o Astro + gtag do GA4.
+# frame-ancestors none impede clickjacking em iframes de terceiros.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://formspree.io https://www.google-analytics.com https://analytics.google.com; font-src 'self'; frame-ancestors 'none'; form-action 'self' https://formspree.io; base-uri 'self'
+
+# Painel de conteúdo (Decap CMS) — carrega o CMS do CDN e fala com o GitHub.
+/admin/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://github.com; font-src 'self' https://unpkg.com; frame-ancestors 'none'; form-action 'self'; base-uri 'self'

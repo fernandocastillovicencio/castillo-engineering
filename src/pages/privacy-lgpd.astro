@@ -1,58 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+
+const privacy = await getEntry('site', 'pagina-privacidade-lgpd');
+const { Content } = await render(privacy);
+const dados = privacy.data;
 ---
 
-<Layout
-  title="Política de Privacidade e LGPD | Castillo Engenharia"
-  description="Política de privacidade da Castillo Engenharia em conformidade com a LGPD (Lei 13.709/2018): minimização de dados, finalidade, armazenamento, retenção e direitos do titular."
->
-  <section class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4 max-w-3xl">
-      <h1 class="text-3xl md:text-4xl font-bold text-castillo-blue mb-6">Política de Privacidade e LGPD</h1>
-      <div class="space-y-6 text-castillo-slate leading-relaxed">
-
-        <p><strong class="text-castillo-blue">1. Coleta de Dados (minimização)</strong><br>
-        Coletamos apenas os dados necessários para o diagnóstico e o contato: nome, empresa, cargo, e-mail,
-        WhatsApp, setor, cidade/UF e a descrição do problema térmico. Não solicitamos documento, dado sensível
-        ou informação além do necessário — a minimização é uma regra do nosso método, não só da lei.</p>
-
-        <p><strong class="text-castillo-blue">2. Finalidade do Uso</strong><br>
-        Os dados são utilizados exclusivamente para entrar em contato, entender sua necessidade técnica e
-        oferecer nossos serviços de engenharia. Não compartilhamos, vendemos ou alugamos seus dados a terceiros.</p>
-
-        <p><strong class="text-castillo-blue">3. Armazenamento e Segurança</strong><br>
-        Os dados do formulário são processados através da plataforma Formspree, que segue padrões de segurança
-        reconhecidos (GDPR/LGPD). Dados técnicos compartilhados em diagnósticos são tratados sob acordo de
-        confidencialidade (NDA), quando aplicável.</p>
-
-        <p><strong class="text-castillo-blue">4. Retenção</strong><br>
-        Os dados são mantidos pelo prazo máximo de 12 meses após o último contato, salvo obrigação legal ou
-        contrato em andamento. Após esse período, são eliminados.</p>
-
-        <p><strong class="text-castillo-blue">5. Direitos do Titular</strong><br>
-        De acordo com a LGPD, você pode solicitar a qualquer momento o acesso, a correção ou a exclusão dos seus
-        dados, pelo e-mail: <a href="mailto:contato@castilloeng.com.br" class="text-castillo-orange underline">contato@castilloeng.com.br</a>.
-        A Castillo Engenharia atua como controladora; um encarregado (DPA) está disponível para atender
-        solicitações pelo mesmo canal.</p>
-
-        <p><strong class="text-castillo-blue">6. Incidentes de Segurança</strong><br>
-        Em caso de incidente que possa acarretar risco aos titulares, comunicaremos a autoridade competente
-        (ANPD) e os afetados em até 72 horas, conforme a LGPD.</p>
-
-        <p><strong class="text-castillo-blue">7. Consentimento</strong><br>
-        Ao preencher o formulário em nosso site, você declara estar ciente e de acordo com esta política de
-        privacidade (Lei 13.709/2018).</p>
-
-        <p><strong class="text-castillo-blue">8. Cookies e Dados de Navegação</strong><br>
-        Para medir o desempenho do site (número de visitas, páginas mais lidas e conversões do formulário),
-        utilizamos o Google Analytics 4, que pode armazenar cookies de navegação no seu dispositivo. Esses dados
-        são agregados e anônimos — não identificam você pessoalmente e não são usados para publicidade. Você pode
-        bloquear cookies nas configurações do seu navegador; isso não impede o uso do site.</p>
-
-        <p><strong class="text-castillo-blue">9. Alterações</strong><br>
-        Esta política pode ser atualizada ocasionalmente. Recomendamos que o usuário a revise periodicamente.</p>
-
-        <p class="text-sm text-castillo-slate border-t border-gray-200 pt-4 mt-4">Última atualização: agosto de 2026.</p>
+<Layout title={dados.seo.title} description={dados.seo.description}>
+  <section id="privacidade">
+    <div class="container-site">
+      <h1>{dados.h1}</h1>
+      <div class="corpo">
+        <Content />
+        <p class="atualizado">{dados.ultimaAtualizacao}</p>
       </div>
     </div>
   </section>

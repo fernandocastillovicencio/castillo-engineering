@@ -1,585 +1,197 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
 
-const whatsappLink =
-  "https://wa.me/5541933009505?text=Olá,%20vi%20o%20site%20da%20Castillo%20Engenharia%20e%20gostaria%20de%20agendar%20uma%20conversa%20de%2030%20minutos%20sobre%20um%20possível%20problema%20térmico%20na%20minha%20planta.%20Pode%20me%20ajudar?";
+const heroData = (await getEntry("site", "apresentacao"))!.data;
+const oqueResolvemos = (await getEntry("site", "o-que-resolvemos"))!.data;
+const comoFunciona = (await getEntry("site", "como-funciona"))!.data;
+const paraQuem = (await getEntry("site", "para-quem"))!.data;
+const porQue = (await getEntry("site", "por-que-a-castillo"))!.data;
+const investimento = (await getEntry("site", "investimento"))!.data;
+const faqData = (await getEntry("site", "perguntas-frequentes"))!.data;
+const resultados = (await getEntry("site", "resultados"))!.data;
+const contato = (await getEntry("site", "contato"))!.data;
 
-// Camada 1 — Energia e custo (corte de custo)
-const doresEnergia = [
-  ['Vapor e caldeiras', 'A caldeira queima mais do que deveria para o vapor que produz; purga excessiva', '10\u201325% do combustível = R$ 5\u201340 mil/mês'],
-  ['Recuperação de calor', 'Condensado e gases quentes descartados', '10\u201320% do combustível da caldeira'],
-  ['Refrigeração com COP baixo', 'Consumo elétrico alto por tonelada refrigerada', '+15\u201330% da energia de refrigeração'],
-  ['Bombas fora do ponto', 'Rendimento baixo; estrangulamento', '10\u201320% do consumo de bombeamento'],
-  ['Secagem', 'Ciclo longo; produto fora do padrão', 'R$ 5\u201330 mil/mês'],
-];
+const siteConfig = (await getEntry("site", "configuracao-do-site"))!.data;
+const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
 
-// Camada 2 — Operação e confiabilidade (evita parada)
-const doresOperacao = [
-  ['Golpe de aríete', 'Batidas na tubulação; ruptura de conexões', 'R$ 10\u201380 mil/evento'],
-  ['Incrustação em trocadores/evaporadores', 'Perde eficiência; lavagens frequentes', 'R$ 10\u201380 mil/evento'],
-  ['Cavitação em bombas', 'Vibração; desgaste do rotor', 'R$ 5\u201330 mil/ano'],
-  ['Vazamentos (vapor, gás, amônia)', 'Fugas visíveis; reposição alta', 'R$ 2\u201315 mil/mês + risco de segurança'],
-  ['Temperatura de processo fora de especificação', 'Refugo; retrabalho; lote perdido', 'R$ 5\u201350 mil/mês'],
-  ['Ar comprimido desperdiçado', 'Vazamentos; pressão alta demais', '10\u201330% do consumo de ar comprimido'],
-];
-
-// Camada 3 — Projetos e engenharia (solução definitiva — doc §2.2)
-const projetos = [
-  'Dimensionamento de trocadores',
-  'Projeto de redes de vapor e retorno de condensado',
-  'Seleção de bombas',
-  'Retrofit de refrigeração',
-  'Simulação CFD (análise de fluidos e térmica)',
-];
-
-// Camada 4 — Conformidade e segurança
-const conformidade = [
-  'NR-13 (caldeiras, vasos de pressão e tubulações)',
-  'NR-36 (abatedouros) · amônia (NBR 16069)',
-  'NR-20 (gás natural e GLP)',
-  'NR-33 (espaços confinados)',
-  'Laudos e planos de inspeção (NBR 12177)',
-  'ART quando o serviço exigir (projetos, laudos, NR-13)',
-];
-
-// Setores — 5 principais com frase de problema; lista menor em chips
-const setoresPrincipais = [
-  ['Laticínios', 'Quanto combustível sua caldeira consome por tonelada de leite? A maioria está 15% acima da referência do setor.'],
-  ['Cervejarias', 'No pico do verão, fervura e refrigeração trabalham no limite.'],
-  ['Frigoríficos', 'Sua sala de amônia está conforme a NBR 16069? E o COP?'],
-  ['Usinas de cana', 'Na safra recorde, incrustação em evaporador vira parada.'],
-  ['Madeira e móveis', 'Sua estufa seca 20% mais rápido com a mesma qualidade?'],
-];
-const setoresMenores = ['Papel e celulose', 'Química', 'Têxtil', 'Avícola'];
-
-// Por que a Castillo — 4 diferenciais
-const diferenciais = [
-  ['Engenharia primeiro', 'Começamos pelos dados que a planta já produz — faturas, registros e o conhecimento de quem opera. Medição entra só quando fizer diferença no resultado.'],
-  ['Verificação de resultado', 'Linha de base definida em contrato + faixa de confiança: medimos e reportamos o que foi alcançado — sem promessa de valor mínimo (depende de cada caso).'],
-  ['Teoria + prática', 'Experiência em simulação de fluidos e térmica, análise experimental, desenvolvimento de software e machine learning. O que significa para você: seu problema é analisado com experimentação e modelagem — não só no papel.'],
-];
-
-// Como funciona — 4 passos
-const passos = [
-  ['Conte seu problema (30 minutos)', 'Conversa por telefone ou WhatsApp sobre a operação: pressões, temperaturas, distribuição do ar, condensado, refrigeração, bombas. Sem compromisso.'],
-  ['Receba a proposta (3\u20135 dias úteis)', 'Analisamos os dados que você fornecer (faturas, registros de operação) e enviamos a proposta de serviço: escopo, prazo e investimento. A contagem começa no envio dos dados.'],
-  ['Aprove a proposta', 'Com a proposta aprovada, definimos cronograma e condições de pagamento — e o serviço começa.'],
-  ['Execute e verifique', 'Serviço realizado com medição, ART quando o serviço exigir e verificação de resultado: medimos e reportamos o que foi alcançado.'],
-];
-
-// Investimento — conversa primeiro, sem valores publicados (value-based — doc §2.6)
-const investimento = [
-  ['Conversa inicial', '30 minutos'],
-  ['Proposta de Serviço', 'Escopo, prazo e investimento — sem custo.'],
-  ['Diagnóstico aprofundado', 'Escopo definido na proposta: dados necessários, linha de base e medições.'],
-  ['Projeto', 'Escopo completo, com verificação de resultado.'],
-];
-
-// FAQ — scripts de objeção (doc §2.9)
-const faq = [
-  ['Nossa planta é antiga, não temos dados', 'É exatamente o nosso perfil de cliente. Em 30 minutos de conversa sobre a sua operação — ventilação, purga, condensado, ajustes de operação — localizamos os principais pontos de perda. Planta sem monitoramento digital completo é o nosso padrão de cliente, não a exceção.'],
-  ['Já tentamos consultoria e não funcionou', 'Entendo, é mais comum do que deveria. A maioria entrega laudo de 200 páginas sem plano realista. Nós definimos a linha de base em contrato com responsabilidade técnica (ART) quando o serviço exigir.'],
-  ['Quanto custa?', 'A conversa de 30 minutos é sem compromisso. Enviamos a proposta com escopo, prazo e investimento, sem cobrança — o valor aparece na proposta, não na conversa.'],
-  ['Quanto tempo leva?', 'Proposta: 3\u20135 dias úteis após o envio dos dados. Diagnóstico aprofundado: 5\u201310 dias úteis de análise, mais o tempo de campo quando houver medição local. Projeto: escopo e prazo definidos na proposta. Resposta a todo contato em até 24h úteis.'],
-  ['Vocês atendem à distância?', 'Sim — atuação remota para todo o Brasil e América do Sul. A medição pontual pode ser feita com instrumentação portátil, sem interferir na operação.'],
-  ['Como sei que funciona de verdade?', 'A verificação faz parte do serviço: definimos a linha de base em contrato e medimos o que foi alcançado, com faixa de confiança. Sem promessa de valor mínimo — com método.', '/methodology', 'Veja como medimos →'],
-  ['Vocês emitem ART?', 'Sim — quando o serviço exigir (projetos, laudos, NR-13), com responsabilidade técnica registrada perante o CREA. Se der problema, quem responde somos nós — não você.'],
-];
-
-// Schema.org: FAQPage — rich results no Google (as 7 objeções visíveis)
 const faqPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faq.map(([pergunta, resposta]) => ({
-    '@type': 'Question',
-    name: pergunta,
-    acceptedAnswer: { '@type': 'Answer', text: resposta }
-  }))
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqData.faq.map((item) => ({ '@type': 'Question', name: item.pergunta, acceptedAnswer: { '@type': 'Answer', text: item.resposta } }))
 };
-
 ---
 
-<Layout
-  title="Engenharia de Fluidos e Térmica Industrial | Castillo Engenharia"
-  description="Engenharia de fluidos e térmica industrial: encontre onde sua planta perde calor, vapor, frio e dinheiro. Conversa de 30 minutos, sem compromisso."
->
-
-  <!-- Schema.org: FAQPage (perguntas expansíveis no Google) -->
+<Layout title={heroData.seo.title} description={heroData.seo.description}>
   <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
 
-  <!-- ============================================ -->
-  <!-- 1. HERO                                       -->
-  <!-- ============================================ -->
-  <section class="bg-castillo-blue text-castillo-white pt-16 pb-20 md:pt-24 md:pb-28">
-    <div class="container mx-auto px-4 text-center">
-      <!-- Prova instantânea (badge) -->
-      <p class="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs md:text-sm text-white text-opacity-80 border border-white/20 rounded-full px-4 py-1.5 mb-8">
-        <span>Engenharia de Fluidos e Térmica</span>
-        <span aria-hidden="true">·</span>
-        <span>11 anos de consultoria industrial</span>
-      </p>
-      <p class="text-sm text-white text-opacity-60 mb-8">
-        Presencial em Curitiba/PR · Remoto em todo o Brasil e América do Sul.
-      </p>
-
-      <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-        Sua planta perde dinheiro em calor, vapor e frio.
-      </h1>
-      <p class="text-lg md:text-xl text-white text-opacity-80 mb-8 max-w-3xl mx-auto">
-        Nós encontramos onde a energia se perde — e resolvemos. Com método e verificação de resultado.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="#contato"
-          class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg"
-        >
-          Agendar conversa (sem compromisso)
-        </a>
-        <a
-          href="#o-que-resolvemos"
-          class="border-2 border-castillo-white text-castillo-white px-8 py-4 rounded-lg font-bold hover:bg-castillo-white hover:text-castillo-blue transition-colors text-lg"
-        >
-          Ver o que resolvemos
-        </a>
+  <!-- 1. HERO -->
+  <section id="hero">
+    <div class="container-site">
+      <p class="hero-badge"><span>{heroData.badge[0]}</span><span aria-hidden="true">·</span><span>{heroData.badge[1]}</span></p>
+      <p class="legenda">{heroData.linhaAtendimento}</p>
+      <h1>{heroData.headline}</h1>
+      <p class="lead">{heroData.sub}</p>
+      <div class="ctas">
+        <a href={heroData.ctaPrincipal.href} class="btn" data-tipo="primario">{heroData.ctaPrincipal.label}</a>
+        <a href={heroData.ctaSecundario.href} class="btn" data-tipo="contorno">{heroData.ctaSecundario.label}</a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 2. O QUE RESOLVEMOS (4 camadas)               -->
-  <!-- ============================================ -->
-  <section id="o-que-resolvemos" class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        O que resolvemos
-      </h2>
-      <p class="text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto">
-        Estimamos o impacto financeiro/operacional do problema, fornecemos uma ou mais soluções, e estimamos a diferença entre o antes e o depois.
-      </p>
+  <!-- 2. O QUE RESOLVEMOS -->
+  <section id="o-que-resolvemos">
+    <div class="container-site">
+      <h2 class="section-title">{oqueResolvemos.title}</h2>
+      <p>{oqueResolvemos.intro}</p>
+      {oqueResolvemos.camadas.map((camada) => (
+        camada.tipo === 'dores' ? (
+          <div class="card">
+            <h3 class="card-title">{camada.titulo} <span class="subtitulo">{camada.subtitulo}</span></h3>
+            <div class="rows">{camada.itens.map((item) => (
+              <div><strong>{item.dor}</strong><span class="sintoma">{item.sintoma}</span><span class="impacto">{item.impacto}</span></div>
+            ))}</div>
+          </div>
+        ) : (
+          <div class="card">
+            <h3 class="card-title">{camada.titulo} <span class="subtitulo">{camada.subtitulo}</span></h3>
+            <div class="chips">{camada.itens.map((item) => <span class="chip">{item.item ?? item}</span>)}</div>
+            {camada.nota && <p class="nota"><strong>{camada.notaTitulo}</strong> {camada.nota}</p>}
+          </div>
+        )
+      ))}
+    </div>
+  </section>
 
-      <!-- Camada 1: Energia e custo -->
-      <div class="max-w-5xl mx-auto mb-8 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
-        <h3 class="text-xl font-bold text-castillo-blue mb-1">Eficiência Energética <span class="text-castillo-slate font-normal text-base">— Redução de custos e da fatura de energia</span></h3>
-        <div class="mt-4">
-          {
-            doresEnergia.map(([dor, sintoma, impacto]) => (
-              <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 py-3 border-b border-gray-100 last:border-b-0">
-                <strong class="text-castillo-blue text-sm md:w-64 shrink-0">{dor}</strong>
-                <span class="text-castillo-slate text-sm flex-1">{sintoma}</span>
-                <span class="text-orange-700 font-bold text-sm md:w-64 md:text-right shrink-0">{impacto}</span>
+  <!-- 3. COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container-site">
+      <h2 class="section-title">{comoFunciona.title}</h2>
+      <p>{comoFunciona.intro}</p>
+      <div class="grid-4">{comoFunciona.passos.map((passo, i) => (
+        <div><div class="num-badge">{i + 1}</div><h3 class="card-title">{passo.titulo}</h3><p class="card-body">{passo.detalhe}</p></div>
+      ))}</div>
+    </div>
+  </section>
+
+  <!-- 4. PARA QUEM -->
+  <section id="para-quem">
+    <div class="container-site">
+      <h2 class="section-title">{paraQuem.title}</h2>
+      <p>{paraQuem.intro}</p>
+      <div class="grid-3">{paraQuem.setoresPrincipais.map((setor) => (
+        <div class="card"><h3 class="card-title">{setor.setor}</h3><p class="card-body">{setor.frase}</p></div>
+      ))}</div>
+      <div class="chips">{paraQuem.setoresMenores.map((setor) => <span class="chip">{setor.item ?? setor}</span>)}</div>
+    </div>
+  </section>
+
+  <!-- 5. POR QUE A CASTILLO -->
+  <section id="por-que">
+    <div class="container-site">
+      <h2 class="section-title">{porQue.title}</h2>
+      <div class="stack">{porQue.diferenciais.map((dif) => (
+        <div class="card"><h3 class="card-title">{dif.titulo}</h3><p class="card-body">{dif.descricao}</p></div>
+      ))}</div>
+      <div class="box-dark max-w-4xl mx-auto mt-10"><h3>{porQue.comoTrabalhamos.titulo}</h3><p>{porQue.comoTrabalhamos.paragrafo1}</p><p>{porQue.comoTrabalhamos.paragrafo2}</p></div>
+    </div>
+  </section>
+
+  <!-- 6. INVESTIMENTO -->
+  <section id="investimento">
+    <div class="container-site">
+      <h2 class="section-title">{investimento.title}</h2>
+      <p>{investimento.intro}</p>
+      <div class="grid-4">{investimento.cards.map((card) => (
+        <div class={card.destaque ? 'box-dark' : 'card'}><span class="selo">{card.nome}</span><p class="card-body">{card.inclui}</p></div>
+      ))}</div>
+      <div class="cta-wrap"><a href={investimento.cta.href} class="btn" data-tipo="primario">{investimento.cta.label}</a></div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section id="faq">
+    <div class="container-site">
+      <h2 class="section-title">{faqData.title}</h2>
+      <p>{faqData.intro}</p>
+      <div class="stack">{faqData.faq.map((item) => (
+        <div class="card"><h3 class="card-title">{item.pergunta}</h3><p class="card-body">{item.resposta}</p>{item.link && <a class="link-cta" href={item.link.href}>{item.link.rotulo}</a>}</div>
+      ))}</div>
+    </div>
+  </section>
+
+  <!-- 8. RESULTADOS -->
+  <section id="resultados">
+    <div class="container-site">
+      <h2 class="section-title">{resultados.title}</h2>
+      <div class="card"><h3 class="card-title">{resultados.portifolio.titulo}</h3><p class="card-body">{resultados.portifolio.intro}</p>
+        <ul class="item-grid">{resultados.portifolio.itens.map((item) => <li><strong>{item.titulo}</strong>{item.descricao}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTATO -->
+  <section id="contato">
+    <div class="container-site">
+      <h2>{contato.title}</h2>
+      <p class="lead">{contato.intro}</p>
+
+      <form id="form-contato" action={siteConfig.formspree.endpoint} method="POST">
+        <input type="hidden" name="_subject" value={contato.form.assunto} />
+        <input type="hidden" name="_gotcha" />
+        <div class="form-grid">
+          {contato.form.camposObrigatorios.map((campo) => (campo.tipo !== 'select' ? (
+            <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+              <input type={campo.tipo} id={campo.nome} name={campo.nome} required={campo.required} placeholder={campo.placeholder} />
+            </div>
+          ) : (
+            <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+              <select id={campo.nome} name={campo.nome} required={campo.required}><option value="">{campo.placeholder}</option>{campo.opcoes.map((opcao) => <option>{opcao}</option>)}</select>
+            </div>)))}
+        </div>
+
+        <details>
+          <summary>{contato.form.complementar.titulo}</summary>
+          <div class="form-grid form-extra">{contato.form.complementar.campos.map((campo) => (
+            campo.tipo === 'select' ? (
+              <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+                <select id={campo.nome} name={campo.nome}><option value="">{campo.placeholder}</option>{campo.opcoes.map((opcao) => <option>{opcao}</option>)}</select>
               </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Camada 2: Operação e confiabilidade -->
-      <div class="max-w-5xl mx-auto mb-8 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
-        <h3 class="text-xl font-bold text-castillo-blue mb-1">Otimização operacional <span class="text-castillo-slate font-normal text-base">— evitar paradas, melhorar a qualidade do processo e do produto</span></h3>
-        <div class="mt-4">
-          {
-            doresOperacao.map(([dor, sintoma, impacto]) => (
-              <div class="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 py-3 border-b border-gray-100 last:border-b-0">
-                <strong class="text-castillo-blue text-sm md:w-64 shrink-0">{dor}</strong>
-                <span class="text-castillo-slate text-sm flex-1">{sintoma}</span>
-                <span class="text-orange-700 font-bold text-sm md:w-64 md:text-right shrink-0">{impacto}</span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Camada 3: Projetos e engenharia -->
-      <div class="max-w-5xl mx-auto mb-8 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
-        <h3 class="text-xl font-bold text-castillo-blue mb-1">Projetos e engenharia <span class="text-castillo-slate font-normal text-base">— do dimensionamento ao projeto</span></h3>
-        <div class="flex flex-wrap gap-2">
-          {projetos.map((item) => (
-            <span class="bg-castillo-blue/5 text-castillo-blue border border-castillo-blue/20 rounded-full px-4 py-2 text-sm font-medium">{item}</span>
-          ))}
-        </div>
-        <p class="text-castillo-slate text-sm mt-4">
-          <strong class="text-castillo-blue">Escopo realista:</strong> começamos pelo que está ao alcance imediato — onde o retorno aparece mais rápido.
-        </p>
-      </div>
-
-      <!-- Camada 4: Conformidade e segurança -->
-      <div class="max-w-5xl mx-auto mb-10 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
-        <h3 class="text-xl font-bold text-castillo-blue mb-1">Conformidade e segurança</h3>
-        <p class="text-castillo-slate text-sm mb-4 mt-2">Regularize sua operação sem parar a produção — laudos técnicos, inspeção e conformidade normativa.</p>
-        <div class="flex flex-wrap gap-2">
-          {conformidade.map((item) => (
-            <span class="bg-castillo-orange/10 text-castillo-orange border border-castillo-orange/30 rounded-full px-4 py-2 text-sm font-medium">{item}</span>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 3. COMO FUNCIONA (4 passos)                   -->
-  <!-- ============================================ -->
-  <section id="como-funciona" class="py-16 md:py-20 bg-castillo-ice">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        Como funciona
-      </h2>
-      <p class="text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto">
-        Do problema à economia verificada, em 4 passos.
-      </p>
-
-      <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-        {
-          passos.map(([titulo, detalhe], i) => (
-            <div class="text-center">
-              <div class="md:hidden bg-castillo-blue text-castillo-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">{i + 1}</div>
-              <h3 class="text-lg font-bold text-castillo-blue mb-3">{titulo}</h3>
-              <p class="text-castillo-slate text-sm">{detalhe}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 4. PARA QUEM (setores)                        -->
-  <!-- ============================================ -->
-  <section id="para-quem" class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        Para quem
-      </h2>
-      <p class="text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto">
-        Indústrias de qualquer porte com processos térmicos e de fluidos intensivos.
-      </p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {
-          setoresPrincipais.map(([setor, frase]) => (
-            <div class="bg-white border-l-4 border-castillo-orange rounded-r-lg p-6 shadow-sm">
-              <h3 class="text-lg font-bold text-castillo-blue mb-2">{setor}</h3>
-              <p class="text-castillo-slate text-sm">{frase}</p>
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-2 mt-8">
-        {setoresMenores.map((setor) => (
-          <span class="bg-gray-100 text-castillo-slate border border-gray-200 rounded-full px-4 py-2 text-sm font-medium">{setor}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 5. POR QUE A CASTILLO (diferenciais)          -->
-  <!-- ============================================ -->
-  <section id="por-que" class="py-16 md:py-20 bg-castillo-ice">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        Por que a Castillo Engenharia?
-      </h2>
-
-      <div class="max-w-4xl mx-auto space-y-4">
-        {
-          diferenciais.map(([titulo, descricao]) => (
-            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <h3 class="text-lg font-bold text-castillo-blue mb-2">{titulo}</h3>
-              <p class="text-castillo-slate text-sm">{descricao}</p>
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="max-w-4xl mx-auto mt-10 bg-castillo-blue text-castillo-white rounded-lg p-6 md:p-8">
-        <h3 class="text-lg font-bold mb-3">Como trabalhamos</h3>
-        <p class="text-white text-opacity-90 text-sm md:text-base mb-3">
-          Pesquisa experimental em escoamentos de líquidos e gás (UTFPR/Petrobras) e simulação termoenergética (PUCPR),
-          aplicadas em sistemas industriais reais.
-        </p>
-        <p class="text-white text-opacity-90 text-sm md:text-base">
-          Responsabilidade técnica registrada: CREA-PR ativo e ART quando o serviço exigir (Lei 6.496/1977).
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 6. INVESTIMENTO (conversa primeiro, preço depois) -->
-  <!-- ============================================ -->
-  <section id="investimento" class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        Investimento
-      </h2>
-      <p class="text-center text-castillo-slate text-lg max-w-3xl mx-auto mb-12">
-        Sem tabela de preços publicada: o investimento é definido na proposta, depois de entendermos o seu problema.
-      </p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-8">
-        {
-          investimento.map(([nome, inclui], i) => {
-            const destaque = i === 2;
-            return destaque ? (
-              <div class="bg-castillo-blue text-castillo-white rounded-lg p-6 border-4 border-castillo-orange flex flex-col">
-                <span class="text-castillo-orange font-bold text-sm uppercase tracking-wider mb-2">{nome}</span>
-                <p class="text-white text-opacity-90 text-sm">{inclui}</p>
+            ) : campo.tipo === 'textarea' ? (
+              <div class="form-field full"><label for={campo.nome}>{campo.label}</label>
+                <textarea id={campo.nome} name={campo.nome} rows={campo.rows || 2} placeholder={campo.placeholder}></textarea>
               </div>
             ) : (
-              <div class="bg-white border-2 border-castillo-blue rounded-lg p-6 flex flex-col shadow-sm">
-                <span class="text-castillo-blue font-bold text-sm uppercase tracking-wider mb-2">{nome}</span>
-                <p class="text-castillo-slate text-sm">{inclui}</p>
-              </div>
-            );
-          })
-        }
-      </div>
-
-      <div class="text-center mt-8">
-        <a
-          href="#contato"
-          class="inline-block bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg"
-        >
-          Agendar conversa (sem compromisso)
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 7. FAQ (objeções respondidas)                 -->
-  <!-- ============================================ -->
-  <section id="faq" class="py-16 md:py-20 bg-castillo-ice">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4">
-        Perguntas Frequentes
-      </h2>
-      <p class="text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto">
-        Respostas diretas — do jeito que um engenheiro responde.
-      </p>
-      <div class="max-w-3xl mx-auto space-y-6">
-        {
-          faq.map(([pergunta, resposta, href, rotulo]) => (
-            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <h3 class="text-lg font-bold text-castillo-blue mb-2">{pergunta}</h3>
-              <p class="text-castillo-slate">{resposta}</p>
-              {href && (
-                <a href={href} class="inline-block mt-3 text-castillo-orange font-bold text-sm underline hover:opacity-80">
-                  {rotulo ?? 'Saiba mais →'}
-                </a>
-              )}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 8. RESULTADOS (prova social honesta)          -->
-  <!-- ============================================ -->
-  <section id="resultados" class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-12">
-        Resultados
-      </h2>
-
-      <!-- Portfólio técnico da empresa -->
-      <div class="bg-white border border-gray-200 rounded-lg p-6 md:p-8 shadow-sm mb-8 text-left">
-        <h3 class="text-lg font-bold text-castillo-blue mb-2">Portfólio técnico da empresa</h3>
-        <p class="text-castillo-slate text-sm mb-5">
-          Cada projeto envolveu cálculo de engenharia, simulação computacional e validação com dados reais.
-        </p>
-        <ul class="grid sm:grid-cols-2 gap-4 text-sm text-castillo-slate">
-          <li class="bg-castillo-ice border border-gray-200 rounded-lg p-4">
-            <strong class="text-castillo-blue block mb-1">Rotor centrífugo para circuito de resfriamento</strong>
-            Definição das dimensões do rotor e estimativa da pressão e da vazão no ponto de descarga.
-          </li>
-          <li class="bg-castillo-ice border border-gray-200 rounded-lg p-4">
-            <strong class="text-castillo-blue block mb-1">Ventiladores axiais para aplicação em mineração</strong>
-            Estudo por CFD com levantamento das curvas de operação (vazão × pressão) dos equipamentos.
-          </li>
-          <li class="bg-castillo-ice border border-gray-200 rounded-lg p-4">
-            <strong class="text-castillo-blue block mb-1">Ventilação natural de ambiente industrial</strong>
-            Avaliação por cálculo, medições em campo e CFD, com proposta de adequação do ambiente.
-          </li>
-          <li class="bg-castillo-ice border border-gray-200 rounded-lg p-4">
-            <strong class="text-castillo-blue block mb-1">Turbina hidráulica tipo Francis</strong>
-            Modelagem por CFD e obtenção das curvas de desempenho e eficiência do equipamento.
-          </li>
-          <li class="bg-castillo-ice border border-gray-200 rounded-lg p-4">
-            <strong class="text-castillo-blue block mb-1">Trocador de calor casco e tubos para alimentos</strong>
-            Projeto termo-hidráulico com cálculo e validação por simulação numérica.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- 9. CONTATO (formulário-cérebro)               -->
-  <!-- ============================================ -->
-  <section id="contato" class="py-16 md:py-20 bg-castillo-blue text-castillo-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        Agende sua conversa.
-      </h2>
-      <p class="text-xl text-white text-opacity-80 mb-8 max-w-2xl mx-auto">
-        Sem documento, sem dado sensível, sem compromisso. Você conta o problema — nós encontramos o que está
-        acontecendo e mostramos o caminho.
-      </p>
-
-      <form id="form-contato" class="max-w-xl mx-auto text-left" action="https://formspree.io/f/mqernvvb" method="POST">
-        <!-- Formspree: assunto + honeypot -->
-        <input type="hidden" name="_subject" value="Novo contato — site Castillo Engenharia" />
-        <input type="hidden" name="_gotcha" />
-
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="mb-1">
-            <label class="block text-sm font-bold mb-2 text-white" for="nome">Nome *</label>
-            <input type="text" id="nome" name="nome" required
-                   class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                   placeholder="Seu nome">
-          </div>
-          <div class="mb-1">
-            <label class="block text-sm font-bold mb-2 text-white" for="whatsapp">WhatsApp *</label>
-            <input type="tel" id="whatsapp" name="whatsapp" required
-                   class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                   placeholder="(41) 9xxxx-xxxx">
-          </div>
-          <div class="mb-1">
-            <label class="block text-sm font-bold mb-2 text-white" for="dor_principal">Problema principal *</label>
-            <select id="dor_principal" name="dor_principal" required
-                    class="w-full px-4 py-2 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-castillo-orange">
-              <option value="">Selecione</option>
-              <option>Vapor</option>
-              <option>Refrigeração</option>
-              <option>Bombas</option>
-              <option>Secagem</option>
-              <option>Ar comprimido</option>
-              <option>Outro</option>
-            </select>
-          </div>
-        </div>
-
-        <details class="mb-4">
-          <summary class="text-sm font-bold text-white text-opacity-80 cursor-pointer hover:text-castillo-orange mb-2">
-            Complementar (opcional)
-          </summary>
-          <div class="grid sm:grid-cols-2 gap-4 bg-white/5 rounded-lg p-4">
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="empresa">Empresa</label>
-              <input type="text" id="empresa" name="empresa"
-                     class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                     placeholder="Nome da sua empresa">
-            </div>
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="email">E-mail</label>
-              <input type="email" id="email" name="email"
-                     class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                     placeholder="voce@empresa.com.br">
-            </div>
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="cargo">Cargo</label>
-              <input type="text" id="cargo" name="cargo"
-                     class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                     placeholder="Ex.: gerente de manutenção">
-            </div>
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="cidade">Cidade/UF (ou país)</label>
-              <input type="text" id="cidade" name="cidade"
-                     class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                     placeholder="Ex.: Castro/PR — ou país, se América do Sul">
-            </div>
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="setor">Setor</label>
-              <select id="setor" name="setor"
-                      class="w-full px-4 py-2 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-castillo-orange">
-                <option value="">Selecione (opcional)</option>
-                <option>Laticínios</option>
-                <option>Cervejarias</option>
-                <option>Frigoríficos</option>
-                <option>Usinas de cana</option>
-                <option>Madeira e móveis</option>
-                <option>Papel e celulose</option>
-                <option>Química</option>
-                <option>Têxtil</option>
-                <option>Avícola</option>
-                <option>Outro</option>
-              </select>
-            </div>
-            <div class="mb-1">
-              <label class="block text-sm font-bold mb-2 text-white" for="problema">Problema (opcional)</label>
-              <textarea id="problema" name="problema" rows="2"
-                        class="w-full px-4 py-2 rounded bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-castillo-orange"
-                        placeholder="ex.: consumo de vapor acima do esperado, entupimentos recorrentes, variação de qualidade na secagem..."></textarea>
-            </div>
+              <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+                <input type={campo.tipo} id={campo.nome} name={campo.nome} placeholder={campo.placeholder} />
+              </div>)))}
           </div>
         </details>
 
-        <p class="text-sm text-white text-opacity-80 mb-6">
-          Ao enviar, você concorda com o tratamento dos dados para fins de diagnóstico, conforme a
-          <a href="/privacy-lgpd" target="_blank" rel="noopener noreferrer" class="underline hover:text-castillo-orange">Política de Privacidade (LGPD)</a>.
-        </p>
-
-        <button id="form-submit" type="submit"
-                class="bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg w-full">
-          Agendar conversa (sem compromisso)
-        </button>
+        <p>{contato.avisoLgpd.antes}<a href={contato.avisoLgpd.linkHref} target="_blank" rel="noopener noreferrer">{contato.avisoLgpd.linkLabel}</a>.</p>
+        <button id="form-submit" type="submit" data-botao={contato.botao} data-botao-enviando={contato.botaoEnviando} data-erro-envio={contato.erroEnvio} class="btn" data-tipo="primario">{contato.botao}</button>
       </form>
 
-      <!-- Confirmação automática -->
-      <div id="form-sucesso" class="hidden max-w-xl mx-auto bg-white text-castillo-blue rounded-lg p-8 shadow-sm">
-        <p class="text-xl font-bold mb-3">Recebemos seu contato.</p>
-        <p class="text-castillo-slate mb-3">
-          Entraremos em contato em até 24h úteis. Enquanto isso, veja como
-          encontramos onde sua planta perde calor, vapor, frio e dinheiro.
-        </p>
-        <a href="/methodology" class="inline-block text-castillo-orange font-bold underline hover:opacity-80">
-          Ver nosso método →
-        </a>
+      <div id="form-sucesso" class="is-hidden">
+        <p class="card-title">{contato.confirmacao.titulo}</p>
+        <p class="card-body">{contato.confirmacao.texto}</p>
+        <a href={contato.confirmacao.link.href}>{contato.confirmacao.link.rotulo}</a>
       </div>
 
-      <p class="text-sm text-white text-opacity-70 mt-8">
-        Prefere conversar direto? <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="underline hover:text-castillo-orange">Fale no WhatsApp</a>.
-      </p>
+      <p class="legenda">{contato.whatsappDireto.antes}<a href={whatsappLink} target="_blank" rel="noopener noreferrer">{contato.whatsappDireto.linkLabel}</a>.</p>
     </div>
   </section>
-
 </Layout>
 
 <script>
-  const form = document.getElementById('form-contato');
-  const sucesso = document.getElementById('form-sucesso');
-  const botao = document.getElementById('form-submit');
-
+  const form = document.getElementById('form-contato'), sucesso = document.getElementById('form-sucesso'), botao = document.getElementById('form-submit');
   if (form && sucesso && botao) {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      botao.disabled = true;
-      botao.textContent = 'Enviando...';
-      try {
-        const resposta = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (resposta.ok) {
-          form.classList.add('hidden');
-          sucesso.classList.remove('hidden');
-          // GA4: evento de conversão principal
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversa_agendada', { event_category: 'contato', event_label: 'formulario' });
-          }
-        } else {
-          throw new Error('formspree-error');
-        }
-      } catch (erro) {
-        botao.disabled = false;
-        botao.textContent = 'Agendar conversa (sem compromisso)';
-        alert('Não foi possível enviar. Tente novamente ou fale direto no WhatsApp.');
-      }
+    const bl = botao.dataset.botao, be = botao.dataset.botaoEnviando, ee = botao.dataset.erroEnvio;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); botao.disabled = true; botao.textContent = be;
+      try { const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (r.ok) { form.classList.add('is-hidden'); sucesso.classList.remove('is-hidden'); typeof gtag === 'function' && gtag('event', 'conversa_agendada', { event_category: 'contato', event_label: 'formulario' }); }
+        else throw Error('f');
+      } catch (er) { botao.disabled = false; botao.textContent = bl; alert(ee); }
     });
   }
 </script>
