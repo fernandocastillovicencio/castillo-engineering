@@ -1,21 +1,198 @@
 @import "tailwindcss";
 
+/* ════════════════════════════════════════════════════════════════════
+   CATEGORIA 1 — TEMA (cores e sombras da marca; muda aqui, muda tudo)
+   ════════════════════════════════════════════════════════════════════ */
 @theme {
-  /* Cores da Marca — Castillo Engenharia (Brand Color Guide v1) */
   --color-castillo-blue: #0F2A3E;
   --color-castillo-orange: #D97706;
   --color-castillo-white: #ffffff;
   --color-castillo-slate: #1E293B;
-  --color-castillo-muted: #94A3B8;
   --color-castillo-ice: #F8FAFC;
+  --color-impacto: #B45309;
+  --color-whatsapp: #22C55E;
+  --color-whatsapp-hover: #16A34A;
+  --color-form-text: #1F2937;
+  --color-form-placeholder: #6B7280;
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-header: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-fab: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
-/* Scroll Suave para Todo o Site */
-html {
-  scroll-behavior: smooth;
-}
+/* ════════════════════════════════════════════════════════════════════
+   CATEGORIA 2 — BASE (comportamento global)
+   ════════════════════════════════════════════════════════════════════ */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 5rem; }
+body { @apply bg-castillo-white flex flex-col min-h-screen; }
+main { @apply flex-grow; }
 
-/* Compensa o header fixo ao navegar por âncoras */
-section[id] {
-  scroll-margin-top: 5rem;
+@layer components {
+  /* ══════════════════════════════════════════════════════════════════
+     CATEGORIA 3 — PEÇAS (usadas em 2+ páginas; o vocabulário do site)
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* Layout */
+  .container-site { @apply container mx-auto px-4; }
+  section { @apply py-16 md:py-20 bg-castillo-white; }
+  .section-title { @apply text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4; }
+  .section-title + p { @apply text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto; }
+  .grid-3 { @apply grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto; }
+  .grid-4 { @apply grid md:grid-cols-4 gap-8 max-w-5xl mx-auto; }
+  .stack { @apply max-w-4xl mx-auto space-y-6; }
+  .ctas { @apply flex flex-col sm:flex-row gap-4 justify-center; }
+
+  /* Texto */
+  .card-title { @apply text-lg font-bold text-castillo-blue mb-2; }
+  .card-body { @apply text-castillo-slate text-sm; }
+  .card-body strong { @apply text-castillo-blue; }
+  .lead { @apply text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto; }
+  .legenda { @apply text-sm text-white/70; }
+  .subtitulo { @apply text-castillo-slate font-normal text-base; }
+  .link-cta { @apply mt-3 text-sm inline-block text-castillo-orange font-bold underline hover:opacity-80; }
+
+  /* Cartões e etiquetas */
+  .card { @apply bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8; }
+  .box-dark { @apply bg-castillo-blue text-castillo-white rounded-lg p-6 md:p-8; }
+  .box-dark h2 { @apply text-castillo-orange; }
+  .box-dark h3 { @apply text-lg font-bold text-castillo-white mb-2; }
+  .box-dark p { @apply text-white/90 text-sm md:text-base; }
+  .box-dark .selo { @apply text-castillo-orange; }
+  .selo { @apply block font-bold text-sm uppercase tracking-wider mb-2 text-castillo-blue; }
+  .chip { @apply rounded-full px-4 py-2 text-sm font-medium bg-gray-100 text-castillo-slate border border-gray-200; }
+  .chips { @apply flex flex-wrap gap-2 mt-4; }
+  .item-grid { @apply grid sm:grid-cols-2 gap-4 text-sm text-castillo-slate; }
+  .item-grid li { @apply bg-castillo-ice border border-gray-200 rounded-lg p-4; }
+  .item-grid li strong { @apply text-castillo-blue block mb-1; }
+
+  /* Botões */
+  .btn { @apply px-8 py-4 rounded-lg font-bold transition-all text-lg inline-block; }
+  .btn[data-tipo=primario] { @apply bg-castillo-orange text-castillo-white hover:opacity-90 hover:scale-105; }
+  .btn[data-tipo=contorno] { @apply border-2 border-castillo-blue text-castillo-blue hover:bg-castillo-blue hover:text-castillo-white; }
+  .cta-wrap { @apply text-center mt-8; }
+
+  /* Formulário */
+  .form-grid { @apply grid sm:grid-cols-2 gap-4; }
+  .form-extra { @apply bg-white/5 rounded-lg p-4; }
+  .form-field { @apply mb-1; }
+  .full { @apply sm:col-span-2; }
+
+  /* Utilidades */
+  .is-hidden { @apply hidden; }
+  .skip-link { @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-castillo-blue focus:text-castillo-white focus:px-4 focus:py-2 focus:rounded-lg; }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CATEGORIA 4 — REGIÕES FIXAS (aparecem em todas as páginas;
+     estilo resolvido por contexto dentro da região)
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* Cabeçalho */
+  .header { @apply bg-castillo-blue text-castillo-white sticky top-0 z-40 shadow-header overflow-visible; }
+  .header-inner { @apply container mx-auto px-4 py-4 flex items-center justify-between gap-3 overflow-visible; }
+  .header-logo { @apply flex items-center; }
+  .header-logo img { @apply h-16 md:h-15 lg:h-20 w-auto object-contain; }
+  .header-actions { @apply flex items-center gap-2; }
+  .header-wa { @apply md:hidden bg-whatsapp text-white px-4 py-3 rounded-lg font-bold hover:bg-whatsapp-hover transition-colors text-sm whitespace-nowrap; }
+  .header-cta { @apply bg-castillo-orange text-castillo-white px-5 py-3 md:px-6 rounded-lg font-bold hover:opacity-90 transition-opacity text-sm md:text-base whitespace-normal md:whitespace-nowrap text-center; }
+  .txt-curto { @apply md:hidden; }
+  .txt-longo { @apply hidden md:inline; }
+
+  /* Rodapé */
+  .footer { @apply bg-castillo-blue text-castillo-white mt-auto; }
+  .footer-inner { @apply container mx-auto px-4 py-8; }
+  .footer-cta { @apply text-center mb-8 pb-8 border-b border-white/20; }
+  .footer-cta h2 { @apply text-2xl font-bold mb-4; }
+  .footer-cta p { @apply text-white/70 mb-6; }
+  .footer-cols { @apply grid md:grid-cols-3 gap-8; }
+  .footer-cols p { @apply text-white/70 text-sm; }
+  .footer h3 { @apply text-lg font-bold mb-4; }
+  .footer ul { @apply text-sm text-white/70; }
+  .footer ul a { @apply underline hover:text-castillo-orange; }
+  .footer-copy { @apply border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/70; }
+
+  /* Botão flutuante de WhatsApp */
+  .fab { @apply fixed bottom-6 right-6 z-50 bg-whatsapp text-white px-4 py-3 rounded-full font-bold shadow-fab hover:bg-whatsapp-hover transition-colors flex items-center gap-2; }
+  .fab svg { @apply w-6 h-6; }
+  .fab span { @apply hidden md:inline transition-transform; }
+  .fab:hover span { @apply translate-x-1; }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CATEGORIA 5 — HOME (uma subseção por seção da página inicial)
+     ══════════════════════════════════════════════════════════════════ */
+  #como-funciona, #por-que, #faq { @apply bg-castillo-ice; }
+
+  /* Hero */
+  #hero { @apply bg-castillo-blue text-castillo-white pt-16 pb-20 md:pt-24 md:pb-28; }
+  #hero .container-site { @apply text-center; }
+  #hero h1 { @apply text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto; }
+  #hero .legenda { @apply mb-8; }
+  #hero .ctas { @apply mb-8; }
+  #hero .btn[data-tipo=contorno] { @apply border-castillo-white text-castillo-white hover:bg-castillo-white hover:text-castillo-blue; }
+  .hero-badge { @apply inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs md:text-sm text-white/80 border border-white/20 rounded-full px-4 py-1.5 mb-8; }
+
+  /* O que resolvemos — tabela de dores */
+  #o-que-resolvemos .card { @apply max-w-5xl mx-auto mb-8; }
+  #o-que-resolvemos .rows { @apply mt-4; }
+  #o-que-resolvemos .rows > div { @apply flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 py-3 border-b border-gray-100 last:border-b-0; }
+  #o-que-resolvemos .rows strong { @apply text-castillo-blue text-sm md:w-64 shrink-0; }
+  #o-que-resolvemos .sintoma { @apply text-castillo-slate text-sm flex-1; }
+  #o-que-resolvemos .impacto { @apply text-impacto font-bold text-sm md:w-64 md:text-right shrink-0; }
+  #o-que-resolvemos .nota { @apply text-castillo-slate text-sm mt-4; }
+
+  /* Como funciona */
+  #como-funciona .grid-4 > div { @apply text-center; }
+  .num-badge { @apply md:hidden bg-castillo-blue text-castillo-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3; }
+
+  /* Para quem */
+  #para-quem .chips { @apply justify-center mt-8; }
+
+  /* Por que a Castillo */
+  #por-que .box-dark { @apply max-w-4xl mx-auto mt-10; }
+
+  /* Resultados */
+  #resultados .container-site { @apply max-w-4xl; }
+  #resultados .card { @apply mb-8 text-left; }
+  #resultados .card > p { @apply mb-5; }
+
+  /* Contato — formulário escuro */
+  #contato { @apply bg-castillo-blue text-castillo-white; }
+  #contato .container-site { @apply text-center; }
+  #contato h2 { @apply text-3xl md:text-4xl font-bold mb-6; }
+  #contato a { @apply underline hover:text-castillo-orange; }
+  #contato .legenda { @apply mt-8; }
+  #contato form { @apply max-w-xl mx-auto text-left; }
+  #contato form > p { @apply text-white/80 text-sm mb-6; }
+  #contato form button { @apply w-full; }
+  #contato label { @apply block text-sm font-bold mb-2 text-white; }
+  #contato input:not([type=hidden]), #contato select, #contato textarea { @apply w-full px-4 py-2 rounded bg-white text-form-text placeholder-form-placeholder focus:outline-none focus:ring-2 focus:ring-castillo-orange; }
+  #contato details { @apply mb-4; }
+  #contato summary { @apply text-sm font-bold text-white/80 cursor-pointer hover:text-castillo-orange mb-2; }
+  #form-sucesso { @apply max-w-xl mx-auto bg-white text-castillo-blue rounded-lg p-8 shadow-sm; }
+  #form-sucesso .card-title { @apply text-xl mb-3; }
+  #form-sucesso .card-body { @apply mb-3; }
+  #form-sucesso a { @apply inline-block text-castillo-orange font-bold underline hover:opacity-80; }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CATEGORIA 6 — PÁGINAS INTERNAS
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* Preços / Investimento — reusa .card, .box-dark, .item-grid, .card-title, .card-body */
+  #precos .container-site { @apply max-w-4xl; }
+  .box-dark .prazo { @apply text-xs opacity-70 mt-2; }
+
+  /* Metodologia */
+  #metodologia .container-site { @apply max-w-4xl; }
+
+  /* Privacidade / LGPD */
+  #privacidade .container-site { @apply max-w-3xl; }
+  #privacidade h1 { @apply text-3xl md:text-4xl font-bold text-castillo-blue mb-6; }
+  #privacidade .corpo { @apply space-y-6 text-castillo-slate leading-relaxed; }
+  #privacidade h2 { @apply text-xl font-bold text-castillo-blue pt-4; }
+  #privacidade .atualizado { @apply text-sm text-castillo-slate border-t border-gray-200 pt-4 mt-4; }
+
+  /* 404 */
+  #nao-encontrada { @apply py-20 md:py-28 text-center; }
+  #nao-encontrada h1 { @apply text-6xl md:text-8xl font-bold text-castillo-blue mb-4; }
+  #nao-encontrada .lead { @apply text-castillo-slate; }
+  #nao-encontrada .card-body { @apply mb-8; }
 }

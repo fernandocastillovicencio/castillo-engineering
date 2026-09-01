@@ -1,102 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const priceData = (await getEntry('site', 'pagina-investimento'))!.data;
+const dados = priceData;
 ---
 
-<Layout
-  title="Investimento em Eficiência Energética | Castillo Engenharia"
-  description="Investimento definido na proposta, após analisarmos os seus dados. Conversa de 30 minutos, sem compromisso."
->
+<Layout title={dados.seo.title} description={dados.seo.description}>
+  <section id="precos">
+    <div class="container-site">
+      <h1 class="section-title">{dados.h1}</h1>
+      <p>{dados.intro}</p>
 
-  <section class="py-16 md:py-20 bg-castillo-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h1 class="text-3xl md:text-4xl font-bold text-castillo-blue mb-4 text-center">
-        Investimento
-      </h1>
-      <p class="text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto">
-        Preferimos entender o seu problema antes de falar de números. O valor é definido na proposta, depois da análise — cada planta é um caso.
-      </p>
-
-      <!-- Etapa 1: conversa -->
-      <div class="bg-white border-2 border-castillo-blue rounded-lg p-6 md:p-8 shadow-sm mb-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h2 class="text-xl font-bold text-castillo-blue">1. Conversa de diagnóstico</h2>
-            <p class="text-castillo-slate text-sm mt-1">30 minutos: você conta o contexto, o problema e o resultado esperado.</p>
+      {dados.etapas.map((etapa) => (
+        etapa.destaque ? (
+          <div class="box-dark mb-6">
+            <h2 class="card-title">{etapa.titulo}</h2>
+            <p>{etapa.texto}{etapa.textoDestaque && <strong>{etapa.textoDestaque}</strong>}</p>
+            {etapa.prazo && <p class="prazo"><strong>{dados.prazoLabel}</strong> {etapa.prazo}</p>}
           </div>
-        </div>
+        ) : etapa.cards ? (
+          <div class="card mb-8">
+            <h2 class="card-title">{etapa.titulo}</h2>
+            <ul class="item-grid">{etapa.cards.map((card) => <li><h3 class="card-title">{card.nome}</h3><p class="card-body">{card.texto}</p></li>)}</ul>
+            {etapa.nota && <p class="card-body mt-6">{etapa.nota}</p>}
+          </div>
+        ) : (
+          <div class="card mb-6">
+            <h2 class="card-title">{etapa.titulo}</h2>
+            <p class="card-body">{etapa.texto}</p>
+          </div>
+        )
+      ))}
+
+      <div class="card mb-8">
+        <h2 class="card-title">{dados.comoPrecificamos.titulo}</h2>
+        <div class="space-y-4">{dados.comoPrecificamos.pontos.map((ponto) => <p class="card-body"><strong>{ponto.destaque}</strong> {ponto.texto}</p>)}</div>
+        <p class="card-body mt-4">{dados.comoPrecificamos.risco}</p>
       </div>
 
-      <!-- Etapa 2: proposta -->
-      <div class="bg-white border-2 border-castillo-blue rounded-lg p-6 md:p-8 shadow-sm mb-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h2 class="text-xl font-bold text-castillo-blue">2. Proposta de Serviço</h2>
-            <p class="text-castillo-slate text-sm mt-1">
-              Analisamos os dados que você fornecer (faturas, registros de operação) e enviamos a proposta: escopo, prazo e investimento — em 3–5 dias úteis após o envio dos dados. Sem cobrança pela proposta.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 3: diagnóstico -->
-      <div class="bg-castillo-blue text-castillo-white rounded-lg p-6 md:p-8 border-4 border-castillo-orange mb-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h2 class="text-xl font-bold text-castillo-orange">3. Diagnóstico aprofundado</h2>
-            <p class="text-white text-opacity-80 text-sm mt-1">
-              1 sistema (vapor, refrigeração ou bombas), medição pontual não intrusiva e linha de base com fatura + acordo de confidencialidade.
-              <strong class="text-white">Abatido no projeto.</strong>
-            </p>
-            <p class="text-white text-opacity-70 text-xs mt-2"><strong class="text-white">Prazo:</strong> 5–10 dias úteis de análise.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Etapa 4: projeto -->
-      <div class="bg-white border-2 border-castillo-blue rounded-lg p-6 md:p-8 shadow-sm mb-8">
-        <h2 class="text-xl font-bold text-castillo-blue mb-4">4. Projeto — escopo, prazo e investimento na proposta</h2>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="bg-castillo-ice border border-gray-200 rounded-lg p-5">
-            <h3 class="font-bold text-castillo-blue mb-2">Básico</h3>
-            <p class="text-sm text-castillo-slate">Escopo pontual: 1 sistema, solução dimensionada e plano de ação.</p>
-          </div>
-          <div class="bg-castillo-ice border border-gray-200 rounded-lg p-5">
-            <h3 class="font-bold text-castillo-blue mb-2">Médio</h3>
-            <p class="text-sm text-castillo-slate">2–3 sistemas integrados, com acompanhamento de implementação.</p>
-          </div>
-          <div class="bg-castillo-ice border border-gray-200 rounded-lg p-5">
-            <h3 class="font-bold text-castillo-blue mb-2">Completo</h3>
-            <p class="text-sm text-castillo-slate">Projeto multissistema com verificação de resultado e linha de base contratual.</p>
-          </div>
-        </div>
-        <p class="text-sm text-castillo-slate mt-6">
-          ART (Anotação de Responsabilidade Técnica) quando o serviço exigir · Projetos enquadráveis em linhas
-          Finep/Embrapii são avaliados caso a caso.
-        </p>
-      </div>
-
-      <!-- Como precificamos — modelo em evolução (plano §6.1, sem valores) -->
-      <div class="bg-white border-2 border-castillo-orange rounded-lg p-6 md:p-8 shadow-sm mb-8">
-        <h2 class="text-xl font-bold text-castillo-blue mb-4">Como precificamos</h2>
-        <div class="space-y-4 text-sm text-castillo-slate">
-          <p><strong class="text-castillo-blue">No começo — hora de engenharia com teto:</strong> você conhece o limite máximo antes de começar.</p>
-          <p><strong class="text-castillo-blue">Quando a economia é verificada — fixo por escopo:</strong> a economia é medida e reportada contra a fatura.</p>
-          <p><strong class="text-castillo-blue">Sem bônus:</strong> o alinhamento de interesses é a verificação de resultado.</p>
-        </div>
-        <p class="text-castillo-slate text-sm mt-4">
-          O risco de comprar caro é praticamente zero; o risco de não fazer nada é a fatura de energia subir no próximo reajuste.
-        </p>
-      </div>
-
-      <div class="text-center">
-        <a
-          href="/#contato"
-          class="inline-block bg-castillo-orange text-castillo-white px-8 py-4 rounded-lg font-bold hover:opacity-90 hover:scale-105 transition-all text-lg"
-        >
-          Agendar conversa (sem compromisso)
-        </a>
-      </div>
+      <div class="cta-wrap"><a href={dados.cta.href} class="btn" data-tipo="primario">{dados.cta.label}</a></div>
     </div>
   </section>
-
 </Layout>
