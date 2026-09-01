@@ -1,7 +1,7 @@
 ---
 badge:
   - Engenharia de Fluidos e Térmica
-  - 11 anos de consultoria industrial
+  - 10+ anos de consultoria industrial
 linhaAtendimento: Presencial em Curitiba/PR · Remoto em todo o Brasil e América do Sul
 headline: Sua planta perde dinheiro em calor, vapor e frio.
 sub: Nós encontramos onde a energia se perde — e resolvemos. Com método e
