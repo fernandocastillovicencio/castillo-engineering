@@ -54,7 +54,7 @@ collections:
           - label: "Linha de atendimento"
             name: "linhaAtendimento"
             widget: "string"
-          - label: "Título principal da página"
+          - label: "Título"
             name: "headline"
             widget: "string"
           - label: "Subtítulo"
@@ -93,10 +93,10 @@ collections:
         label: "2. O que resolvemos"
         file: "marketing/o-que-resolvemos.md"
         fields:
-          - label: "Título da seção"
+          - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Parágrafo de introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Camadas de problemas"
@@ -115,7 +115,7 @@ collections:
                 widget: "select"
                 options:
                   - { label: "Dores (3 colunas)", value: "dores" }
-                  - { label: "Etiquetas (palavras curtas)", value: "chips" }
+                  - { label: "Tags (palavras curtas)", value: "chips" }
               - label: "Itens"
                 name: "itens"
                 widget: "list"
@@ -133,7 +133,7 @@ collections:
                     name: "impacto"
                     widget: "string"
                     required: false
-                  - label: "Texto da etiqueta"
+                  - label: "Tag"
                     name: "item"
                     widget: "string"
                     required: false
@@ -157,7 +157,7 @@ collections:
           - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Passos"
@@ -183,7 +183,7 @@ collections:
           - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Setores principais (cartões)"
@@ -249,7 +249,7 @@ collections:
           - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Cards de serviços"
@@ -267,7 +267,7 @@ collections:
                 name: "destaque"
                 widget: "boolean"
                 default: false
-          - label: "Botão de agendamento"
+          - label: "Botão"
             name: "cta"
             widget: "object"
             fields:
@@ -291,7 +291,7 @@ collections:
           - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Perguntas e respostas"
@@ -337,7 +337,7 @@ collections:
               - label: "Título do bloco"
                 name: "titulo"
                 widget: "string"
-              - label: "Introdução"
+              - label: "Resumo"
                 name: "intro"
                 widget: "text"
               - label: "Projetos"
@@ -363,7 +363,7 @@ collections:
           - label: "Título"
             name: "title"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Aviso LGPD"
@@ -444,7 +444,7 @@ collections:
                 widget: "object"
                 required: false
                 fields:
-                  - {label: "Título da seção", name: "titulo", widget: "string"}
+                  - {label: "Título", name: "titulo", widget: "string"}
                   - label: "Campos"
                     name: "campos"
                     widget: "list"
@@ -474,10 +474,10 @@ collections:
         label: "Investimento (/prices)"
         file: "marketing/pagina-investimento.md"
         fields:
-          - label: "Título principal da página"
+          - label: "Título"
             name: "h1"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Etapas"
@@ -544,7 +544,7 @@ collections:
               - label: "Texto de risco"
                 name: "risco"
                 widget: "text"
-          - label: "Botão de agendamento"
+          - label: "Botão"
             name: "cta"
             widget: "object"
             fields:
@@ -577,10 +577,10 @@ collections:
         label: "Metodologia (/methodology)"
         file: "marketing/pagina-metodologia.md"
         fields:
-          - label: "Título principal da página"
+          - label: "Título"
             name: "h1"
             widget: "string"
-          - label: "Introdução"
+          - label: "Resumo"
             name: "intro"
             widget: "text"
           - label: "Cards do método"
@@ -594,7 +594,7 @@ collections:
               - label: "Texto"
                 name: "texto"
                 widget: "text"
-          - label: "Botão de agendamento"
+          - label: "Botão"
             name: "cta"
             widget: "object"
             fields:
@@ -667,14 +667,14 @@ collections:
         label: "Privacidade LGPD (/privacy-lgpd)"
         file: "marketing/pagina-privacidade-lgpd.md"
         fields:
-          - label: "Título principal da página"
+          - label: "Título"
             name: "h1"
             widget: "string"
           - label: "Data de atualização"
             name: "ultimaAtualizacao"
             widget: "string"
             hint: "ex: Última atualização: agosto de 2026."
-          - label: "Texto legal completo"
+          - label: "Conteúdo"
             name: "body"
             widget: "markdown"
             hint: "Edite os 9 blocos de texto jurídico. Use ## para títulos (seção 1, 2, etc.)"
@@ -712,7 +712,7 @@ collections:
               - label: "Texto"
                 name: "texto"
                 widget: "text"
-              - label: "Botão — texto"
+              - label: "Texto do botão"
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
