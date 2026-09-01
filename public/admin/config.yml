@@ -742,7 +742,7 @@ collections:
                   - label: "Texto do link"
                     name: "label"
                     widget: "string"
-                  - label: "URL"
+                  - label: "Endereço do link"
                     name: "href"
                     widget: "string"
                     required: false
@@ -835,7 +835,7 @@ collections:
               - {label: "Botão WhatsApp (celular)", name: "ctaWhatsAppMobile", widget: "string"}
               - {label: "Descrição do botão (leitores de tela)", name: "ctaWhatsAppMobileAria", widget: "string"}
               - {label: "Botão agendar (celular)", name: "ctaPrincipalMobile", widget: "string"}
-              - {label: "Botão agendar (desktop)", name: "ctaPrincipalDesktop", widget: "string"}
+              - {label: "Botão agendar (computador)", name: "ctaPrincipalDesktop", widget: "string"}
           - label: "WhatsApp (mensagens automáticas) — avançado"
             name: "whatsapp"
             widget: "object"
