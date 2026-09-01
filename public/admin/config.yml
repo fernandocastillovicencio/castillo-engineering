@@ -2,8 +2,20 @@
 # DECAP CMS — Configuração do Painel de Conteúdo
 # ═══════════════════════════════════════════════════════════════
 # A editora acessa: https://castilloeng.com.br/admin/
-# E edita TODOS os textos por formulários — sem ver YAML nem Markdown.
+# Edita APENAS texto de marketing por formulários, em português.
 #
+# Design do painel (decisão do dono, 2026-09-01):
+#   - Objetos aninhados usam widget: object (nativo do Decap).
+#     NÃO usar nomes pontuados (seo.title) — não implementado (issue #595).
+#   - Os campos do config mapeiam 1:1 com as chaves do frontmatter de
+#     cada .md (nível de topo). Nada de wrappers extras — o Decap
+#     reescreve o frontmatter ao salvar e apagaria o que não está
+#     declarado aqui.
+#   - Campos técnicos ficam em objetos colapsados no fim do formulário
+#     ("Técnico"), com required: false — preservados, fora do caminho.
+#   - Quem edita dados técnicos: o dono, direto no .md via git.
+# ═══════════════════════════════════════════════════════════════
+
 backend:
   name: github
   repo: fernandocastillovicencio/castillo-engineering
@@ -20,6 +32,7 @@ public_folder: "/images"
 # COLECÕES — cada grupo de arquivos editáveis
 # ═══════════════════════════════════════════════════════════════
 collections:
+
   # ─────────────────────────────────────────────────────────────
   # 1. PÁGINA INICIAL (9 seções)
   # ─────────────────────────────────────────────────────────────
@@ -27,16 +40,11 @@ collections:
     label: "Página Inicial"
     description: "Seções da página inicial, na ordem em que aparecem"
     files:
+
       - name: "apresentacao"
         label: "1. Apresentação (topo)"
         file: "marketing/apresentacao.md"
         fields:
-          - label: "Título da aba do navegador (SEO)"
-            name: "seo.title"
-            widget: "string"
-          - label: "Descrição para o Google (SEO)"
-            name: "seo.description"
-            widget: "text"
           - label: "Selo (2 itens)"
             name: "badge"
             widget: "list"
@@ -50,21 +58,34 @@ collections:
           - label: "Subtítulo"
             name: "sub"
             widget: "text"
+          - label: "SEO (título da aba e Google) — técnico"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Descrição para o Google", name: "description", widget: "text", required: false}
           - label: "Botão principal — NÃO troque o texto"
-            name: "ctaPrincipal.label"
+            name: "ctaPrincipal"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Texto do botão", name: "label", widget: "string", hint: "Mantenha: Agendar conversa (sem compromisso)"}
+              - {label: "Endereço (não altere)", name: "href", widget: "string", required: false}
+          - label: "Botão secundário — técnico"
+            name: "ctaSecundario"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Texto do botão", name: "label", widget: "string", required: false}
+              - {label: "Endereço (não altere)", name: "href", widget: "string", required: false}
+          - label: "Descrição interna — técnico"
+            name: "sobre"
             widget: "string"
-            hint: "Mantenha: Agendar conversa (sem compromisso)"
-          - label: "Link do botão principal (técnico)"
-            name: "ctaPrincipal.href"
-            widget: "hidden"
-            default: "#contato"
-          - label: "Botão secundário"
-            name: "ctaSecundario.label"
-            widget: "string"
-          - label: "Link do botão secundário (técnico)"
-            name: "ctaSecundario.href"
-            widget: "hidden"
-            default: "#o-que-resolvemos"
+            required: false
 
       - name: "oque-resolvemos"
         label: "2. O que resolvemos"
@@ -122,6 +143,10 @@ collections:
                 name: "nota"
                 widget: "text"
                 required: false
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "como-funciona"
         label: "3. Como funciona"
@@ -144,6 +169,10 @@ collections:
               - label: "Detalhe (descrição)"
                 name: "detalhe"
                 widget: "text"
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "para-quem"
         label: "4. Para quem"
@@ -170,6 +199,10 @@ collections:
             name: "setoresMenores"
             widget: "list"
             hint: "Digite um setor por linha e clique em adicionar"
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "por-que"
         label: "5. Por que a Castillo"
@@ -202,6 +235,10 @@ collections:
               - label: "Parágrafo 2"
                 name: "paragrafo2"
                 widget: "text"
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "investimento"
         label: "6. Investimento"
@@ -236,10 +273,14 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (técnico)"
+              - label: "Endereço (não altere)"
                 name: "href"
-                widget: "hidden"
-                default: "#contato"
+                widget: "string"
+                required: false
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "perguntas-frequentes"
         label: "7. Perguntas Frequentes"
@@ -270,9 +311,15 @@ collections:
                   - label: "URL do link"
                     name: "href"
                     widget: "string"
+                    required: false
                   - label: "Texto do link"
                     name: "rotulo"
                     widget: "string"
+                    required: false
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "resultados"
         label: "8. Resultados"
@@ -302,6 +349,10 @@ collections:
                   - label: "Descrição"
                     name: "descricao"
                     widget: "text"
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "contato"
         label: "9. Contato"
@@ -313,74 +364,6 @@ collections:
           - label: "Introdução"
             name: "intro"
             widget: "text"
-          - label: "Campos obrigatórios do formulário"
-            name: "form.camposObrigatorios"
-            widget: "list"
-            summary: "{{fields.label}}"
-            fields:
-              - label: "Identificador técnico (não altere)"
-                name: "nome"
-                widget: "string"
-                hint: "⚠️ Não altere — é o nome do campo no formulário"
-              - label: "Rótulo (ex: Nome *)"
-                name: "label"
-                widget: "string"
-              - label: "Tipo de campo"
-                name: "tipo"
-                widget: "select"
-                options: ["text", "tel", "email", "select", "textarea"]
-                default: "text"
-              - label: "Texto de exemplo"
-                name: "placeholder"
-                widget: "string"
-              - label: "Opções (só para select)"
-                name: "opcoes"
-                widget: "list"
-                required: false
-              - label: "Obrigatório?"
-                name: "required"
-                widget: "boolean"
-                default: true
-          - label: "Seção complementar (opcional)"
-            name: "form.complementar"
-            widget: "object"
-            fields:
-              - label: "Título da seção"
-                name: "titulo"
-                widget: "string"
-              - label: "Campos complementares"
-                name: "campos"
-                widget: "list"
-                summary: "{{fields.label}}"
-                fields:
-                  - label: "Identificador técnico (não altere)"
-                    name: "nome"
-                    widget: "string"
-                    hint: "⚠️ Não altere — é o nome do campo no formulário"
-                  - label: "Rótulo"
-                    name: "label"
-                    widget: "string"
-                  - label: "Tipo"
-                    name: "tipo"
-                    widget: "select"
-                    options: ["text", "tel", "email", "select", "textarea"]
-                    default: "text"
-                  - label: "Placeholder"
-                    name: "placeholder"
-                    widget: "string"
-                  - label: "Nº de linhas (só textarea)"
-                    name: "rows"
-                    widget: "number"
-                    required: false
-                    default: 2
-                  - label: "Opções (só para select)"
-                    name: "opcoes"
-                    widget: "list"
-                    required: false
-          - label: "Assunto do e-mail (técnico)"
-            name: "form.assunto"
-            widget: "hidden"
-            default: "Novo contato — site Castillo Engenharia"
           - label: "Aviso LGPD"
             name: "avisoLgpd"
             widget: "object"
@@ -391,10 +374,10 @@ collections:
               - label: "Texto do link"
                 name: "linkLabel"
                 widget: "string"
-              - label: "Endereço do link (técnico)"
+              - label: "Endereço do link (não altere)"
                 name: "linkHref"
-                widget: "hidden"
-                default: "/privacy-lgpd"
+                widget: "string"
+                required: false
           - label: "Texto do botão de envio"
             name: "botao"
             widget: "string"
@@ -415,14 +398,14 @@ collections:
               - label: "Texto"
                 name: "texto"
                 widget: "text"
-              - label: "Link"
+              - label: "Link pós-envio"
                 name: "link"
                 widget: "object"
                 fields:
-                  - label: "Endereço do link (técnico)"
+                  - label: "Endereço (não altere)"
                     name: "href"
-                    widget: "hidden"
-                    default: "/methodology"
+                    widget: "string"
+                    required: false
                   - label: "Texto do link"
                     name: "rotulo"
                     widget: "string"
@@ -436,6 +419,47 @@ collections:
               - label: "Texto do link"
                 name: "linkLabel"
                 widget: "string"
+          - label: "Formulário (estrutura técnica) — NÃO ALTERE"
+            name: "form"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - label: "Campos obrigatórios"
+                name: "camposObrigatorios"
+                widget: "list"
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - {label: "Identificador", name: "nome", widget: "string"}
+                  - {label: "Rótulo", name: "label", widget: "string"}
+                  - {label: "Tipo", name: "tipo", widget: "string", required: false}
+                  - {label: "Placeholder", name: "placeholder", widget: "string", required: false}
+                  - {label: "Opções (select)", name: "opcoes", widget: "list", required: false}
+                  - {label: "Obrigatório?", name: "required", widget: "boolean", required: false}
+              - label: "Seção complementar"
+                name: "complementar"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Título da seção", name: "titulo", widget: "string"}
+                  - label: "Campos"
+                    name: "campos"
+                    widget: "list"
+                    required: false
+                    summary: "{{fields.label}}"
+                    fields:
+                      - {label: "Identificador", name: "nome", widget: "string"}
+                      - {label: "Rótulo", name: "label", widget: "string"}
+                      - {label: "Tipo", name: "tipo", widget: "string", required: false}
+                      - {label: "Placeholder", name: "placeholder", widget: "string", required: false}
+                      - {label: "Nº de linhas (textarea)", name: "rows", widget: "number", required: false}
+                      - {label: "Opções (select)", name: "opcoes", widget: "list", required: false}
+              - {label: "Assunto do e-mail", name: "assunto", widget: "string", required: false}
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
   # ─────────────────────────────────────────────────────────────
   # 2. PÁGINAS INTERNAS
@@ -443,20 +467,11 @@ collections:
   - name: "paginas"
     label: "Páginas Internas"
     files:
+
       - name: "investimento-pagina"
         label: "Investimento (/prices)"
         file: "marketing/pagina-investimento.md"
         fields:
-          - label: "Rótulo do prazo (técnico)"
-            name: "prazoLabel"
-            widget: "hidden"
-            default: "Prazo:"
-          - label: "Título da aba (SEO)"
-            name: "seo.title"
-            widget: "string"
-          - label: "Descrição (SEO)"
-            name: "seo.description"
-            widget: "text"
           - label: "Título principal (h1)"
             name: "h1"
             widget: "string"
@@ -535,21 +550,31 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (técnico)"
+              - label: "Endereço (não altere)"
                 name: "href"
-                widget: "hidden"
-                default: "/#contato"
+                widget: "string"
+                required: false
+          - label: "SEO (título da aba e Google) — técnico"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Descrição", name: "description", widget: "text", required: false}
+          - label: "Rótulo do prazo — técnico"
+            name: "prazoLabel"
+            widget: "string"
+            required: false
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "metodologia-pagina"
         label: "Metodologia (/methodology)"
         file: "marketing/pagina-metodologia.md"
         fields:
-          - label: "Título da aba (SEO)"
-            name: "seo.title"
-            widget: "string"
-          - label: "Descrição (SEO)"
-            name: "seo.description"
-            widget: "text"
           - label: "Título principal (h1)"
             name: "h1"
             widget: "string"
@@ -575,21 +600,27 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (técnico)"
+              - label: "Endereço (não altere)"
                 name: "href"
-                widget: "hidden"
-                default: "/#contato"
+                widget: "string"
+                required: false
+          - label: "SEO — técnico"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Descrição", name: "description", widget: "text", required: false}
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "404-pagina"
         label: "404 / Página não encontrada"
         file: "marketing/pagina-nao-encontrada.md"
         fields:
-          - label: "Título da aba (SEO)"
-            name: "seo.title"
-            widget: "string"
-          - label: "Descrição (SEO)"
-            name: "seo.description"
-            widget: "text"
           - label: "Código (ex: 404)"
             name: "codigo"
             widget: "string"
@@ -607,25 +638,31 @@ collections:
               - label: "Texto do botão"
                 name: "label"
                 widget: "string"
-              - label: "Endereço (técnico)"
+              - label: "Endereço (não altere)"
                 name: "href"
-                widget: "hidden"
-                default: "/"
+                widget: "string"
+                required: false
               - label: "Estilo"
                 name: "estilo"
                 widget: "select"
                 options: ["primario", "secundario"]
+          - label: "SEO — técnico"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Descrição", name: "description", widget: "text", required: false}
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
       - name: "privacidade-pagina"
         label: "Privacidade LGPD (/privacy-lgpd)"
         file: "marketing/pagina-privacidade-lgpd.md"
         fields:
-          - label: "Título da aba (SEO)"
-            name: "seo.title"
-            widget: "string"
-          - label: "Descrição (SEO)"
-            name: "seo.description"
-            widget: "text"
           - label: "Título principal (h1)"
             name: "h1"
             widget: "string"
@@ -637,6 +674,18 @@ collections:
             name: "body"
             widget: "markdown"
             hint: "Edite os 9 blocos de texto jurídico. Use ## para títulos (seção 1, 2, etc.)"
+          - label: "SEO — técnico"
+            name: "seo"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Descrição", name: "description", widget: "text", required: false}
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
 
   # ─────────────────────────────────────────────────────────────
   # 3. CONFIGURAÇÕES GLOBAIS
@@ -644,117 +693,6 @@ collections:
   - name: "global"
     label: "Configurações Globais"
     files:
-      - name: "configuracao-site"
-        label: "Configuração do site"
-        file: "marketing/configuracao-do-site.md"
-        description: "⚠️ Altere com cuidado — dados técnicos do site inteiro"
-        fields:
-          - label: "URL do site (técnico)"
-            name: "siteUrl"
-            widget: "hidden"
-            default: "https://castilloeng.com.br"
-          - label: "Endpoint do formulário (técnico — não altere)"
-            name: "formspree.endpoint"
-            widget: "hidden"
-            default: "https://formspree.io/f/mqernvvb"
-          - label: "Texto do link 'pular conteúdo' (técnico)"
-            name: "a11y.skipLink"
-            widget: "hidden"
-            default: "Pular para o conteúdo"
-          - label: "Texto alternativo do logo (técnico)"
-            name: "header.logoAlt"
-            widget: "hidden"
-            default: "Logo da Castillo Engenharia"
-          - label: "Descrição do logo (técnico)"
-            name: "header.logoAria"
-            widget: "hidden"
-            default: "Castillo Engenharia — página inicial"
-          - label: "Botão WhatsApp do topo (técnico)"
-            name: "header.ctaWhatsAppMobile"
-            widget: "hidden"
-            default: "WhatsApp"
-          - label: "Acessibilidade botão WhatsApp (técnico)"
-            name: "header.ctaWhatsAppMobileAria"
-            widget: "hidden"
-            default: "Conversar no WhatsApp"
-          - label: "Botão agendar — celular (técnico)"
-            name: "header.ctaPrincipalMobile"
-            widget: "hidden"
-            default: "Agendar conversa"
-          - label: "Botão agendar — desktop (técnico)"
-            name: "header.ctaPrincipalDesktop"
-            widget: "hidden"
-            default: "Agendar conversa (sem compromisso)"
-          - label: "Número do WhatsApp (técnico)"
-            name: "whatsapp.number"
-            widget: "hidden"
-            default: "5541933009505"
-          - label: "Mensagem padrão do WhatsApp (técnico)"
-            name: "whatsapp.mensagemAgendar"
-            widget: "hidden"
-          - label: "Mensagem do WhatsApp 404 (técnico)"
-            name: "whatsapp.mensagem404"
-            widget: "hidden"
-          - label: "Acessibilidade botão flutuante (técnico)"
-            name: "whatsappButton.ariaLabel"
-            widget: "hidden"
-            default: "Conversa de 30 minutos, sem compromisso"
-          - label: "Texto do botão WhatsApp flutuante"
-            name: "whatsappButton.textoDesktop"
-            widget: "string"
-            hint: "Texto visível no botão verde flutuante"
-          - label: "Descrição padrão do site (SEO)"
-            name: "meta.descriptionDefault"
-            widget: "text"
-          - label: "E-mail de contato"
-            name: "contato.email"
-            widget: "string"
-          - label: "Telefone"
-            name: "contato.telefone"
-            widget: "string"
-          - label: "CNPJ"
-            name: "contato.cnpj"
-            widget: "string"
-          - label: "CEP / Cidade"
-            name: "contato.cep"
-            widget: "string"
-          - label: "Nome fantasia"
-            name: "institucional.nomeFantasia"
-            widget: "string"
-          - label: "Dados técnicos para o Google (Schema.org) — não altere"
-            name: "schemaOrg.@type"
-            widget: "hidden"
-            default: "ProfessionalService"
-          - label: "Nome legal (técnico)"
-            name: "schemaOrg.legalName"
-            widget: "hidden"
-            default: "Castillo Engineering LTDA"
-          - label: "Descrição (técnico)"
-            name: "schemaOrg.description"
-            widget: "hidden"
-          - label: "Cidade (técnico)"
-            name: "schemaOrg.addressLocality"
-            widget: "hidden"
-            default: "Curitiba"
-          - label: "Estado (técnico)"
-            name: "schemaOrg.addressRegion"
-            widget: "hidden"
-            default: "PR"
-          - label: "CEP (técnico)"
-            name: "schemaOrg.postalCode"
-            widget: "hidden"
-            default: "81510-210"
-          - label: "País (técnico)"
-            name: "schemaOrg.addressCountry"
-            widget: "hidden"
-            default: "BR"
-          - label: "Região atendida (técnico)"
-            name: "schemaOrg.areaServed"
-            widget: "hidden"
-            default: "Brasil"
-          - label: "Áreas de atuação (técnico)"
-            name: "schemaOrg.knowsAbout"
-            widget: "hidden"
 
       - name: "rodape"
         label: "Rodapé"
@@ -774,10 +712,10 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço do botão (técnico)"
+              - label: "Endereço do botão (não altere)"
                 name: "href"
-                widget: "hidden"
-                default: "/#contato"
+                widget: "string"
+                required: false
           - label: "Colunas do rodapé"
             name: "colunas"
             widget: "list"
@@ -803,6 +741,7 @@ collections:
                   - label: "URL"
                     name: "href"
                     widget: "string"
+                    required: false
               - label: "Itens de contato (coluna 3)"
                 name: "itens"
                 widget: "list"
@@ -825,3 +764,100 @@ collections:
           - label: "Linha de copyright"
             name: "copyright"
             widget: "string"
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
+
+      - name: "configuracao-site"
+        label: "Configuração do site (TÉCNICA — não editar)"
+        file: "marketing/configuracao-do-site.md"
+        description: "⚠️ Campos técnicos. Não altere nada aqui — mantido no painel apenas para preservar os dados. Quem edita: o dono, via repositório."
+        fields:
+          - label: "Descrição interna — técnico"
+            name: "sobre"
+            widget: "string"
+            required: false
+          - label: "URL do site — técnico"
+            name: "siteUrl"
+            widget: "string"
+            required: false
+          - label: "Institucional"
+            name: "institucional"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Nome fantasia", name: "nomeFantasia", widget: "string"}
+          - label: "Contatos públicos"
+            name: "contato"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "E-mail", name: "email", widget: "string"}
+              - {label: "Telefone", name: "telefone", widget: "string"}
+              - {label: "CNPJ", name: "cnpj", widget: "string"}
+              - {label: "CEP / Cidade", name: "cep", widget: "string"}
+          - label: "Botão WhatsApp flutuante"
+            name: "whatsappButton"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Texto visível (desktop)", name: "textoDesktop", widget: "string"}
+              - {label: "Texto de acessibilidade", name: "ariaLabel", widget: "string"}
+          - label: "Endpoint do formulário — NÃO ALTERE"
+            name: "formspree"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Endpoint", name: "endpoint", widget: "string"}
+          - label: "Acessibilidade — técnico"
+            name: "a11y"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Texto do link pular conteúdo", name: "skipLink", widget: "string"}
+          - label: "Header (topo do site) — técnico"
+            name: "header"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Alt do logo", name: "logoAlt", widget: "string"}
+              - {label: "Aria do logo", name: "logoAria", widget: "string"}
+              - {label: "Botão WhatsApp (mobile)", name: "ctaWhatsAppMobile", widget: "string"}
+              - {label: "Aria botão WhatsApp", name: "ctaWhatsAppMobileAria", widget: "string"}
+              - {label: "Botão agendar (mobile)", name: "ctaPrincipalMobile", widget: "string"}
+              - {label: "Botão agendar (desktop)", name: "ctaPrincipalDesktop", widget: "string"}
+          - label: "WhatsApp (mensagens automáticas) — técnico"
+            name: "whatsapp"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Número", name: "number", widget: "string"}
+              - {label: "Mensagem agendar", name: "mensagemAgendar", widget: "text"}
+              - {label: "Mensagem 404", name: "mensagem404", widget: "text"}
+          - label: "SEO padrão do site — técnico"
+            name: "meta"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Descrição padrão", name: "descriptionDefault", widget: "text"}
+          - label: "Schema.org (dados p/ Google) — técnico"
+            name: "schemaOrg"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Tipos", name: "@type", widget: "list", required: false}
+              - {label: "Nome legal", name: "legalName", widget: "string"}
+              - {label: "Descrição", name: "description", widget: "text"}
+              - {label: "Cidade", name: "addressLocality", widget: "string"}
+              - {label: "Estado", name: "addressRegion", widget: "string"}
+              - {label: "CEP", name: "postalCode", widget: "string"}
+              - {label: "País", name: "addressCountry", widget: "string"}
+              - {label: "Região atendida", name: "areaServed", widget: "list", required: false}
+              - {label: "Áreas de atuação", name: "knowsAbout", widget: "list", required: false}
