@@ -8,7 +8,7 @@ backend:
   name: github
   repo: fernandocastillovicencio/castillo-engineering
   branch: main
-  base_url: https://castillo-cms-auth.vercel.app
+  base_url: https://netlify-cms-github-oauth-provider-azure.vercel.app
   auth_endpoint: auth
 
 locale: "pt_br"
