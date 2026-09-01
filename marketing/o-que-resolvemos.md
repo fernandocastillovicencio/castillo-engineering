@@ -29,8 +29,8 @@ camadas:
     itens:
       - dor: Golpe de aríete
         sintoma: Batidas na tubulação; ruptura de conexões
-        impacto: aR$ 10–80 mil/evento
-        item: a
+        impacto: R$ 10–80 mil/evento
+        item: ""
       - dor: Incrustação em trocadores/evaporadores
         sintoma: Perde eficiência; lavagens frequentes
         impacto: R$ 10–80 mil/evento
