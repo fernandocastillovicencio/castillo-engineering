@@ -34,3 +34,8 @@ Thumbs.db
 
 # Artefato de deploy (gerado pelo dono)
 dist.tar.gz
+
+# Documentacao interna de configuracao (Client Secret, OAuth, etc)
+ADMIN-README.md
+DEPLOY-README.md
+npmrc
