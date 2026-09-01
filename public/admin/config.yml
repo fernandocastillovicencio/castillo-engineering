@@ -11,9 +11,11 @@
 #     cada .md (nível de topo). Nada de wrappers extras — o Decap
 #     reescreve o frontmatter ao salvar e apagaria o que não está
 #     declarado aqui.
-#   - Campos técnicos ficam em objetos colapsados no fim do formulário
-#     ("Técnico"), com required: false — preservados, fora do caminho.
-#   - Quem edita dados técnicos: o dono, direto no .md via git.
+#   - Campos avançados ficam em blocos colapsados no fim do formulário,
+#     com required: false — preservados, fora do caminho da editora.
+#   - Linguagem dos rótulos segue a convenção de CMS populares
+#     (WordPress/Wix): nada de jargão de programação visível.
+#   - Quem edita dados avançados: o dono, direto no .md via git.
 # ═══════════════════════════════════════════════════════════════
 
 backend:
@@ -52,13 +54,13 @@ collections:
           - label: "Linha de atendimento"
             name: "linhaAtendimento"
             widget: "string"
-          - label: "TÍTULO PRINCIPAL (headline)"
+          - label: "Título principal da página"
             name: "headline"
             widget: "string"
           - label: "Subtítulo"
             name: "sub"
             widget: "text"
-          - label: "SEO (título da aba e Google) — técnico"
+          - label: "SEO (Google) — avançado"
             name: "seo"
             widget: "object"
             collapsed: true
@@ -73,7 +75,7 @@ collections:
             required: false
             fields:
               - {label: "Texto do botão", name: "label", widget: "string", hint: "Mantenha: Agendar conversa (sem compromisso)"}
-              - {label: "Endereço (não altere)", name: "href", widget: "string", required: false}
+              - {label: "Link (não altere)", name: "href", widget: "string", required: false}
           - label: "Botão secundário — técnico"
             name: "ctaSecundario"
             widget: "object"
@@ -81,8 +83,8 @@ collections:
             required: false
             fields:
               - {label: "Texto do botão", name: "label", widget: "string", required: false}
-              - {label: "Endereço (não altere)", name: "href", widget: "string", required: false}
-          - label: "Descrição interna — técnico"
+              - {label: "Link (não altere)", name: "href", widget: "string", required: false}
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -113,7 +115,7 @@ collections:
                 widget: "select"
                 options:
                   - { label: "Dores (3 colunas)", value: "dores" }
-                  - { label: "Chips (tags)", value: "chips" }
+                  - { label: "Etiquetas (palavras curtas)", value: "chips" }
               - label: "Itens"
                 name: "itens"
                 widget: "list"
@@ -131,7 +133,7 @@ collections:
                     name: "impacto"
                     widget: "string"
                     required: false
-                  - label: "Texto do chip (chips)"
+                  - label: "Texto da etiqueta"
                     name: "item"
                     widget: "string"
                     required: false
@@ -143,7 +145,7 @@ collections:
                 name: "nota"
                 widget: "text"
                 required: false
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -169,7 +171,7 @@ collections:
               - label: "Detalhe (descrição)"
                 name: "detalhe"
                 widget: "text"
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -184,7 +186,7 @@ collections:
           - label: "Introdução"
             name: "intro"
             widget: "text"
-          - label: "Setores principais (cards)"
+          - label: "Setores principais (cartões)"
             name: "setoresPrincipais"
             widget: "list"
             summary: "{{fields.setor}}"
@@ -199,7 +201,7 @@ collections:
             name: "setoresMenores"
             widget: "list"
             hint: "Digite um setor por linha e clique em adicionar"
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -235,7 +237,7 @@ collections:
               - label: "Parágrafo 2"
                 name: "paragrafo2"
                 widget: "text"
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -265,7 +267,7 @@ collections:
                 name: "destaque"
                 widget: "boolean"
                 default: false
-          - label: "Botão CTA"
+          - label: "Botão de agendamento"
             name: "cta"
             widget: "object"
             fields:
@@ -273,11 +275,11 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (não altere)"
+              - label: "Link (não altere)"
                 name: "href"
                 widget: "string"
                 required: false
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -308,7 +310,7 @@ collections:
                 widget: "object"
                 required: false
                 fields:
-                  - label: "URL do link"
+                  - label: "Endereço do link"
                     name: "href"
                     widget: "string"
                     required: false
@@ -316,7 +318,7 @@ collections:
                     name: "rotulo"
                     widget: "string"
                     required: false
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -349,7 +351,7 @@ collections:
                   - label: "Descrição"
                     name: "descricao"
                     widget: "text"
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -374,7 +376,7 @@ collections:
               - label: "Texto do link"
                 name: "linkLabel"
                 widget: "string"
-              - label: "Endereço do link (não altere)"
+              - label: "Link (não altere)"
                 name: "linkHref"
                 widget: "string"
                 required: false
@@ -402,7 +404,7 @@ collections:
                 name: "link"
                 widget: "object"
                 fields:
-                  - label: "Endereço (não altere)"
+                  - label: "Link (não altere)"
                     name: "href"
                     widget: "string"
                     required: false
@@ -419,7 +421,7 @@ collections:
               - label: "Texto do link"
                 name: "linkLabel"
                 widget: "string"
-          - label: "Formulário (estrutura técnica) — NÃO ALTERE"
+          - label: "Estrutura do formulário — avançado, NÃO ALTERE"
             name: "form"
             widget: "object"
             collapsed: true
@@ -431,11 +433,11 @@ collections:
                 required: false
                 summary: "{{fields.label}}"
                 fields:
-                  - {label: "Identificador", name: "nome", widget: "string"}
+                  - {label: "Nome do campo (não altere)", name: "nome", widget: "string"}
                   - {label: "Rótulo", name: "label", widget: "string"}
-                  - {label: "Tipo", name: "tipo", widget: "string", required: false}
-                  - {label: "Placeholder", name: "placeholder", widget: "string", required: false}
-                  - {label: "Opções (select)", name: "opcoes", widget: "list", required: false}
+                  - {label: "Tipo de campo", name: "tipo", widget: "string", required: false}
+                  - {label: "Texto de exemplo (dentro do campo)", name: "placeholder", widget: "string", required: false}
+                  - {label: "Opções (lista de escolhas)", name: "opcoes", widget: "list", required: false}
                   - {label: "Obrigatório?", name: "required", widget: "boolean", required: false}
               - label: "Seção complementar"
                 name: "complementar"
@@ -449,14 +451,14 @@ collections:
                     required: false
                     summary: "{{fields.label}}"
                     fields:
-                      - {label: "Identificador", name: "nome", widget: "string"}
+                      - {label: "Nome do campo (não altere)", name: "nome", widget: "string"}
                       - {label: "Rótulo", name: "label", widget: "string"}
-                      - {label: "Tipo", name: "tipo", widget: "string", required: false}
-                      - {label: "Placeholder", name: "placeholder", widget: "string", required: false}
-                      - {label: "Nº de linhas (textarea)", name: "rows", widget: "number", required: false}
-                      - {label: "Opções (select)", name: "opcoes", widget: "list", required: false}
+                      - {label: "Tipo de campo", name: "tipo", widget: "string", required: false}
+                      - {label: "Texto de exemplo (dentro do campo)", name: "placeholder", widget: "string", required: false}
+                      - {label: "Nº de linhas (caixa de texto)", name: "rows", widget: "number", required: false}
+                      - {label: "Opções (lista de escolhas)", name: "opcoes", widget: "list", required: false}
               - {label: "Assunto do e-mail", name: "assunto", widget: "string", required: false}
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -472,7 +474,7 @@ collections:
         label: "Investimento (/prices)"
         file: "marketing/pagina-investimento.md"
         fields:
-          - label: "Título principal (h1)"
+          - label: "Título principal da página"
             name: "h1"
             widget: "string"
           - label: "Introdução"
@@ -542,7 +544,7 @@ collections:
               - label: "Texto de risco"
                 name: "risco"
                 widget: "text"
-          - label: "Botão CTA"
+          - label: "Botão de agendamento"
             name: "cta"
             widget: "object"
             fields:
@@ -550,11 +552,11 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (não altere)"
+              - label: "Link (não altere)"
                 name: "href"
                 widget: "string"
                 required: false
-          - label: "SEO (título da aba e Google) — técnico"
+          - label: "SEO (Google) — avançado"
             name: "seo"
             widget: "object"
             collapsed: true
@@ -562,11 +564,11 @@ collections:
             fields:
               - {label: "Título da aba", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
-          - label: "Rótulo do prazo — técnico"
+          - label: "Palavra \"Prazo\" (texto fixo) — avançado"
             name: "prazoLabel"
             widget: "string"
             required: false
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -575,7 +577,7 @@ collections:
         label: "Metodologia (/methodology)"
         file: "marketing/pagina-metodologia.md"
         fields:
-          - label: "Título principal (h1)"
+          - label: "Título principal da página"
             name: "h1"
             widget: "string"
           - label: "Introdução"
@@ -592,7 +594,7 @@ collections:
               - label: "Texto"
                 name: "texto"
                 widget: "text"
-          - label: "Botão CTA"
+          - label: "Botão de agendamento"
             name: "cta"
             widget: "object"
             fields:
@@ -600,11 +602,11 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço (não altere)"
+              - label: "Link (não altere)"
                 name: "href"
                 widget: "string"
                 required: false
-          - label: "SEO — técnico"
+          - label: "SEO (Google) — avançado"
             name: "seo"
             widget: "object"
             collapsed: true
@@ -612,7 +614,7 @@ collections:
             fields:
               - {label: "Título da aba", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -638,15 +640,17 @@ collections:
               - label: "Texto do botão"
                 name: "label"
                 widget: "string"
-              - label: "Endereço (não altere)"
+              - label: "Link (não altere)"
                 name: "href"
                 widget: "string"
                 required: false
               - label: "Estilo"
                 name: "estilo"
                 widget: "select"
-                options: ["primario", "secundario"]
-          - label: "SEO — técnico"
+                options:
+                  - { label: "Azul (principal)", value: "primario" }
+                  - { label: "Contorno (secundário)", value: "secundario" }
+          - label: "SEO (Google) — avançado"
             name: "seo"
             widget: "object"
             collapsed: true
@@ -654,7 +658,7 @@ collections:
             fields:
               - {label: "Título da aba", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -663,7 +667,7 @@ collections:
         label: "Privacidade LGPD (/privacy-lgpd)"
         file: "marketing/pagina-privacidade-lgpd.md"
         fields:
-          - label: "Título principal (h1)"
+          - label: "Título principal da página"
             name: "h1"
             widget: "string"
           - label: "Data de atualização"
@@ -674,7 +678,7 @@ collections:
             name: "body"
             widget: "markdown"
             hint: "Edite os 9 blocos de texto jurídico. Use ## para títulos (seção 1, 2, etc.)"
-          - label: "SEO — técnico"
+          - label: "SEO (Google) — avançado"
             name: "seo"
             widget: "object"
             collapsed: true
@@ -682,7 +686,7 @@ collections:
             fields:
               - {label: "Título da aba", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
@@ -712,7 +716,7 @@ collections:
                 name: "label"
                 widget: "string"
                 hint: "Mantenha: Agendar conversa (sem compromisso)"
-              - label: "Endereço do botão (não altere)"
+              - label: "Link do botão (não altere)"
                 name: "href"
                 widget: "string"
                 required: false
@@ -756,7 +760,9 @@ collections:
                     name: "tipo"
                     widget: "select"
                     required: false
-                    options: ["email", "whatsapp"]
+                    options:
+                    - { label: "E-mail", value: "email" }
+                    - { label: "WhatsApp", value: "whatsapp" }
                   - label: "Rótulo (ex: contato@...)"
                     name: "label"
                     widget: "string"
@@ -764,21 +770,21 @@ collections:
           - label: "Linha de copyright"
             name: "copyright"
             widget: "string"
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
 
       - name: "configuracao-site"
-        label: "Configuração do site (TÉCNICA — não editar)"
+        label: "Configuração do site (AVANÇADA — não editar)"
         file: "marketing/configuracao-do-site.md"
-        description: "⚠️ Campos técnicos. Não altere nada aqui — mantido no painel apenas para preservar os dados. Quem edita: o dono, via repositório."
+        description: "⚠️ Campos avançados. Não altere nada aqui — mantido no painel apenas para preservar os dados. Quem edita: o dono, via repositório."
         fields:
-          - label: "Descrição interna — técnico"
+          - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
             required: false
-          - label: "URL do site — técnico"
+          - label: "Endereço do site — avançado"
             name: "siteUrl"
             widget: "string"
             required: false
@@ -802,57 +808,57 @@ collections:
             widget: "object"
             required: false
             fields:
-              - {label: "Texto visível (desktop)", name: "textoDesktop", widget: "string"}
+              - {label: "Texto do botão (versão para computador)", name: "textoDesktop", widget: "string"}
               - {label: "Texto de acessibilidade", name: "ariaLabel", widget: "string"}
-          - label: "Endpoint do formulário — NÃO ALTERE"
+          - label: "Formulário (envio de mensagens) — avançado"
             name: "formspree"
             widget: "object"
             collapsed: true
             required: false
             fields:
-              - {label: "Endpoint", name: "endpoint", widget: "string"}
-          - label: "Acessibilidade — técnico"
+              - {label: "Endereço de envio (não altere)", name: "endpoint", widget: "string"}
+          - label: "Acessibilidade — avançado"
             name: "a11y"
             widget: "object"
             collapsed: true
             required: false
             fields:
               - {label: "Texto do link pular conteúdo", name: "skipLink", widget: "string"}
-          - label: "Header (topo do site) — técnico"
+          - label: "Cabeçalho (topo do site) — avançado"
             name: "header"
             widget: "object"
             collapsed: true
             required: false
             fields:
-              - {label: "Alt do logo", name: "logoAlt", widget: "string"}
-              - {label: "Aria do logo", name: "logoAria", widget: "string"}
-              - {label: "Botão WhatsApp (mobile)", name: "ctaWhatsAppMobile", widget: "string"}
-              - {label: "Aria botão WhatsApp", name: "ctaWhatsAppMobileAria", widget: "string"}
-              - {label: "Botão agendar (mobile)", name: "ctaPrincipalMobile", widget: "string"}
+              - {label: "Texto alternativo do logo", name: "logoAlt", widget: "string"}
+              - {label: "Descrição do logo (leitores de tela)", name: "logoAria", widget: "string"}
+              - {label: "Botão WhatsApp (celular)", name: "ctaWhatsAppMobile", widget: "string"}
+              - {label: "Descrição do botão (leitores de tela)", name: "ctaWhatsAppMobileAria", widget: "string"}
+              - {label: "Botão agendar (celular)", name: "ctaPrincipalMobile", widget: "string"}
               - {label: "Botão agendar (desktop)", name: "ctaPrincipalDesktop", widget: "string"}
-          - label: "WhatsApp (mensagens automáticas) — técnico"
+          - label: "WhatsApp (mensagens automáticas) — avançado"
             name: "whatsapp"
             widget: "object"
             collapsed: true
             required: false
             fields:
               - {label: "Número", name: "number", widget: "string"}
-              - {label: "Mensagem agendar", name: "mensagemAgendar", widget: "text"}
-              - {label: "Mensagem 404", name: "mensagem404", widget: "text"}
-          - label: "SEO padrão do site — técnico"
+              - {label: "Mensagem ao agendar", name: "mensagemAgendar", widget: "text"}
+              - {label: "Mensagem (página não encontrada)", name: "mensagem404", widget: "text"}
+          - label: "SEO padrão do site — avançado"
             name: "meta"
             widget: "object"
             collapsed: true
             required: false
             fields:
               - {label: "Descrição padrão", name: "descriptionDefault", widget: "text"}
-          - label: "Schema.org (dados p/ Google) — técnico"
+          - label: "Dados para o Google (Schema) — avançado"
             name: "schemaOrg"
             widget: "object"
             collapsed: true
             required: false
             fields:
-              - {label: "Tipos", name: "@type", widget: "list", required: false}
+              - {label: "Tipos de negócio", name: "@type", widget: "list", required: false}
               - {label: "Nome legal", name: "legalName", widget: "string"}
               - {label: "Descrição", name: "description", widget: "text"}
               - {label: "Cidade", name: "addressLocality", widget: "string"}
