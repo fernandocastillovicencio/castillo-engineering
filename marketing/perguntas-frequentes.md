@@ -35,7 +35,7 @@ faq:
   - pergunta: "Vocês já atenderam uma empresa do meu setor?"
     resposta: "Ainda não publicamos casos — a divulgação é recente. Mas a conversa de 30 minutos mostra na prática como a análise funciona com os dados da sua planta, antes de você pagar qualquer coisa."
   - pergunta: "Vocês atendem à distância?"
-    resposta: "Sim — atuação 100% remota para todo o Brasil e América do Sul. A análise é feita com os dados que a planta já produz — faturas, logs e instrumentação existente — sem necessidade de instalação de equipamento no campo."
+    resposta: "Sim — atuação 100% remota para todo o Brasil e América do Sul. A análise é feita com os dados que a planta já produz — faturas, logs e instrumentação existente — sem ninguém entrar na planta."
   - pergunta: "Como sei que funciona de verdade?"
     resposta: "A verificação faz parte do serviço: definimos a linha de base em contrato e verificamos contra a fatura o que foi alcançado, com faixa de confiança. Sem promessa de valor mínimo — com método."
     link:
