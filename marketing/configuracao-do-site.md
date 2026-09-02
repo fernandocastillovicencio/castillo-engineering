@@ -42,7 +42,7 @@ whatsappButton:
   ariaLabel: "Conversa de 30 minutos, sem compromisso"
   textoDesktop: "Entre em contato, sem compromisso"
 meta:
-  descriptionDefault: "Diagnóstico e análise de desempenho de vapor, refrigeração, bombas e secagem — verificando o resultado contra a fatura (IPMVP, Opção C). Conversa de 30 minutos, sem compromisso."
+  descriptionDefault: "Diagnóstico e análise de desempenho de vapor, refrigeração, bombas e secagem — verificando o resultado contra a fatura. Conversa de 30 minutos, sem compromisso."
 contato:
   email: "contato@castilloeng.com.br"
   telefone: "+55-41-93300-9505"
@@ -59,5 +59,5 @@ schemaOrg:
   postalCode: "81510-210"
   addressCountry: "BR"
   areaServed: ["Brasil", "América do Sul"]
-  knowsAbout: ["Engenharia de fluidos e térmica", "Eficiência energética industrial", "Análise de desempenho térmico", "Diagnóstico de vapor e condensado", "Refrigeração industrial por amônia (NBR 16069)", "COP e desempenho de refrigeração", "Sistemas de bombeamento", "Secagem industrial", "Verificação de economia de energia (IPMVP)", "NR-13", "NR-36"]
+  knowsAbout: ["Engenharia de fluidos e térmica", "Eficiência energética industrial", "Análise de desempenho térmico", "Diagnóstico de vapor e condensado", "Refrigeração industrial por amônia (NBR 16069)", "COP e desempenho de refrigeração", "Sistemas de bombeamento", "Secagem industrial", "Verificação de economia de energia", "NR-13", "NR-36"]
 ---
