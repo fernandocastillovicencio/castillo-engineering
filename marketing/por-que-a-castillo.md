@@ -23,5 +23,5 @@ diferenciais:
 comoTrabalhamos:
   titulo: "Como trabalhamos"
   paragrafo1: "Analisamos os dados que a planta já produz — faturas de energia, registros de operação e a instrumentação existente — com modelagem termoenergética e simulação. O resultado é o diagnóstico: onde está o desperdício e a economia possível, em faixa de confiança."
-  paragrafo2: "A verificação é contra a fatura e os dados existentes, pelo protocolo internacional IPMVP (Opção C): linha de base definida em contrato e economia reportada como diferença entre o modelo e o consumo real, ajustada por produção e clima. Responsabilidade técnica registrada (CREA-PR) e ART quando o serviço exigir."
+  paragrafo2: "A verificação é contra a fatura e os dados existentes, com linha de base definida em contrato: a economia é reportada como diferença entre o modelo e o consumo real, ajustada por produção e clima. Responsabilidade técnica registrada (CREA-PR) e ART quando o serviço exigir."
 ---
