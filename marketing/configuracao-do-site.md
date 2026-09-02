@@ -42,7 +42,7 @@ whatsappButton:
   ariaLabel: "Conversa de 30 minutos, sem compromisso"
   textoDesktop: "Entre em contato, sem compromisso"
 meta:
-  descriptionDefault: "Diagnóstico e análise de desempenho de vapor, refrigeração, bombas e secagem — sem medição de campo, verificando o resultado contra a fatura (IPMVP, Opção C). Conversa de 30 minutos, sem compromisso."
+  descriptionDefault: "Diagnóstico e análise de desempenho de vapor, refrigeração, bombas e secagem — verificando o resultado contra a fatura (IPMVP, Opção C). Conversa de 30 minutos, sem compromisso."
 contato:
   email: "contato@castilloeng.com.br"
   telefone: "+55-41-93300-9505"
