@@ -19,19 +19,19 @@
 # ═══════════════════════════════════════════════════════════════
 sobre: "Seção INVESTIMENTO: 4 cards (conversa, proposta, diagnóstico em destaque, plano de ação) + botão."
 title: "Investimento"
-intro: "Sem tabela de preços publicada: o investimento é definido na proposta, depois de entendermos o seu problema."
+intro: "Cada planta é um caso, então não publicamos tabela de preços — mas você conhece o limite máximo do investimento antes de começar, e a proposta é gratuita."
 cards:
   - nome: "Conversa inicial"
-    inclui: "30 minutos"
+    inclui: "30 minutos, sem custo"
     destaque: false
   - nome: "Proposta de Serviço"
-    inclui: "Escopo, prazo e investimento — sem custo."
+    inclui: "Escopo, prazo e investimento com teto — sem custo."
     destaque: false
   - nome: "Diagnóstico aprofundado"
-    inclui: "Escopo definido na proposta: dados necessários, linha de base e medições."
+    inclui: "1 sistema, 5–10 dias úteis, análise dos dados que você já tem e valor com teto definido na proposta."
     destaque: true
   - nome: "Plano de ação"
-    inclui: "Escopo completo, com verificação de resultado."
+    inclui: "Plano de ação com verificação de resultado — a execução fica com você ou com seu fornecedor."
     destaque: false
 cta:
   label: "Agendar conversa (sem compromisso)"

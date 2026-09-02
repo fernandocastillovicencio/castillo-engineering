@@ -17,12 +17,12 @@
 # ═══════════════════════════════════════════════════════════════
 sobre: "Seção PARA QUEM: setores principais (5) e setores secundários (chips)."
 title: "Para quem"
-intro: "Indústrias de qualquer porte com processos térmicos e de fluidos intensivos. Atendimento remoto para o Peru e a região andina: o diagnóstico começa pelos dados que a planta já produz — faturas, logs e instrumentação existente — analisados com modelagem remota."
+intro: "Indústrias que gastam muito com energia — vapor, refrigeração, bombas e secagem. O diagnóstico começa pelos dados que a planta já produz — faturas, logs e instrumentação existente — analisados com modelagem remota, de qualquer lugar do Brasil e da América do Sul."
 setoresPrincipais:
   - setor: "Laticínios"
     frase: "Quanto combustível sua caldeira consome por tonelada de leite? A maioria costuma estar acima da referência do setor."
   - setor: "Cervejarias"
-    frase: "No pico do verão, fervura e refrigeração trabalham no limite."
+    frase: "Quanto sua refrigeração custa por litro produzido? No verão, é o maior item da fatura — e a análise começa pelos dados que você já tem."
   - setor: "Frigoríficos"
     frase: "Sua sala de amônia está conforme a NBR 16069? E o COP?"
   - setor: "Usinas de cana"
