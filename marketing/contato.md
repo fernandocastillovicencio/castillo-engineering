@@ -23,9 +23,9 @@
 #    opcoes: ["Opção 1", "Opção 2"]
 # ⚠️ Não mude os "nome:" — são técnicos (usados no envio).
 # ═══════════════════════════════════════════════════════════════
-sobre: "Seção CONTATO: formulário completo (campos obrigatórios, complementares, aviso LGPD, botão e confirmação)."
-title: "Agende sua conversa."
-intro: "Sem documento, sem dado sensível, sem compromisso. Você conta o problema — nós encontramos o que está acontecendo e mostramos o caminho."
+sobre: "Seção CONTATO: formulário reduzido (3 campos obrigatórios), aviso LGPD, botão e confirmação."
+title: "Agende sua conversa (30 min, sem custo)."
+intro: "Sem documento, sem custo, sem compromisso — você conta o problema, a gente mostra o que está acontecendo."
 form:
   assunto: "Novo contato — site Castillo Engenharia"
   camposObrigatorios:
@@ -43,37 +43,11 @@ form:
       label: "Problema principal *"
       tipo: "select"
       placeholder: "Selecione"
-      opcoes: ["Vapor", "Refrigeração", "Bombas", "Secagem", "Ar comprimido", "Outro"]
+      opcoes: ["Vapor", "Refrigeração", "Bombas", "Secagem", "Ar comprimido", "Não sei — quero entender", "Outro"]
       required: true
   complementar:
     titulo: "Complementar (opcional)"
-    campos:
-      - nome: "empresa"
-        label: "Empresa"
-        tipo: "text"
-        placeholder: "Nome da sua empresa"
-      - nome: "email"
-        label: "E-mail"
-        tipo: "email"
-        placeholder: "voce@empresa.com.br"
-      - nome: "cargo"
-        label: "Cargo"
-        tipo: "text"
-        placeholder: "Ex.: gerente de manutenção"
-      - nome: "cidade"
-        label: "Cidade/UF (ou país)"
-        tipo: "text"
-        placeholder: "Ex.: Castro/PR — ou país, se América do Sul"
-      - nome: "setor"
-        label: "Setor"
-        tipo: "select"
-        placeholder: "Selecione (opcional)"
-        opcoes: ["Laticínios", "Cervejarias", "Frigoríficos", "Usinas de cana", "Madeira e móveis", "Papel e celulose", "Química", "Têxtil", "Avícola", "Outro"]
-      - nome: "problema"
-        label: "Problema (opcional)"
-        tipo: "textarea"
-        rows: 2
-        placeholder: "ex.: consumo de vapor acima do esperado, entupimentos recorrentes, variação de qualidade na secagem..."
+    campos: []
 avisoLgpd:
   antes: "Ao enviar, você concorda com o tratamento dos dados para fins de diagnóstico, conforme a "
   linkLabel: "Política de Privacidade (LGPD)"

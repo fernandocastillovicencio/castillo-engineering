@@ -340,12 +340,12 @@ collections:
               - label: "Resumo"
                 name: "intro"
                 widget: "text"
-              - label: "Projetos"
+              - label: "Itens de resultado"
                 name: "itens"
                 widget: "list"
                 summary: "{{fields.titulo}}"
                 fields:
-                  - label: "Nome do projeto"
+                  - label: "Nome do item"
                     name: "titulo"
                     widget: "string"
                   - label: "Descrição"
@@ -507,7 +507,7 @@ collections:
                 name: "destaque"
                 widget: "boolean"
                 default: false
-              - label: "Cards de projeto (opcional, etapa 4)"
+              - label: "Cards de plano de melhoria (etapa 4)"
                 name: "cards"
                 widget: "list"
                 required: false

@@ -46,7 +46,7 @@ etapas:
     destaque: false
   - numero: 3
     titulo: "Diagnóstico aprofundado"
-    texto: "1 sistema (vapor, refrigeração ou bombas), medição pontual não intrusiva e linha de base com fatura + acordo de confidencialidade. "
+    texto: "1 sistema (vapor, refrigeração ou bombas), análise dos dados existentes — 12 meses de faturas de energia, produção (t/dia), logs de operação e leituras dos instrumentos já instalados — com linha de base contra a fatura e acordo de confidencialidade. Sem instalação de instrumentação."
     textoDestaque: "Abatido no plano de melhoria."
     prazo: "5–10 dias úteis de análise."
     destaque: true
@@ -59,7 +59,7 @@ etapas:
         texto: "2–3 sistemas integrados, com orientação técnica remota."
       - nome: "Completo"
         texto: "Plano multissistema com verificação de resultado e linha de base contratual."
-    nota: "ART (Anotação de Responsabilidade Técnica) quando o serviço exigir · Projetos enquadráveis em linhas Finep/Embrapii são avaliados caso a caso."
+    nota: "ART (Anotação de Responsabilidade Técnica) quando o serviço exigir."
     destaque: false
 comoPrecificamos:
   titulo: "Como precificamos"
@@ -67,9 +67,9 @@ comoPrecificamos:
     - destaque: "No começo — hora de engenharia com teto:"
       texto: "você conhece o limite máximo antes de começar."
     - destaque: "Quando a economia é verificada — fixo por escopo:"
-      texto: "a economia é medida e reportada contra a fatura."
+      texto: "a economia é verificada contra a fatura."
     - destaque: "Sem bônus:"
-      texto: "o alinhamento de interesses é a verificação de resultado."
+      texto: "o critério de verificação é a fatura — dados que você já tem e confere — não um número que nós mesmos produzimos. Por isso não há incentivo a inflar."
   risco: "O risco de comprar caro é baixo: o investimento só é definido na proposta, depois de analisarmos o seu caso e os seus dados. O risco de não fazer nada é a fatura de energia poder subir no próximo reajuste."
 cta:
   label: "Agendar conversa (sem compromisso)"

@@ -22,8 +22,8 @@
 # ═══════════════════════════════════════════════════════════════
 sobre: "RODAPÉ: chamada com botão, 3 colunas (empresa, navegação, contato) e copyright."
 cta:
-  titulo: "Quer saber onde sua operação pode melhorar?"
-  texto: "Converse sem compromisso com um engenheiro especialista."
+  titulo: "Quer saber o que suas faturas e registros já dizem sobre a operação?"
+  texto: "Conversa de 30 minutos, sem compromisso, sobre vapor, refrigeração, bombas e secagem."
   label: "Agendar conversa (sem compromisso)"
   href: "/#contato"
 colunas:
