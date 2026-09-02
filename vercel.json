@@ -19,7 +19,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://github.com; font-src 'self' https://unpkg.com; frame-ancestors 'none'; form-action 'self'; base-uri 'self'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://github.com; font-src 'self' https://unpkg.com; frame-ancestors 'none'; form-action 'self'; base-uri 'self'"
         }
       ]
     }
