@@ -38,6 +38,7 @@ dist.tar.gz
 # Documentacao interna de configuracao (Client Secret, OAuth, etc)
 ADMIN-README.md
 DEPLOY-README.md
+README.md
 npmrc
 
 # Documentacao interna de estrutura do site (guia do editor, nao conteudo publico)
