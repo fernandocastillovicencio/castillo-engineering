@@ -53,11 +53,11 @@ institucional:
 schemaOrg:
   "@type": ["ProfessionalService", "LocalBusiness"]
   legalName: "Castillo Engineering LTDA"
-  description: "Engenharia de fluidos e térmica industrial. Diagnóstico e solução de problemas, otimização de processos, simulação computacional e CFD, software técnico sob demanda."
+  description: "Engenharia de fluidos e térmica. Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; conformidade NR-13/NR-36."
   addressLocality: "Curitiba"
   addressRegion: "PR"
   postalCode: "81510-210"
   addressCountry: "BR"
   areaServed: ["Brasil", "América do Sul"]
-  knowsAbout: ["Engenharia de fluidos e térmica", "Eficiência energética", "Solução de problemas térmicos", "Otimização de processos", "Sistemas de bombeamento", "Sistemas de refrigeração", "CFD", "Software técnico"]
+  knowsAbout: ["Engenharia de fluidos e térmica", "Eficiência energética", "Análise de desempenho térmico", "Diagnóstico de vapor e condensado", "Sistemas de bombeamento", "Sistemas de refrigeração", "Secagem industrial", "NR-13", "NR-36"]
 ---

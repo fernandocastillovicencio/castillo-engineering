@@ -17,7 +17,7 @@
 # ⚠️ "destaque: true" deixa o card em destaque (azul). Só 1 card deve
 #    ficar com true; os outros ficam com false.
 # ═══════════════════════════════════════════════════════════════
-sobre: "Seção INVESTIMENTO: 4 cards (conversa, proposta, diagnóstico em destaque, projeto) + botão."
+sobre: "Seção INVESTIMENTO: 4 cards (conversa, proposta, diagnóstico em destaque, plano de ação) + botão."
 title: "Investimento"
 intro: "Sem tabela de preços publicada: o investimento é definido na proposta, depois de entendermos o seu problema."
 cards:
@@ -30,7 +30,7 @@ cards:
   - nome: "Diagnóstico aprofundado"
     inclui: "Escopo definido na proposta: dados necessários, linha de base e medições."
     destaque: true
-  - nome: "Projeto"
+  - nome: "Plano de ação"
     inclui: "Escopo completo, com verificação de resultado."
     destaque: false
 cta:

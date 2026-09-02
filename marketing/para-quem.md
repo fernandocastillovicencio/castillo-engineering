@@ -17,10 +17,10 @@
 # ═══════════════════════════════════════════════════════════════
 sobre: "Seção PARA QUEM: setores principais (5) e setores secundários (chips)."
 title: "Para quem"
-intro: "Indústrias de qualquer porte com processos térmicos e de fluidos intensivos."
+intro: "Indústrias de qualquer porte com processos térmicos e de fluidos intensivos. Atendimento remoto para o Peru e a região andina: o diagnóstico começa pelos dados que a planta já produz — faturas, logs e instrumentação existente — analisados com modelagem remota."
 setoresPrincipais:
   - setor: "Laticínios"
-    frase: "Quanto combustível sua caldeira consome por tonelada de leite? A maioria está 15% acima da referência do setor."
+    frase: "Quanto combustível sua caldeira consome por tonelada de leite? A maioria costuma estar acima da referência do setor."
   - setor: "Cervejarias"
     frase: "No pico do verão, fervura e refrigeração trabalham no limite."
   - setor: "Frigoríficos"
@@ -28,6 +28,6 @@ setoresPrincipais:
   - setor: "Usinas de cana"
     frase: "Na safra recorde, incrustação em evaporador vira parada."
   - setor: "Madeira e móveis"
-    frase: "Sua estufa seca 20% mais rápido com a mesma qualidade?"
+    frase: "Sua estufa seca mais rápido com a mesma qualidade?"
 setoresMenores: ["Papel e celulose", "Química", "Têxtil", "Avícola"]
 ---

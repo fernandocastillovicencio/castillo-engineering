@@ -39,3 +39,6 @@ dist.tar.gz
 ADMIN-README.md
 DEPLOY-README.md
 npmrc
+
+# Documentacao interna de estrutura do site (guia do editor, nao conteudo publico)
+marketing/ESTRUTURA.md

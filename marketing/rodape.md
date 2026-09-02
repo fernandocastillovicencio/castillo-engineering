@@ -29,7 +29,7 @@ cta:
 colunas:
   - titulo: "Castillo Engineering LTDA"
     paragrafos:
-      - "Consultoria em engenharia de fluidos e térmica — solução de problemas, otimização de processos, simulação computacional, software sob demanda."
+      - "Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; conformidade NR-13/NR-36."
       - "CREA-PR ativo · ART quando o serviço exigir, ou a pedido do cliente (Lei 6.496/1977)"
   - titulo: "Navegação"
     links:
