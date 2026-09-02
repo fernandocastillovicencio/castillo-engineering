@@ -22,7 +22,7 @@ h1: "Metodologia"
 intro: "Engenharia de fluidos e térmica aplicada a dados reais — o diagnóstico começa com o que já existe na planta."
 cards:
   - titulo: "Linha de base e dados imperfeitos"
-    texto: "80% da oportunidade é visível com poucos dados: faturas de energia, registros de manutenção e conversa com quem opera definem o ponto de partida."
+    texto: "Grande parte da oportunidade é visível com poucos dados: faturas de energia, registros de manutenção e conversa com quem opera definem o ponto de partida."
   - titulo: "Faixas de confiança"
     texto: "As oportunidades são quantificadas em faixas de probabilidade: o cenário mais provável e o conservador mostram o potencial de economia com honestidade — e viram critério de verificação depois."
   - titulo: "Verificação de resultado (padrão internacional IPMVP)"

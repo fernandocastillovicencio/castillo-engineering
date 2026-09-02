@@ -47,18 +47,18 @@ etapas:
   - numero: 3
     titulo: "Diagnóstico aprofundado"
     texto: "1 sistema (vapor, refrigeração ou bombas), medição pontual não intrusiva e linha de base com fatura + acordo de confidencialidade. "
-    textoDestaque: "Abatido no projeto."
+    textoDestaque: "Abatido no plano de melhoria."
     prazo: "5–10 dias úteis de análise."
     destaque: true
   - numero: 4
-    titulo: "Projeto — escopo, prazo e investimento na proposta"
+    titulo: "Plano de melhoria — escopo, prazo e investimento na proposta"
     cards:
       - nome: "Básico"
         texto: "Escopo pontual: 1 sistema, solução dimensionada e plano de ação."
       - nome: "Médio"
-        texto: "2–3 sistemas integrados, com acompanhamento de implementação."
+        texto: "2–3 sistemas integrados, com orientação técnica remota."
       - nome: "Completo"
-        texto: "Projeto multissistema com verificação de resultado e linha de base contratual."
+        texto: "Plano multissistema com verificação de resultado e linha de base contratual."
     nota: "ART (Anotação de Responsabilidade Técnica) quando o serviço exigir · Projetos enquadráveis em linhas Finep/Embrapii são avaliados caso a caso."
     destaque: false
 comoPrecificamos:
@@ -70,7 +70,7 @@ comoPrecificamos:
       texto: "a economia é medida e reportada contra a fatura."
     - destaque: "Sem bônus:"
       texto: "o alinhamento de interesses é a verificação de resultado."
-  risco: "O risco de comprar caro é praticamente zero; o risco de não fazer nada é a fatura de energia subir no próximo reajuste."
+  risco: "O risco de comprar caro é baixo: o investimento só é definido na proposta, depois de analisarmos o seu caso e os seus dados. O risco de não fazer nada é a fatura de energia poder subir no próximo reajuste."
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "/#contato"

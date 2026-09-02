@@ -1,7 +1,6 @@
 ---
 title: O que resolvemos
-intro: Estimamos o impacto financeiro/operacional do problema, fornecemos uma ou
-  mais soluções, e estimamos a diferença entre o antes e o depois.
+intro: "Estimamos o impacto financeiro/operacional do problema, fornecemos uma ou mais soluções, e estimamos a diferença entre o antes e o depois. As faixas de impacto abaixo são referências de oportunidade, não promessa de resultado: o valor de cada planta é medido no diagnóstico, contra a fatura."
 camadas:
   - titulo: Eficiência Energética
     subtitulo: — Redução de custos e da fatura de energia
@@ -46,15 +45,14 @@ camadas:
       - dor: Ar comprimido desperdiçado
         sintoma: Vazamentos; pressão alta demais
         impacto: 10–30% do consumo de ar comprimido
-  - titulo: Projetos e engenharia
-    subtitulo: — do dimensionamento ao projeto
+  - titulo: Análise de desempenho
+    subtitulo: — diagnóstico, modelagem e validação com dados
     tipo: chips
     itens:
-      - item: Dimensionamento de trocadores
-      - item: Projeto de redes de vapor e retorno de condensado
-      - item: Seleção de bombas
-      - item: Retrofit de refrigeração
-      - item: Simulação CFD (análise de fluidos e térmica)
+      - item: Análise de desempenho de trocadores de calor
+      - item: Análise de redes de vapor e condensado
+      - item: Análise de ponto de operação de bombas
+      - item: Melhoria de desempenho de refrigeração
     notaTitulo: "Escopo realista:"
     nota: começamos pelo que está ao alcance imediato — onde o retorno aparece mais
       rápido.
