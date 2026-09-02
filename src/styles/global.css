@@ -140,8 +140,9 @@ main { @apply flex-grow; }
   #o-que-resolvemos .nota { @apply text-castillo-slate text-sm mt-4; }
 
   /* Como funciona */
-  #como-funciona .grid-4 > div { @apply text-center; }
-  .num-badge { @apply md:hidden bg-castillo-blue text-castillo-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3; }
+  #como-funciona .grid-4 > div { @apply bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8 text-center; }
+  #como-funciona .grid-4 .card-body { @apply text-left; }
+  .num-badge { @apply bg-castillo-blue text-castillo-white w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3; }
 
   /* Para quem */
   #para-quem .chips { @apply justify-center mt-8; }
