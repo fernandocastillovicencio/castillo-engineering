@@ -17,7 +17,7 @@
 # ═══════════════════════════════════════════════════════════════
 sobre: "Seção PARA QUEM: setores principais (5) e setores secundários (chips)."
 title: "Para quem"
-intro: "Indústrias que gastam muito com energia — vapor, refrigeração, bombas e secagem. O diagnóstico começa pelos dados que a planta já produz — faturas, logs e instrumentação existente — analisados com modelagem remota, de qualquer lugar do Brasil e da América do Sul."
+intro: "Indústrias que gastam muito com energia — vapor, refrigeração, bombas e secagem. O diagnóstico começa pelos dados disponíveis da planta — faturas, logs e instrumentação existente — analisados com modelagem remota, de qualquer lugar do Brasil e da América do Sul."
 setoresPrincipais:
   - setor: "Laticínios"
     frase: "Quanto combustível sua caldeira consome por tonelada de leite? A maioria costuma estar acima da referência do setor."

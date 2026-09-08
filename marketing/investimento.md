@@ -35,5 +35,5 @@ cards:
     destaque: false
 cta:
   label: "Agendar conversa (sem compromisso)"
-  href: "#contato"
+  href: "whatsappCta"
 ---

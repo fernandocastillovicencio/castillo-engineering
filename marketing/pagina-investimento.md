@@ -64,7 +64,7 @@ etapas:
 comoPrecificamos:
   titulo: "Como precificamos"
   pontos:
-    - destaque: "No começo — hora de engenharia com teto:"
+    - destaque: "No começo — valor com teto:"
       texto: "você conhece o limite máximo antes de começar."
     - destaque: "Quando a economia é verificada — fixo por escopo:"
       texto: "a economia é verificada contra a fatura."
@@ -73,5 +73,5 @@ comoPrecificamos:
   risco: "O risco de comprar caro é baixo: o investimento só é definido na proposta, depois de analisarmos o seu caso e os seus dados. O risco de não fazer nada é a fatura de energia poder subir no próximo reajuste."
 cta:
   label: "Agendar conversa (sem compromisso)"
-  href: "/#contato"
+  href: "whatsappCta"
 ---

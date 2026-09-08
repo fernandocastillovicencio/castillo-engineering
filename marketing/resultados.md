@@ -30,7 +30,7 @@ portifolio:
     - titulo: "Bombas"
       descricao: "Bomba trabalhando longe da curva, estrangulada ou cavitando — e quanto isso custa por mês."
     - titulo: "Secagem"
-      descricao: "Ciclo longo e produto fora do padrão — a física do ar aplicada ao caso, com os dados que a planta já tem."
+      descricao: "Ciclo longo e produto fora do padrão — a física do ar aplicada ao caso, com os dados disponíveis da planta."
     - titulo: "Conformidade NR-13 / NR-36"
       descricao: "NR-13/NR-36 sem parar a produção: levantamento e planejamento de inspeção."
 ---

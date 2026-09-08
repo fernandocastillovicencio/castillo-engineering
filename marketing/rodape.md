@@ -25,7 +25,7 @@ cta:
   titulo: "Quer saber o que suas faturas e registros já dizem sobre a operação?"
   texto: "Conversa de 30 minutos, sem compromisso, sobre vapor, refrigeração, bombas e secagem."
   label: "Agendar conversa (sem compromisso)"
-  href: "/#contato"
+  href: "whatsappCta"
 colunas:
   - titulo: "Castillo Engineering LTDA"
     paragrafos:
