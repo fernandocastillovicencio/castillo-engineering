@@ -43,3 +43,6 @@ npmrc
 
 # Documentacao interna de estrutura do site (guia do editor, nao conteudo publico)
 marketing/ESTRUTURA.md
+
+# Dossies internos de migracao/status do agente (nao sao conteudo publico)
+migracoes_pendentes_*.md

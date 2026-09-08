@@ -4,6 +4,10 @@ import { getEntry } from 'astro:content';
 
 const methodData = (await getEntry('site', 'pagina-metodologia'))!.data;
 const dados = methodData;
+const siteConfig = (await getEntry('site', 'configuracao-do-site'))!.data;
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
 ---
 
 <Layout title={dados.seo.title} description={dados.seo.description}>
@@ -12,7 +16,7 @@ const dados = methodData;
       <h1 class="section-title">{dados.h1}</h1>
       <p>{dados.intro}</p>
       <div class="stack">{dados.cards.map((card) => <div class="card"><h2 class="card-title">{card.titulo}</h2><p class="card-body">{card.texto}</p></div>)}</div>
-      <div class="cta-wrap"><a href={dados.cta.href} class="btn" data-tipo="primario">{dados.cta.label}</a></div>
+      <div class="cta-wrap"><a href={resolveCta(dados.cta.href)} target={ctaTarget(dados.cta.href)} rel={ctaTarget(dados.cta.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{dados.cta.label}</a></div>
     </div>
   </section>
 </Layout>

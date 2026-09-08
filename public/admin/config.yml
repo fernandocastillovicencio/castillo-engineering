@@ -844,6 +844,7 @@ collections:
             fields:
               - {label: "Número", name: "number", widget: "string"}
               - {label: "Mensagem ao agendar", name: "mensagemAgendar", widget: "text"}
+              - {label: "Mensagem dos botões de agendar", name: "mensagemCta", widget: "text"}
               - {label: "Mensagem (página não encontrada)", name: "mensagem404", widget: "text"}
           - label: "SEO padrão do site — avançado"
             name: "meta"

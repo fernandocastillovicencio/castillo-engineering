@@ -12,6 +12,9 @@ const { title, description = siteConfig.meta.descriptionDefault } = Astro.props;
 
 const siteUrl = siteConfig.siteUrl;
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
 
 const schemaOrg = {
   '@context': 'https://schema.org',
@@ -75,7 +78,7 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
         </a>
         <div class="header-actions">
           <a class="header-wa" href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label={siteConfig.header.ctaWhatsAppMobileAria}>{siteConfig.header.ctaWhatsAppMobile}</a>
-          <a class="header-cta" href="/#contato"><span class="txt-curto">{siteConfig.header.ctaPrincipalMobile}</span><span class="txt-longo">{siteConfig.header.ctaPrincipalDesktop}</span></a>
+          <a class="header-cta" href={ctaWhatsAppUrl} target="_blank" rel="noopener noreferrer"><span class="txt-curto">{siteConfig.header.ctaPrincipalMobile}</span><span class="txt-longo">{siteConfig.header.ctaPrincipalDesktop}</span></a>
         </div>
       </div>
     </header>
@@ -87,7 +90,7 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
         <div class="footer-cta">
           <h2>{footerData.cta.titulo}</h2>
           <p>{footerData.cta.texto}</p>
-          <a href={footerData.cta.href} class="btn" data-tipo="primario">{footerData.cta.label}</a>
+          <a href={resolveCta(footerData.cta.href)} target={ctaTarget(footerData.cta.href)} rel={ctaTarget(footerData.cta.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{footerData.cta.label}</a>
         </div>
         <div class="footer-cols">
           <div><h3>{footerData.colunas[0].titulo}</h3>{footerData.colunas[0].paragrafos.map((p) => <p>{p}</p>)}</div>
