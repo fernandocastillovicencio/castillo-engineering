@@ -14,6 +14,9 @@ const contato = (await getEntry("site", "contato"))!.data;
 
 const siteConfig = (await getEntry("site", "configuracao-do-site"))!.data;
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
 
 const faqPageSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -32,7 +35,7 @@ const faqPageSchema = {
       <h1>{heroData.headline}</h1>
       <p class="lead">{heroData.sub}</p>
       <div class="ctas">
-        <a href={heroData.ctaPrincipal.href} class="btn" data-tipo="primario">{heroData.ctaPrincipal.label}</a>
+        <a href={resolveCta(heroData.ctaPrincipal.href)} target={ctaTarget(heroData.ctaPrincipal.href)} rel={ctaTarget(heroData.ctaPrincipal.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{heroData.ctaPrincipal.label}</a>
         <a href={heroData.ctaSecundario.href} class="btn" data-tipo="contorno">{heroData.ctaSecundario.label}</a>
       </div>
     </div>
@@ -104,7 +107,7 @@ const faqPageSchema = {
       <div class="grid-4">{investimento.cards.map((card) => (
         <div class={card.destaque ? 'box-dark' : 'card'}><span class="selo">{card.nome}</span><p class="card-body">{card.inclui}</p></div>
       ))}</div>
-      <div class="cta-wrap"><a href={investimento.cta.href} class="btn" data-tipo="primario">{investimento.cta.label}</a></div>
+      <div class="cta-wrap"><a href={resolveCta(investimento.cta.href)} target={ctaTarget(investimento.cta.href)} rel={ctaTarget(investimento.cta.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{investimento.cta.label}</a></div>
     </div>
   </section>
 
