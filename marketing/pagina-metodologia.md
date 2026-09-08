@@ -29,5 +29,5 @@ cards:
     texto: "A economia é estimada em energia ou R$ por mês contra a fatura de energia e os registros de produção. Linha de base definida em contrato, regressão mensal ajustada por produção e clima, com métricas de ajuste (R², CV(RMSE)) documentadas. A resolução da verificação depende do tamanho da economia frente à fatura da planta; isso é dito na proposta, não prometido."
 cta:
   label: "Agendar conversa (sem compromisso)"
-  href: "/#contato"
+  href: "whatsappCta"
 ---

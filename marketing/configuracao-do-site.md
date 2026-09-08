@@ -37,6 +37,7 @@ header:
 whatsapp:
   number: "5541933009505"
   mensagemAgendar: "Olá, vi o site da Castillo Engenharia e gostaria de agendar uma conversa de 30 minutos sobre um possível problema térmico na minha planta. Pode me ajudar?"
+  mensagemCta: "Olá, tenho um problema térmico ou de fluidos na planta"
   mensagem404: "Olá, encontrei um link quebrado no site da Castillo Engenharia."
 whatsappButton:
   ariaLabel: "Conversa de 30 minutos, sem compromisso"

@@ -13,7 +13,7 @@ seo:
     compromisso."
 ctaPrincipal:
   label: Agendar conversa (sem compromisso)
-  href: "#contato"
+  href: "whatsappCta"
 ctaSecundario:
   label: Ver o que resolvemos
   href: "#o-que-resolvemos"
