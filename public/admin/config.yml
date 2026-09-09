@@ -834,8 +834,8 @@ collections:
               - {label: "Descrição do logo (leitores de tela)", name: "logoAria", widget: "string"}
               - {label: "Botão WhatsApp (celular)", name: "ctaWhatsAppMobile", widget: "string"}
               - {label: "Descrição do botão (leitores de tela)", name: "ctaWhatsAppMobileAria", widget: "string"}
-              - {label: "Botão agendar (celular)", name: "ctaPrincipalMobile", widget: "string"}
-              - {label: "Botão agendar (computador)", name: "ctaPrincipalDesktop", widget: "string"}
+              - {label: "Botão agendar (celular)", name: "ctaPrincipalMobile", widget: "string", hint: "Mantenha: Agendar conversa"}
+              - {label: "Botão agendar (computador)", name: "ctaPrincipalDesktop", widget: "string", hint: "Mantenha: Agendar conversa (sem compromisso)"}
           - label: "WhatsApp (mensagens automáticas) — avançado"
             name: "whatsapp"
             widget: "object"
