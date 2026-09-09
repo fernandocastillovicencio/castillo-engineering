@@ -61,8 +61,7 @@ camadas:
     itens:
       - item: NR-13 (análise documental e planejamento)
       - item: NR-36 · amônia (NBR 16069) — avaliação por registros
-      - item: Laudos e planos de inspeção (NBR 12177) — elaboração a partir de dados existentes
-      - item: ART quando o serviço exigir (projetos, laudos, NR-13)
+      - item: ART quando o serviço exigir
 sobre: "Seção O QUE RESOLVEMOS: 4 camadas (energia, operação, análise de desempenho,
   conformidade) com dores, sintomas e impactos."
 ---

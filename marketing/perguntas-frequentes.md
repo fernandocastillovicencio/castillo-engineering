@@ -42,5 +42,5 @@ faq:
       href: "/methodology"
       rotulo: "Veja como verificamos →"
   - pergunta: "Vocês emitem ART?"
-    resposta: "Sim — quando o serviço exigir (projetos, laudos, NR-13), com responsabilidade técnica registrada perante o CREA. Se der problema, quem responde somos nós — não você."
+    resposta: "Sim — quando o serviço exigir, com responsabilidade técnica registrada perante o CREA. Se der problema, quem responde somos nós — não você."
 ---
