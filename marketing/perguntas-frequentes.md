@@ -27,7 +27,7 @@ faq:
   - pergunta: "Quanto custa?"
     resposta: "A conversa de 30 minutos é sem compromisso. Enviamos a proposta com escopo, prazo e investimento — e você conhece o limite máximo do valor antes de começar. O teto aparece na proposta, não na conversa."
   - pergunta: "Quanto tempo leva?"
-    resposta: "Proposta: 3–5 dias úteis após o envio dos dados. Diagnóstico aprofundado: 5–10 dias úteis de análise remota. Plano de melhoria: escopo e prazo definidos na proposta. Resposta a todo contato em até 24h úteis."
+    resposta: "Proposta: 3–5 dias úteis após o envio dos dados. Diagnóstico aprofundado: prazo padrão de 5 dias úteis de análise remota. Plano de melhoria: escopo e prazo definidos na proposta. Resposta a todo contato em até 24h úteis."
   - pergunta: "Preciso receber alguém na minha planta?"
     resposta: "Por padrão, não: a análise começa com faturas, logs e a instrumentação existente. Se o caso exigir algo além disso, dizemos na proposta o quê, por quê e quanto muda no resultado."
   - pergunta: "O que vocês precisam de mim?"

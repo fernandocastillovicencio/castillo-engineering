@@ -28,7 +28,7 @@ cards:
     inclui: "Escopo, prazo e investimento com teto — sem custo."
     destaque: false
   - nome: "Diagnóstico aprofundado"
-    inclui: "1 sistema, 5–10 dias úteis, análise dos dados que você já tem e valor com teto definido na proposta."
+    inclui: "1 sistema, 5 dias úteis, análise dos dados que você já tem e valor com teto definido na proposta."
     destaque: true
   - nome: "Plano de ação"
     inclui: "Plano de ação com verificação de resultado — a execução fica com você ou com seu fornecedor."
