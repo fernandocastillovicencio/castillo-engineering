@@ -54,7 +54,7 @@ institucional:
 schemaOrg:
   "@type": ["ProfessionalService", "LocalBusiness"]
   legalName: "Castillo Engineering LTDA"
-  description: "Engenharia de fluidos e térmica. Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; conformidade NR-13/NR-36."
+  description: "Engenharia de fluidos e térmica. Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; análise documental NR-13/NR-36."
   addressLocality: "Curitiba"
   addressRegion: "PR"
   postalCode: "81510-210"

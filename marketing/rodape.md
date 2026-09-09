@@ -29,7 +29,7 @@ cta:
 colunas:
   - titulo: "Castillo Engineering LTDA"
     paragrafos:
-      - "Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; conformidade NR-13/NR-36."
+      - "Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; análise documental NR-13/NR-36."
       - "CREA-PR ativo · ART quando o serviço exigir, ou a pedido do cliente (Lei 6.496/1977)"
   - titulo: "Navegação"
     links:

@@ -32,5 +32,5 @@ portifolio:
     - titulo: "Secagem"
       descricao: "Ciclo longo e produto fora do padrão — a física do ar aplicada ao caso, com os dados disponíveis da planta."
     - titulo: "Conformidade NR-13 / NR-36"
-      descricao: "NR-13/NR-36 sem parar a produção: levantamento e planejamento de inspeção."
+      descricao: "NR-13/NR-36: levantamento e planejamento documentais, a partir dos registros existentes da planta."
 ---
