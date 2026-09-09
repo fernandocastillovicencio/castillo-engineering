@@ -48,7 +48,7 @@ etapas:
     titulo: "Diagnóstico aprofundado"
     texto: "1 sistema (vapor, refrigeração ou bombas), análise dos dados existentes — 12 meses de faturas de energia, produção (t/dia), logs de operação e leituras dos instrumentos já instalados — com linha de base contra a fatura e acordo de confidencialidade."
     textoDestaque: "Abatido no plano de melhoria."
-    prazo: "5–10 dias úteis de análise."
+    prazo: "5 dias úteis de análise."
     destaque: true
   - numero: 4
     titulo: "Plano de melhoria — escopo, prazo e investimento na proposta"

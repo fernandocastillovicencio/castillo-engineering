@@ -14,7 +14,7 @@ seo:
   title: "Política de Privacidade e LGPD | Castillo Engenharia"
   description: "Política de privacidade da Castillo Engenharia em conformidade com a LGPD (Lei 13.709/2018): minimização de dados, finalidade, armazenamento, retenção e direitos do titular."
 h1: "Política de Privacidade e LGPD"
-ultimaAtualizacao: "Última atualização: agosto de 2026."
+ultimaAtualizacao: "Última atualização: setembro de 2026."
 ---
 
 ## 1. Coleta de Dados (minimização)
@@ -23,11 +23,11 @@ Coletamos apenas os dados necessários para o diagnóstico e o contato: nome, em
 
 ## 2. Finalidade do Uso
 
-Os dados são utilizados exclusivamente para entrar em contato, entender sua necessidade técnica e oferecer nossos serviços de engenharia. Não compartilhamos, vendemos ou alugamos seus dados a terceiros.
+Os dados são utilizados exclusivamente para entrar em contato, entender sua necessidade técnica e oferecer nossos serviços de engenharia. Não vendemos nem alugamos seus dados; o compartilhamento se limita aos prestadores de serviço listados no item 3.
 
-## 3. Armazenamento e Segurança
+## 3. Armazenamento, Segurança e Tratadores
 
-Os dados do formulário são processados através da plataforma Formspree, que segue padrões de segurança reconhecidos (GDPR/LGPD). Dados técnicos compartilhados em diagnósticos são tratados sob acordo de confidencialidade (NDA), quando aplicável.
+O site e seus serviços operam com os seguintes tratadores, cada um limitado à sua função: **Vercel** (hospedagem do site), **Cloudflare** (serviço de DNS), **GitHub** (painel de edição de conteúdo — Decap CMS), **Formspree** (recebimento do formulário de contato) e **Google** (medição de acesso via Google Analytics 4). Os dados técnicos compartilhados em diagnósticos são tratados sob acordo de confidencialidade (NDA), quando aplicável.
 
 ## 4. Retenção
 
@@ -41,13 +41,13 @@ De acordo com a LGPD, você pode solicitar a qualquer momento o acesso, a corre�
 
 Em caso de incidente que possa acarretar risco aos titulares, comunicaremos a autoridade competente (ANPD) e os afetados em até 72 horas, conforme a LGPD.
 
-## 7. Consentimento
+## 7. Bases Legais: Consentimento e Interesse Legítimo
 
-Ao preencher o formulário em nosso site, você declara estar ciente e de acordo com esta política de privacidade (Lei 13.709/2018).
+O tratamento dos seus dados observa as bases legais da LGPD: (i) **consentimento**, concedido ao preencher o formulário, para contato e análise do problema técnico relatado (Art. 7º, I); (ii) **interesse legítimo**, para a medição de acesso e desempenho do site descrita no item 8 (Art. 7º, IX); e (iii) execução de contrato, quando você for cliente.
 
 ## 8. Cookies e Dados de Navegação
 
-Para medir o desempenho do site (número de visitas, páginas mais lidas e conversões do formulário), utilizamos o Google Analytics 4, que pode armazenar cookies de navegação no seu dispositivo. Esses dados são agregados e anônimos — não identificam você pessoalmente e não são usados para publicidade. Você pode bloquear cookies nas configurações do seu navegador; isso não impede o uso do site.
+Para medir o desempenho do site (número de visitas, páginas mais lidas e conversões do formulário), utilizamos o Google Analytics 4, com fundamento no interesse legítimo declarado no item 7. Os dados são usados para estatísticas agregadas do site e não para publicidade. Você pode bloquear cookies nas configurações do seu navegador ou instalar o complemento de inibição oferecido pelo Google (tools.google.com/dlpage/gaoptout); isso não impede o uso do site. Nesta fase não exibimos banner de consentimento; se a regulamentação exigir, implementaremos a mudança e registraremos aqui.
 
 ## 9. Alterações
 
