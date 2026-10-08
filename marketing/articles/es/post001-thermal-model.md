@@ -1,16 +1,16 @@
 ---
-title: "Medición en campo y modelo sección a sección: de 34,6 °C a 32,8 °C en la salida"
+title: "Producto apelmazándose en el silo: medición en campo y modelo sección a sección, de 34,6 °C a 32,8 °C en la salida"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medición en campo y modelo 1D ajustado sección a sección: en la envolvente de carga, la salida va de 34,6 °C a 32,4 °C sin aislamiento y de 32,8 °C a 30,0 °C con el aislamiento propuesto."
+resumo: "El insumo llegaba caliente al silo y el producto se apelmazaba. Medimos la línea en campo y ajustamos un modelo 1D sección a sección contra la medición: en la envolvente de carga, la salida va de 34,6 °C a 32,4 °C sin aislamiento y de 32,8 °C a 30,0 °C con el aislamiento propuesto."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversación (sin compromiso)"
   href: "whatsappCta"
 seo:
-  title: "De 34,6 °C a 32,8 °C en la salida, con aislamiento térmico"
-  description: "Medición en campo y modelo 1D ajustado sección a sección: la ganancia de la ruta baja de 3,4 °C a 1,0 °C, cerca de 70% menos. En la carga de referencia la salida va de 32,4 °C a 30,0 °C; en la carga mínima (20 %), de 34,6 °C a 32,8 °C."
+  title: "Producto apelmazándose en el silo: de 34,6 °C a 32,8 °C en la salida"
+  description: "Producto apelmazándose en el silo por insumo caliente: medición en campo y modelo 1D ajustado sección a sección. En la carga mínima la salida va de 34,6 °C a 32,8 °C; en la de referencia, de 32,4 °C a 30,0 °C, con la ganancia de la ruta bajando cerca de 70%."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con apelmazamiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 

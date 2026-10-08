@@ -1,16 +1,16 @@
 ---
-title: "Medição em campo e modelo seção a seção: de 34,6 °C para 32,8 °C na saída"
+title: "Produto empedrando no silo: medição em campo e modelo seção a seção, de 34,6 °C para 32,8 °C na saída"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medição em campo e modelo 1D ajustado seção a seção: no envelope de carga, a saída vai de 34,6 °C a 32,4 °C sem isolamento e de 32,8 °C a 30,0 °C com o isolamento proposto."
+resumo: "O insumo chegava aquecido ao silo e o produto empedrava. Medimos a linha em campo e ajustamos um modelo 1D seção a seção contra a medição: no envelope de carga, a saída vai de 34,6 °C a 32,4 °C sem isolamento e de 32,8 °C a 30,0 °C com o isolamento proposto."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 seo:
-  title: "De 34,6 °C para 32,8 °C na saída, com isolamento térmico"
-  description: "Medição em campo e modelo 1D ajustado seção a seção: o ganho da rota cai de 3,4 °C para 1,0 °C, cerca de 70% menos. Na carga de referência a saída vai de 32,4 °C para 30,0 °C; na carga mínima (20 %), de 34,6 °C para 32,8 °C."
+  title: "Produto empedrando no silo: de 34,6 °C para 32,8 °C na saída"
+  description: "Produto empedrando no silo por insumo aquecido: medição em campo e modelo 1D ajustado seção a seção. Na carga mínima a saída vai de 34,6 °C para 32,8 °C; na de referência, de 32,4 °C para 30,0 °C, com o ganho da rota caindo cerca de 70%."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
