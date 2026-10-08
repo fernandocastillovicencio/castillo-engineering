@@ -2,7 +2,7 @@
 title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos em até 70% o ganho térmico"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Processo detalhado de como conseguimos reduzir em até 70% o ganho térmico do insumo fundamental"
+resumo: "Processo detalhado de como conseguimos reduzir o ganho térmico do insumo fundamental mediante modelagem térmica"
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:

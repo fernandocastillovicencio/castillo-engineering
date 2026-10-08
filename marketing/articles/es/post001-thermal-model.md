@@ -1,8 +1,8 @@
 ---
-title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos hasta en 70 % la ganancia térmica"
+title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos hasta en 70% la ganancia térmica"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Proceso detallado de cómo conseguimos reducir hasta en 70 % la ganancia térmica del insumo fundamental"
+resumo: "Proceso detallado de cómo conseguimos reducir la ganancia térmica del insumo fundamental mediante modelamiento térmico"
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
