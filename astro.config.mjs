@@ -28,7 +28,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
     cacheDir: '.vite'   // dentro do projeto (não em node_modules/.vite — evita EROFS em ambientes com symlink)
   },
-  integrations: [sitemap()],
+  // Sitemap do site público. O painel /admin/ fica de fora: a página já é
+  // noindex, e anunciá-la no sitemap entrega aos rastreadores uma rota que
+  // não é conteúdo (o arquivo lista só páginas de leitura).
+  integrations: [sitemap({ filter: (pagina) => !pagina.includes('/admin') })],
   redirects: {
     // URLs em português migradas para nomes em inglês (301 preserva SEO)
     '/privacidade': '/privacy-lgpd',
