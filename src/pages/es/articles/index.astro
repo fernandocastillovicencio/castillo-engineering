@@ -1,21 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { DATE_LOCALE, ui } from '../../i18n';
+import Layout from '../../../layouts/Layout.astro';
+import { DATE_LOCALE, ui } from '../../../i18n';
 
-const t = ui.pt;
+const t = ui.es;
 const posts = (await getCollection('articles'))
-  .filter((post) => !post.id.startsWith('es/'))
+  .filter((post) => post.id.startsWith('es/'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const slug = (id: string) => id.replace(/^es\//, '');
 const dataFmt = (d) =>
-  d.toLocaleDateString(DATE_LOCALE.pt, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  d.toLocaleDateString(DATE_LOCALE.es, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <Layout
   title={t.articlesListTitle}
   description={t.articlesListDescription}
-  lang="pt"
-  altUrl="/es/articles"
+  lang="es"
+  altUrl="/articles"
   showSwitch={false}
 >
   <section id="articles">
@@ -25,7 +26,7 @@ const dataFmt = (d) =>
       <div class="articles-list">
         {posts.map((post) => (
           <article class="card-article">
-            <a href={`/articles/${post.id}`} class="card-article-link" aria-label={`${post.data.title} — ${t.readArticleAria}`}>
+            <a href={`/es/articles/${slug(post.id)}`} class="card-article-link" aria-label={`${post.data.title} — ${t.readArticleAria}`}>
               {post.data.capa && (
                 <img src={post.data.capa} alt="" decoding="async" width="1600" height="900" />
               )}

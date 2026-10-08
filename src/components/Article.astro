@@ -1,0 +1,95 @@
+---
+/**
+ * Página de um artigo técnico, nos dois idiomas.
+ * PT: /articles/<slug> · ES: /es/articles/<slug>
+ */
+import { render } from 'astro:content';
+import 'katex/dist/katex.min.css';
+import LangSwitch from './LangSwitch.astro';
+import { DATE_LOCALE, HTML_LANG, homeHref, localize, ui, type Lang } from '../i18n';
+import { siteSettings } from '../i18n/settings';
+
+interface Props {
+  post: any;
+  /** slug público, sem o prefixo es/ */
+  slug: string;
+  lang: Lang;
+  altUrl?: string;
+}
+const { post, slug, lang, altUrl } = Astro.props;
+const dados = post.data;
+const { Content } = await render(post);
+const t = ui[lang];
+
+const siteConfig = await siteSettings(lang);
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
+
+const dataPub = dados.date.toLocaleDateString(DATE_LOCALE[lang], {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const ctaHref = dados.cta?.href ?? 'whatsappCta';
+const listaArtigos = localize('/articles', lang);
+
+// Schema do artigo (rich results): autor identificado, data e imagem de prévia.
+// O publisher referencia o @id da Organization emitida pelo Layout.
+const siteUrl = siteConfig.siteUrl;
+const artigoUrl = `${siteUrl}${lang === 'es' ? '/es' : ''}/articles/${slug}`;
+const autorNome = (dados.autor ?? '').replace(/^Eng\.\s*Mecânico\s*/i, '').split(',')[0].trim();
+const autorCrea = (dados.autor ?? '').split(',').slice(1).join(',').trim();
+const artigoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: dados.title,
+  description: dados.seo?.description ?? dados.resumo,
+  image: `${siteUrl}${dados.og ?? dados.capa ?? '/images/og-castillo.png'}`,
+  datePublished: dados.date.toISOString().slice(0, 10),
+  inLanguage: HTML_LANG[lang],
+  author: autorNome
+    ? { '@type': 'Person', name: autorNome, ...(autorCrea ? { identifier: autorCrea } : {}) }
+    : { '@type': 'Organization', name: 'Castillo Engenharia' },
+  publisher: { '@id': `${siteUrl}/#org` },
+  mainEntityOfPage: artigoUrl,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(artigoSchema)} />
+
+<article id="article">
+  <div class="container-site">
+    <div class="article-top">
+      <p class="article-meta">
+        <a href={homeHref(lang)}>{t.articleBreadcrumbHome}</a> <span aria-hidden="true">/</span> <a href={listaArtigos}>{siteConfig.header.navArtigos}</a> · {dataPub}{dados.autor && <span> · {t.articleBy} {dados.autor}</span>}
+      </p>
+      {altUrl && <LangSwitch lang={lang} altUrl={altUrl} class="article-lang" />}
+    </div>
+    <h1>{dados.title}</h1>
+    <p class="article-summary">{dados.resumo}</p>
+    {dados.capa && (
+      <img class="article-cover" src={dados.capa} alt={dados.title} decoding="async" />
+    )}
+    <div class="article-body">
+      <Content />
+    </div>
+    {dados.cta && (
+      <div class="cta-wrap">
+        <a
+          class="btn"
+          data-tipo="primario"
+          href={resolveCta(ctaHref)}
+          target={ctaTarget(ctaHref)}
+          rel={ctaTarget(ctaHref) ? 'noopener noreferrer' : undefined}
+        >
+          {dados.cta.label}
+        </a>
+      </div>
+    )}
+    <nav class="article-back" aria-label={t.articleBackAria}>
+      <a href={listaArtigos}>{t.articleBack}</a>
+    </nav>
+  </div>
+</article>

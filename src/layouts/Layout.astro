@@ -1,15 +1,34 @@
 ---
 import '../styles/global.css';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import LangSwitch from '../components/LangSwitch.astro';
 import { getEntry } from 'astro:content';
+import { DEFAULT_LANG, HTML_LANG, OG_LOCALE, entryId, homeHref, localize, otherLang, ui, type Lang } from '../i18n';
+import { siteSettings } from '../i18n/settings';
 
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID ?? '';
-const siteConfig = (await getEntry("site", "settings"))!.data;
-const footerData = (await getEntry("site", "footer"))!.data;
 
-interface Props { title: string; description?: string; ogType?: string; ogImage?: string; }
-const { title, description = siteConfig.meta.descriptionDefault, ogType = 'website',
-        ogImage = '/images/og-castillo.png' } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+  ogImage?: string;
+  /** Idioma da página: PT na raiz, ES em /es/. */
+  lang?: Lang;
+  /** URL da mesma página no outro idioma. Presente só onde há tradução
+   *  (home e artigo); alimenta o hreflang e o seletor de bandeiras. */
+  altUrl?: string;
+  /** Mostrar as bandeiras. O seletor fica na home e no artigo, como pedido;
+   *  nas listas de artigos o altUrl continua valendo só para o hreflang. */
+  showSwitch?: boolean;
+}
+const { title, ogType = 'website', ogImage = '/images/og-castillo.png',
+        lang = DEFAULT_LANG, altUrl, showSwitch = true } = Astro.props;
+
+const siteConfig = await siteSettings(lang);
+const footerData = (await getEntry('site', entryId(lang, 'footer')))!.data;
+
+const description = Astro.props.description ?? siteConfig.meta.descriptionDefault;
 
 const siteUrl = siteConfig.siteUrl;
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
@@ -33,12 +52,21 @@ const schemaOrg = {
   knowsAbout: siteConfig.schemaOrg.knowsAbout
 };
 
-const colNavegacao = footerData.colunas.find((c) => c.titulo === 'Navegação');
-const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
+const colNavegacao = footerData.colunas.find((c) => c.links);
+const colContato = footerData.colunas.find((c) => c.itens);
+
+const selfUrl = new URL(Astro.url.pathname, siteUrl).href;
+/** Mesma forma publicada das páginas internas (diretório, com barra no fim),
+ *  para o hreflang da versão traduzida apontar exatamente para a URL canônica. */
+const absolutizar = (caminho: string) => {
+  const url = new URL(caminho, siteUrl);
+  if (!url.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(url.pathname)) url.pathname += '/';
+  return url.href;
+};
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,7 +75,7 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0F2A3E" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+    <link rel="canonical" href={selfUrl} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={siteUrl + Astro.url.pathname} />
     <meta property="og:title" content={title} />
@@ -55,12 +83,15 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
     <meta property="og:image" content={`${siteUrl}${ogImage}`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
-    <link rel="alternate" hreflang="pt-br" href={`${siteUrl}/`} />
+    {/* hreflang: a própria página + a versão traduzida, quando ela existe.
+        x-default aponta para a versão em português (idioma padrão). */}
+    <link rel="alternate" hreflang={HTML_LANG[lang]} href={selfUrl} />
+    {altUrl && <link rel="alternate" hreflang={HTML_LANG[otherLang(lang)]} href={absolutizar(altUrl)} />}
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
@@ -74,13 +105,14 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
 
     <header class="header">
       <div class="header-inner">
-        <a class="header-logo" href="/" aria-label={siteConfig.header.logoAria}>
+        <a class="header-logo" href={homeHref(lang)} aria-label={siteConfig.header.logoAria}>
           <img src="/images/castillo-logo-horizontal-negative.svg" alt={siteConfig.header.logoAlt} width="167" height="38" />
         </a>
-        <nav class="header-nav" aria-label="Navegação principal">
-          <a href="/articles" aria-current={Astro.url.pathname.startsWith('/articles') ? 'page' : undefined}>{siteConfig.header.navArtigos}</a>
+        <nav class="header-nav" aria-label={ui[lang].navAria}>
+          <a href={localize('/articles', lang)} aria-current={Astro.url.pathname.startsWith('/articles') ? 'page' : undefined}>{siteConfig.header.navArtigos}</a>
         </nav>
         <div class="header-actions">
+          {altUrl && showSwitch && <LangSwitch lang={lang} altUrl={altUrl} class="hidden xl:flex" />}
           <a class="header-wa" href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label={siteConfig.header.ctaWhatsAppMobileAria}>{siteConfig.header.ctaWhatsAppMobile}</a>
           <a class="header-cta" href={ctaWhatsAppUrl} target="_blank" rel="noopener noreferrer"><span class="txt-curto">{siteConfig.header.ctaPrincipalMobile}</span><span class="txt-longo">{siteConfig.header.ctaPrincipalDesktop}</span></a>
         </div>
@@ -98,7 +130,7 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
         </div>
         <div class="footer-cols">
           <div><h3>{footerData.colunas[0].titulo}</h3>{footerData.colunas[0].paragrafos.map((p) => <p>{p}</p>)}</div>
-          <div><h3>{colNavegacao.titulo}</h3><ul>{colNavegacao.links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}</ul></div>
+          <div><h3>{colNavegacao.titulo}</h3><ul>{colNavegacao.links.map((link) => <li><a href={localize(link.href, lang)}>{link.label}</a></li>)}</ul></div>
           <div>
             <h3>{colContato.titulo}</h3>
             <ul>{colContato.itens.map((item) => {
@@ -113,6 +145,6 @@ const colContato = footerData.colunas.find((c) => c.titulo === 'Contato');
       </div>
     </footer>
 
-    <WhatsAppButton />
+    <WhatsAppButton lang={lang} />
   </body>
 </html>

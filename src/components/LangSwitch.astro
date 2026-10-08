@@ -1,0 +1,57 @@
+---
+/**
+ * Seletor de idioma: duas bandeiras (Brasil / Espanha).
+ * Clicar troca a língua da página equivalente (ou da home do outro idioma).
+ *
+ * Aparece em dois lugares, nunca duplicado no mesmo tamanho de tela:
+ *   - cabeçalho, a partir de 1024 px (classe recebida por prop)
+ *   - primeira tela do celular, onde o cabeçalho não tem folga
+ */
+import { HTML_LANG, homeHref, otherLang, ui, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  /** URL da mesma página no outro idioma. Sem ela, aponta para a home dele. */
+  altUrl?: string;
+  class?: string;
+}
+const { lang, altUrl, class: cls = '' } = Astro.props;
+const destino = altUrl ?? homeHref(otherLang(lang));
+const t = ui[lang]; // rótulos no idioma da página atual
+const naPaginaEs = lang === 'es';
+---
+
+<nav class={`lang-switch ${cls}`} aria-label={t.langSwitchAria}>
+  {/* Brasil — verde, losango amarelo e círculo azul */}
+  <a
+    class="lang-btn"
+    href={naPaginaEs ? destino : undefined}
+    hreflang={HTML_LANG.pt}
+    lang={HTML_LANG.pt}
+    title={t.langPt}
+    aria-label={t.langPt}
+    aria-current={naPaginaEs ? undefined : 'true'}
+  >
+    <svg class="lang-flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false">
+      <rect width="30" height="20" fill="#009C3B"></rect>
+      <path d="M15 3 26.6 10 15 17 3.4 10Z" fill="#FFDF00"></path>
+      <circle cx="15" cy="10" r="4.2" fill="#002776"></circle>
+      <path d="M11.2 8.4c2.5-.8 5.4-.5 7.8.8" fill="none" stroke="#fff" stroke-width="1.1"></path>
+    </svg>
+  </a>
+  {/* Espanha — vermelho, amarelo e vermelho */}
+  <a
+    class="lang-btn"
+    href={naPaginaEs ? undefined : destino}
+    hreflang={HTML_LANG.es}
+    lang={HTML_LANG.es}
+    title={t.langEs}
+    aria-label={t.langEs}
+    aria-current={naPaginaEs ? 'true' : undefined}
+  >
+    <svg class="lang-flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false">
+      <rect width="30" height="20" fill="#AA151B"></rect>
+      <rect y="5" width="30" height="10" fill="#F1BF00"></rect>
+    </svg>
+  </a>
+</nav>

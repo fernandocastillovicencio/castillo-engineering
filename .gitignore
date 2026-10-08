@@ -50,3 +50,6 @@ MIGRACAO-DOMINIO.md
 
 # Estado das reuniões multiagente (plugin roundtable) — nunca publicar
 .roundtable/
+
+# Capturas de tela locais para revisão de UI (não publicar)
+.preview/

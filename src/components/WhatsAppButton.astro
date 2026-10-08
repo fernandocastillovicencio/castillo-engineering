@@ -1,8 +1,12 @@
 ---
 // Botão Flutuante de WhatsApp – canal direto: conversa de 30 minutos, sem compromisso
-import { getEntry } from 'astro:content';
+import { DEFAULT_LANG, type Lang } from '../i18n';
+import { siteSettings } from '../i18n/settings';
 
-const siteConfig = (await getEntry("site", "settings"))!.data;
+interface Props { lang?: Lang; }
+const { lang = DEFAULT_LANG } = Astro.props;
+
+const siteConfig = await siteSettings(lang);
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
 ---
 

@@ -101,9 +101,27 @@ main { @apply flex-grow; }
      O peso e a opacidade evitam que ele dispute atenção com o CTA: branco/80
      sobre o azul = 9,90:1 (segue AAA) contra 14,78:1 do branco puro. */
   .header-nav { @apply hidden lg:block mr-auto lg:ml-5; }
-  .header-nav a { @apply py-1 font-medium text-white/80 transition-colors hover:text-castillo-orange hover:underline; }
+  /* O link dos artigos ganha contorno de pílula: continua discreto (branco/90
+     sobre o azul = 11,8:1, contra 14,78:1 do branco puro) mas deixa de se
+     confundir com texto solto. */
+  .header-nav a { @apply inline-block rounded-lg border border-white/25 px-3 py-1.5 font-medium text-white/90 transition-colors hover:border-castillo-orange hover:text-castillo-orange; }
   .txt-curto { @apply md:hidden; }
   .txt-longo { @apply hidden md:inline; }
+
+  /* Seletor de idioma (home e artigo): duas bandeiras, Brasil e Espanha.
+     Clicar troca a língua da página; a bandeira é decorativa e o rótulo
+     acessível fica no aria-label de cada link.
+     A bandeira tem 30×20 px (proporção 3:2, correta para as duas) e o botão
+     42×32 px: passa o mínimo de 24×24 CSS px do WCAG 2.5.8 (Target Size) com
+     folga para o dedo.
+     A bandeira ativa recebe o anel laranja; a outra fica a 60% de opacidade.
+     O laranja #D97706 sobre branco = 3,03:1 e sobre o azul = 4,64:1: passa
+     nos 3:1 exigidos para componente de interface nos dois fundos. */
+  .lang-switch { @apply flex items-center gap-1; }
+  .lang-btn { @apply inline-flex rounded-[3px] p-1.5 transition-opacity; }
+  .lang-btn[aria-current] { @apply opacity-100 ring-2 ring-castillo-orange; }
+  .lang-btn:not([aria-current]) { @apply opacity-60 hover:opacity-100 focus-visible:opacity-100; }
+  .lang-flag { @apply block h-5 w-[30px] rounded-[2px]; }
 
   /* Rodapé */
   .footer { @apply bg-castillo-blue text-castillo-white mt-auto; }
@@ -137,10 +155,16 @@ main { @apply flex-grow; }
   #hero .ctas { @apply mb-8; }
   #hero .btn[data-tipo=contorno] { @apply border-castillo-white text-castillo-white hover:bg-castillo-white hover:text-castillo-blue; }
   .hero-badge { @apply inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/80 border border-white/20 rounded-full px-4 py-1.5 mb-8; }
-  /* Atalho para os artigos no topo do celular: no desktop o cabeçalho já o tem,
-     então aqui ele aparece só abaixo de 1024 px (sem duplicar).
-     Branco/80 sobre o azul = 9,90:1; o laranja no hover = 4,64:1. */
-  .hero-nav { @apply lg:hidden inline-block mt-6 py-1 font-medium text-white/80 underline transition-colors hover:text-castillo-orange; }
+  /* Linha do topo do hero: atalho para os artigos à esquerda e seletor de
+     idioma à direita, os dois dentro da primeira tela.
+     Regra por largura (medida, não suposta):
+       < 1024 px  → cabeçalho sem folga (0 px): a linha traz os dois;
+       1024–1279  → o cabeçalho já traz o atalho, aqui ficam só as bandeiras;
+       ≥ 1280 px  → o cabeçalho traz os dois e a linha desaparece.
+     Branco/90 sobre o azul = 11,8:1; o laranja no hover = 4,64:1. */
+  .hero-top { @apply flex items-center gap-4 mb-6 xl:hidden; }
+  .hero-top .lang-switch { @apply ml-auto; }
+  .hero-arts { @apply inline-flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm font-bold text-white/90 transition-colors hover:border-castillo-orange hover:text-castillo-orange lg:hidden; }
 
   /* O que resolvemos — tabela de dores */
   #o-que-resolvemos .card { @apply max-w-5xl mx-auto mb-8; }
@@ -226,6 +250,12 @@ main { @apply flex-grow; }
 
   /* Artigo (/articles/<slug>) */
   #article .container-site { @apply max-w-3xl; }
+  /* Trilha de navegação e seletor de idioma na mesma linha.
+     Abaixo de 1280 px o seletor aparece aqui (o cabeçalho não tem folga
+     entre 1024 e 1279 px com os rótulos longos do CTA); a partir de 1280 px
+     ele sobe para o cabeçalho e some daqui. */
+  .article-top { @apply flex items-start justify-between gap-4; }
+  .article-lang { @apply shrink-0 mt-0.5 xl:hidden; }
   .article-meta { @apply text-sm mb-2; }
   .article-meta a { @apply text-impacto font-bold hover:opacity-80; }
   #article h1 { @apply text-3xl md:text-4xl font-bold text-castillo-blue mb-4 leading-tight; }

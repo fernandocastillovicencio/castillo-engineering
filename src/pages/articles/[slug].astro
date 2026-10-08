@@ -1,10 +1,16 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import 'katex/dist/katex.min.css';
+import Article from '../../components/Article.astro';
+
+// Sem a versão espanhola na coleção, nenhum artigo em /es/ entra aqui.
+const todos = await getCollection('articles');
+const slugsEs = new Set(
+  todos.filter((post) => post.id.startsWith('es/')).map((post) => post.id.replace(/^es\//, ''))
+);
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles');
+  const posts = (await getCollection('articles')).filter((post) => !post.id.startsWith('es/'));
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -13,40 +19,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const dados = post.data;
-const { Content } = await render(post);
-
-const siteConfig = (await getEntry('site', 'settings'))!.data;
-const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
-const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
-const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
-
-const dataPub = dados.date.toLocaleDateString('pt-BR', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
-const ctaHref = dados.cta?.href ?? 'whatsappCta';
-
-// Schema do artigo (rich results): autor identificado, data e imagem de prévia.
-// O publisher referencia o @id da Organization emitida pelo Layout.
-const siteUrl = siteConfig.siteUrl;
-const autorNome = (dados.autor ?? '').replace(/^Eng\.\s*Mecânico\s*/i, '').split(',')[0].trim();
-const autorCrea = (dados.autor ?? '').split(',').slice(1).join(',').trim();
-const artigoSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: dados.title,
-  description: dados.seo?.description ?? dados.resumo,
-  image: `${siteUrl}${dados.og ?? dados.capa ?? '/images/og-castillo.png'}`,
-  datePublished: dados.date.toISOString().slice(0, 10),
-  inLanguage: 'pt-BR',
-  author: autorNome
-    ? { '@type': 'Person', name: autorNome, ...(autorCrea ? { identifier: autorCrea } : {}) }
-    : { '@type': 'Organization', name: 'Castillo Engenharia' },
-  publisher: { '@id': `${siteUrl}/#org` },
-  mainEntityOfPage: `${siteUrl}/articles/${post.id}`,
-};
+const altUrl = slugsEs.has(post.id) ? `/es/articles/${post.id}` : undefined;
 ---
 
 <Layout
@@ -54,38 +27,8 @@ const artigoSchema = {
   description={dados.seo?.description ?? dados.resumo}
   ogType="article"
   ogImage={dados.og}
+  lang="pt"
+  altUrl={altUrl}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(artigoSchema)} />
-
-  <article id="article">
-    <div class="container-site">
-      <p class="article-meta">
-        <a href="/">Início</a> <span aria-hidden="true">/</span> <a href="/articles">Artigos técnicos</a> · {dataPub}{dados.autor && <span> · Por {dados.autor}</span>}
-      </p>
-      <h1>{dados.title}</h1>
-      <p class="article-summary">{dados.resumo}</p>
-      {dados.capa && (
-        <img class="article-cover" src={dados.capa} alt={dados.title} decoding="async" />
-      )}
-      <div class="article-body">
-        <Content />
-      </div>
-      {dados.cta && (
-        <div class="cta-wrap">
-          <a
-            class="btn"
-            data-tipo="primario"
-            href={resolveCta(ctaHref)}
-            target={ctaTarget(ctaHref)}
-            rel={ctaTarget(ctaHref) ? 'noopener noreferrer' : undefined}
-          >
-            {dados.cta.label}
-          </a>
-        </div>
-      )}
-      <nav class="article-back" aria-label="Voltar para a lista de artigos">
-        <a href="/articles">← Todos os artigos</a>
-      </nav>
-    </div>
-  </article>
+  <Article post={post} slug={post.id} lang="pt" altUrl={altUrl} />
 </Layout>

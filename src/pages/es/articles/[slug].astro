@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Article from '../../../components/Article.astro';
+
+// Só os artigos traduzidos entram em /es/articles/<slug>.
+const todos = await getCollection('articles');
+const slugsPt = new Set(
+  todos.filter((post) => !post.id.startsWith('es/')).map((post) => post.id)
+);
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('articles')).filter((post) => post.id.startsWith('es/'));
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/^es\//, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const dados = post.data;
+const slug = post.id.replace(/^es\//, '');
+const altUrl = slugsPt.has(slug) ? `/articles/${slug}` : undefined;
+---
+
+<Layout
+  title={`${dados.seo?.title ?? dados.title} — Castillo Engenharia`}
+  description={dados.seo?.description ?? dados.resumo}
+  ogType="article"
+  ogImage={dados.og}
+  lang="es"
+  altUrl={altUrl}
+>
+  <Article post={post} slug={slug} lang="es" altUrl={altUrl} />
+</Layout>

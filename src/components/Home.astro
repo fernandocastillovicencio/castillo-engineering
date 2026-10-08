@@ -1,0 +1,220 @@
+---
+/**
+ * Corpo da página inicial, nos dois idiomas.
+ * O texto vem do conteúdo (marketing/*.md em PT, marketing/es/*.md em ES);
+ * aqui ficam apenas a ordem das seções e os links internos já localizados.
+ */
+import { getEntry } from 'astro:content';
+import LangSwitch from './LangSwitch.astro';
+import { entryId, localize, type Lang } from '../i18n';
+import { siteSettings } from '../i18n/settings';
+
+interface Props { lang: Lang; altUrl?: string; }
+const { lang, altUrl } = Astro.props;
+
+const T = async (name: string) => (await getEntry('site', entryId(lang, name)))!.data;
+
+const heroData = await T('hero');
+const oqueResolvemos = await T('problems');
+const comoFunciona = await T('process');
+const paraQuem = await T('sectors');
+const porQue = await T('why-us');
+const investimento = await T('services');
+const faqData = await T('faq');
+const resultados = await T('results');
+const contato = await T('contact');
+
+const siteConfig = await siteSettings(lang);
+const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
+
+const faqPageSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  inLanguage: lang === 'es' ? 'es' : 'pt-BR',
+  mainEntity: faqData.faq.map((item) => ({ '@type': 'Question', name: item.pergunta, acceptedAnswer: { '@type': 'Answer', text: item.resposta } }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+
+<!-- 1. HERO -->
+<section id="hero">
+  <div class="container-site">
+    <div class="hero-top">
+      <a class="hero-arts" href={localize('/articles', lang)}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" class="w-4 h-4"><path d="M6 2h9l5 5v15H6z" stroke-linejoin="round"/><path d="M15 2v5h5M9 13h8M9 17h5" stroke-linecap="round"/></svg>
+        {siteConfig.header.navArtigos}
+      </a>
+      {altUrl && <LangSwitch lang={lang} altUrl={altUrl} />}
+    </div>
+    <p class="hero-badge"><span>{heroData.badge[0]}</span><span aria-hidden="true">·</span><span>{heroData.badge[1]}</span></p>
+    <p class="legenda">{heroData.linhaAtendimento}</p>
+    <h1>{heroData.headline}</h1>
+    <p class="lead">{heroData.sub}</p>
+    <div class="ctas">
+      <a href={resolveCta(heroData.ctaPrincipal.href)} target={ctaTarget(heroData.ctaPrincipal.href)} rel={ctaTarget(heroData.ctaPrincipal.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{heroData.ctaPrincipal.label}</a>
+      <a href={heroData.ctaSecundario.href} class="btn" data-tipo="contorno">{heroData.ctaSecundario.label}</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. O QUE RESOLVEMOS -->
+<section id="o-que-resolvemos">
+  <div class="container-site">
+    <h2 class="section-title">{oqueResolvemos.title}</h2>
+    <p>{oqueResolvemos.intro}</p>
+    {oqueResolvemos.camadas.map((camada) => (
+      camada.tipo === 'dores' ? (
+        <div class="card">
+          <h3 class="card-title">{camada.titulo} <span class="subtitulo">{camada.subtitulo}</span></h3>
+          <div class="rows">{camada.itens.map((item) => (
+            <div><strong>{item.dor}</strong><span class="sintoma">{item.sintoma}</span><span class="impacto">{item.impacto}</span></div>
+          ))}</div>
+        </div>
+      ) : (
+        <div class="card">
+          <h3 class="card-title">{camada.titulo} <span class="subtitulo">{camada.subtitulo}</span></h3>
+          <div class="chips">{camada.itens.map((item) => <span class="chip">{item.item ?? item}</span>)}</div>
+          {camada.nota && <p class="nota"><strong>{camada.notaTitulo}</strong> {camada.nota}</p>}
+        </div>
+      )
+    ))}
+    {oqueResolvemos.link && <p class="text-center mt-8"><a class="link-cta" href={localize(oqueResolvemos.link.href, lang)}>{oqueResolvemos.link.rotulo}</a></p>}
+  </div>
+</section>
+
+<!-- 3. COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="container-site">
+    <h2 class="section-title">{comoFunciona.title}</h2>
+    <p>{comoFunciona.intro}</p>
+    <div class="grid-4">{comoFunciona.passos.map((passo, i) => (
+      <div><div class="num-badge">{i + 1}</div><h3 class="card-title">{passo.titulo}</h3><p class="card-body">{passo.detalhe}</p></div>
+    ))}</div>
+  </div>
+</section>
+
+<!-- 4. RESULTADOS (a prova vem logo depois do método) -->
+<section id="resultados">
+  <div class="container-site">
+    <h2 class="section-title">{resultados.title}</h2>
+    <div class="card"><h3 class="card-title">{resultados.portifolio.titulo}</h3><p class="card-body">{resultados.portifolio.intro}</p>
+      <ul class="item-grid">{resultados.portifolio.itens.map((item) => <li><strong>{item.titulo}</strong>{item.descricao}</li>)}</ul>
+      {resultados.portifolio.link && <a class="link-cta" href={localize(resultados.portifolio.link.href, lang)}>{resultados.portifolio.link.rotulo}</a>}
+    </div>
+  </div>
+</section>
+
+<!-- 5. PARA QUEM -->
+<section id="para-quem">
+  <div class="container-site">
+    <h2 class="section-title">{paraQuem.title}</h2>
+    <p>{paraQuem.intro}</p>
+    <div class="grid-3">{paraQuem.setoresPrincipais.map((setor) => (
+      <div class="card"><h3 class="card-title">{setor.setor}</h3><p class="card-body">{setor.frase}</p></div>
+    ))}</div>
+    <div class="chips">{paraQuem.setoresMenores.map((setor) => <span class="chip">{setor.item ?? setor}</span>)}</div>
+  </div>
+</section>
+
+<!-- 6. POR QUE A CASTILLO -->
+<section id="por-que">
+  <div class="container-site">
+    <h2 class="section-title">{porQue.title}</h2>
+    <div class="stack">{porQue.diferenciais.map((dif) => (
+      <div class="card"><h3 class="card-title">{dif.titulo}</h3><p class="card-body">{dif.descricao}</p></div>
+    ))}</div>
+  </div>
+</section>
+
+<!-- 7. INVESTIMENTO -->
+<section id="investimento">
+  <div class="container-site">
+    <h2 class="section-title">{investimento.title}</h2>
+    <p>{investimento.intro}</p>
+    {investimento.link && <p><a class="link-cta" href={localize(investimento.link.href, lang)}>{investimento.link.rotulo}</a></p>}
+    <div class="grid-4">{investimento.cards.map((card) => (
+      <div class={card.destaque ? 'box-dark' : 'card'}><span class="selo">{card.nome}</span><p class="card-body">{card.inclui}</p></div>
+    ))}</div>
+    <div class="cta-wrap"><a href={resolveCta(investimento.cta.href)} target={ctaTarget(investimento.cta.href)} rel={ctaTarget(investimento.cta.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{investimento.cta.label}</a></div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section id="faq">
+  <div class="container-site">
+    <h2 class="section-title">{faqData.title}</h2>
+    <p>{faqData.intro}</p>
+    <div class="stack">{faqData.faq.map((item) => (
+      <div class="card"><h3 class="card-title">{item.pergunta}</h3><p class="card-body">{item.resposta}</p>{item.link && <a class="link-cta" href={localize(item.link.href, lang)}>{item.link.rotulo}</a>}</div>
+    ))}</div>
+  </div>
+</section>
+
+<!-- 9. CONTATO (a antiga seção Resultados subiu para a 4ª posição) -->
+<section id="contato">
+  <div class="container-site">
+    <h2>{contato.title}</h2>
+    <p class="lead">{contato.intro}</p>
+
+    <form id="form-contato" action={siteConfig.formspree.endpoint} method="POST">
+      <input type="hidden" name="_subject" value={contato.form.assunto} />
+      <input type="hidden" name="_gotcha" />
+      <div class="form-grid">
+        {contato.form.camposObrigatorios.map((campo) => (campo.tipo !== 'select' ? (
+          <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+            <input type={campo.tipo} id={campo.nome} name={campo.nome} required={campo.required} placeholder={campo.placeholder} />
+          </div>
+        ) : (
+          <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+            <select id={campo.nome} name={campo.nome} required={campo.required}><option value="">{campo.placeholder}</option>{campo.opcoes.map((opcao) => <option>{opcao}</option>)}</select>
+          </div>)))}
+      </div>
+
+      <details>
+        <summary>{contato.form.complementar.titulo}</summary>
+        <div class="form-grid form-extra">{contato.form.complementar.campos.map((campo) => (
+          campo.tipo === 'select' ? (
+            <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+              <select id={campo.nome} name={campo.nome}><option value="">{campo.placeholder}</option>{campo.opcoes.map((opcao) => <option>{opcao}</option>)}</select>
+            </div>
+          ) : campo.tipo === 'textarea' ? (
+            <div class="form-field full"><label for={campo.nome}>{campo.label}</label>
+              <textarea id={campo.nome} name={campo.nome} rows={campo.rows || 2} placeholder={campo.placeholder}></textarea>
+            </div>
+          ) : (
+            <div class="form-field"><label for={campo.nome}>{campo.label}</label>
+              <input type={campo.tipo} id={campo.nome} name={campo.nome} placeholder={campo.placeholder} />
+            </div>)))}
+        </div>
+      </details>
+
+      <p>{contato.avisoLgpd.antes}<a href={localize(contato.avisoLgpd.linkHref, lang)} target="_blank" rel="noopener noreferrer">{contato.avisoLgpd.linkLabel}</a>.</p>
+      <button id="form-submit" type="submit" data-botao={contato.botao} data-botao-enviando={contato.botaoEnviando} data-erro-envio={contato.erroEnvio} class="btn" data-tipo="primario">{contato.botao}</button>
+    </form>
+
+    <div id="form-sucesso" class="is-hidden">
+      <p class="card-title">{contato.confirmacao.titulo}</p>
+      <p class="card-body">{contato.confirmacao.texto}</p>
+      <a href={localize(contato.confirmacao.link.href, lang)}>{contato.confirmacao.link.rotulo}</a>
+    </div>
+
+    <p class="legenda">{contato.whatsappDireto.antes}<a href={whatsappLink} target="_blank" rel="noopener noreferrer">{contato.whatsappDireto.linkLabel}</a>.</p>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('form-contato'), sucesso = document.getElementById('form-sucesso'), botao = document.getElementById('form-submit');
+  if (form && sucesso && botao) {
+    const bl = botao.dataset.botao, be = botao.dataset.botaoEnviando, ee = botao.dataset.erroEnvio;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); botao.disabled = true; botao.textContent = be;
+      try { const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (r.ok) { form.classList.add('is-hidden'); sucesso.classList.remove('is-hidden'); typeof gtag === 'function' && gtag('event', 'conversa_agendada', { event_category: 'contato', event_label: 'formulario' }); }
+        else throw Error('f');
+      } catch (er) { botao.disabled = false; botao.textContent = bl; alert(ee); }
+    });
+  }
+</script>

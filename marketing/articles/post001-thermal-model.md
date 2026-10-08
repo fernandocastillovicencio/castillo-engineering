@@ -1,8 +1,8 @@
 ---
-title: "Insumo quente no silo: o diagnóstico em 150 m de tubo"
+title: "Insumo em aquecimento, modelo térmico e proposta de isolamento: problema produtivo na indústria"
 date: 2026-10-07
-autor: "Eng. Mecânico Fernando Enrique Castillo Vicencio, CREA-PR 234812/D"
-resumo: "Medição de campo e modelo 1D por seção: a saída cai de 32,4 °C para 30,0 °C no dia extremo, mas a faixa de 24 a 26 °C exigiria uma entrada de ~21,8 °C."
+autor: "Fernando Castillo Vicencio"
+resumo: "Medição, cálculo, modelo térmico, previsão de temperatura e proposta de isolamento."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
@@ -10,8 +10,8 @@ cta:
   href: "whatsappCta"
 seo:
   title: "Por que isolar a linha não alcança a faixa de 24 a 26 °C"
-  description: "Balanço 1D ajustado em campo: o isolamento tira 2,4 °C da saída, mas não alcança a faixa exigida — ela exigiria entrar a 21,8 °C."
-sobre: "Caso real anonimizado: degradação termo-higroscópica em linha de transporte pneumático. Modelo 1D ajustado seção a seção em campo, extrapolação para o dia extremo e escolha do isolamento."
+  description: "Medição de campo e modelo térmico ajustado: o isolamento tira 2,4 °C da saída, mas a faixa de 24 a 26 °C não é alcançável pela tubulação."
+sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
 Nestas últimas semanas, um cliente nos procurou com um problema térmico industrial que não estava conseguindo resolver.
@@ -210,4 +210,4 @@ Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos 
 
 O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material.
 
-A faixa de 24 a 26 °C não é alcançável atuando sobre a tubulação, com nenhuma espessura: o sistema reduz o ganho, mas não muda a entrada. A temperatura em que o produto empedra não é medida; o critério adotado é a faixa de recebimento da planta. A entrada de 29 °C é a condição de contorno deste estudo; atuar sobre ela é outro projeto. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.
+A faixa recomendada do produto não é alcançável atuando sobre a tubulação, com nenhuma espessura: o sistema reduz o ganho, mas não muda a entrada. A temperatura em que o produto empedra não é medida; o critério adotado é a faixa de recebimento da planta. A entrada de 29 °C é a condição de contorno deste estudo; atuar sobre ela é outro projeto. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.

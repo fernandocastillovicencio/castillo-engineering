@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Home from '../../components/Home.astro';
+import { getEntry } from 'astro:content';
+
+const heroData = (await getEntry('site', 'es/hero'))!.data;
+---
+
+<Layout
+  title={heroData.seo.title}
+  description={heroData.seo.description}
+  lang="es"
+  altUrl="/"
+>
+  <Home lang="es" altUrl="/" />
+</Layout>

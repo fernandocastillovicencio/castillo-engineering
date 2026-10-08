@@ -9,6 +9,14 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   site: 'https://castilloengenharia.com.br',
   cacheDir: '.astro',   // data store do Content Layer dentro do workspace (node_modules é symlink read-only)
+  // Dois idiomas de leitura: português na raiz e espanhol em /es/.
+  // As rotas em espanhol saem de pastas próprias (src/pages/es/**), sem
+  // prefixo automático nem redirecionamento de idioma.
+  i18n: {
+    defaultLocale: 'pt',
+    locales: ['pt', 'es'],
+    routing: { prefixDefaultLocale: false, redirectToDefaultLocale: false },
+  },
   // Equações LaTeX nos artigos ($$...$$) — renderizadas em build pelo KaTeX.
   // singleDollarTextMath: false evita que textos com "R$" (metodologia,
   // investimentos) sejam interpretados como matemática inline.
