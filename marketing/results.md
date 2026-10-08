@@ -5,8 +5,8 @@ portifolio:
   titulo: "Casos reais"
   intro: "Cada diagnóstico é verificado contra os dados da planta. Os casos técnicos ficam publicados em Artigos técnicos:"
   itens:
-    - titulo: "Insumo quente no silo — 150 m de linha, 2 dias de medição de campo"
-      descricao: "Modelo 1D ajustado seção a seção: a saída caiu de 32,4 °C para 30,0 °C no dia extremo. A faixa exigida continuou fora de alcance — o modelo mostra que a diferença vem da entrada, não da tubulação."
+    - titulo: "Modelo térmico seção a seção — 150 m de linha, 70% menos ganho de calor"
+      descricao: "Modelo 1D ajustado seção a seção: com o isolamento proposto, o ganho da rota cai de 3,4 °C para 1,0 °C, cerca de 70% menos, e a saída no dia extremo vai de 32,4 °C para 30,0 °C."
     - titulo: "Vapor e condensado"
       descricao: "Onde o vapor vira desperdício: purga abrindo direto, condensado retido na linha, distribuição com perdas."
     - titulo: "Refrigeração"

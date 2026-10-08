@@ -1,16 +1,16 @@
 ---
-title: "Insumo em aquecimento, modelo térmico e proposta de isolamento: problema produtivo na indústria"
+title: "Medição em campo e modelo seção a seção: 70% menos ganho de calor na linha, 2,4 °C a menos na saída"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medição, cálculo, modelo térmico, previsão de temperatura e proposta de isolamento."
+resumo: "Medição em campo, cálculo, modelo térmico 1D ajustado seção a seção e proposta de isolamento: o ganho da rota cai de 3,4 °C para 1,0 °C e a saída, de 32,4 °C para 30,0 °C no dia extremo."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 seo:
-  title: "Por que isolar a linha não alcança a faixa exigida"
-  description: "Medição de campo e modelo térmico ajustado: o isolamento tira 2,4 °C da saída, mas a faixa exigida não é alcançável atuando sobre a tubulação."
+  title: "70% menos ganho de calor: medição em campo e modelo seção a seção"
+  description: "Medição em campo e modelo 1D ajustado seção a seção: o ganho da rota cai de 3,4 °C para 1,0 °C, cerca de 70% menos, e a saída, no dia extremo, de 32,4 °C para 30,0 °C."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
@@ -210,4 +210,4 @@ Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos 
 
 O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material.
 
-O limite de recebimento do produto não é alcançável atuando sobre a tubulação, com nenhuma espessura: o sistema reduz o ganho, mas não muda a entrada. A temperatura em que o produto empedra não é medida; o critério adotado é a faixa de recebimento. A entrada de 29 °C é a condição de contorno deste estudo; atuar sobre ela é outro projeto. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.
+O isolamento proposto reduz o ganho da rota de 3,4 °C para 1,0 °C, cerca de 70% menos, e leva a saída, no dia extremo, de 32,4 °C para 30,0 °C. O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material: cada trecho foi avaliado em 20 000 cenários, com dispersão de ±0,3 °C (p5–p95) na carga de referência. A temperatura em que o produto empedra não foi medida; o critério adotado é a faixa de recebimento. Atuar sobre a temperatura de entrada do insumo é outro projeto — este estudo entrega o que a tubulação pode dar. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.

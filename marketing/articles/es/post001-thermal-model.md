@@ -1,16 +1,16 @@
 ---
-title: "Insumo en calentamiento, modelo térmico y propuesta de aislamiento: problema productivo en la industria"
+title: "Medición en campo y modelo sección a sección: 70% menos ganancia de calor en la línea, 2,4 °C menos en la salida"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medición, cálculo, modelo térmico, previsión de temperatura y propuesta de aislamiento."
+resumo: "Medición en campo, cálculo, modelo térmico 1D ajustado sección a sección y propuesta de aislamiento: la ganancia de la ruta baja de 3,4 °C a 1,0 °C y la salida, de 32,4 °C a 30,0 °C en el día extremo."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversación (sin compromiso)"
   href: "whatsappCta"
 seo:
-  title: "Por qué aislar la línea no alcanza el rango exigido"
-  description: "Medición de campo y modelo térmico ajustado: el aislamiento quita 2,4 °C a la salida, pero el rango exigido no es alcanzable actuando sobre la tubería."
+  title: "70% menos ganancia de calor: medición en campo y modelo sección a sección"
+  description: "Medición en campo y modelo 1D ajustado sección a sección: la ganancia de la ruta baja de 3,4 °C a 1,0 °C, cerca de 70% menos, y la salida, en el día extremo, de 32,4 °C a 30,0 °C."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con apelmazamiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 
@@ -210,4 +210,4 @@ Con el sistema propuesto, el PUR de 1½" con chapa de acero inoxidable en los tr
 
 El modelo entrega la temperatura prevista en cada sección de medición, y no solo la elección del material.
 
-El límite de recepción del producto no es alcanzable actuando sobre la tubería, con ningún espesor: el sistema reduce la ganancia, pero no cambia la entrada. La temperatura en la que el producto se apelmaza no se mide; el criterio adoptado es el rango de recepción. La entrada de 29 °C es la condición de frontera de este estudio; actuar sobre ella es otro proyecto. Si su línea tiene ese perfil, el camino es el mismo: medir en campo y decidir con el número.
+El aislamiento propuesto reduce la ganancia de la ruta de 3,4 °C a 1,0 °C, cerca de 70% menos, y lleva la salida, en el día extremo, de 32,4 °C a 30,0 °C. El modelo entrega la temperatura prevista en cada sección de medición, y no solo la elección del material: cada tramo se evaluó en 20 000 escenarios, con dispersión de ±0,3 °C (p5–p95) en la carga de referencia. La temperatura a la que el producto se apelmaza no se midió; el criterio adoptado es el rango de recepción. Actuar sobre la temperatura de entrada del insumo es otro proyecto: este estudio entrega lo que la tubería puede dar. Si su línea tiene ese perfil, el camino es el mismo: medir en campo y decidir con el número.
