@@ -1,15 +1,15 @@
 ---
-title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos a transferência de calor em 150 m de tubulação"
+title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos em até 70% o ganho térmico"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "O insumo chegava aquecido ao silo e o produto apresentava degradação termo-higroscópica. Ajustamos um modelo 1D seção a seção contra a medição. Modelamos e previmos a temperatura em cada seção e propomos um isolamento térmico específico."
+resumo: "Processo detalhado de como conseguimos reduzir em até 70% o ganho térmico do insumo fundamental"
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 seo:
-  title: "Produto empedrando no silo: de 34,6 °C para 32,8 °C na saída"
+  title: "Problema térmico no transporte pneumático de insumo fundamental numa planta, ganhos térmicos de até 70%"
   description: "Degradação termo-higroscópica do insumo e empedramento no silo, numa linha de transporte pneumático de 150 m. Medição de campo, modelo 1D ajustado seção a seção e proposta de isolamento."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
@@ -140,7 +140,7 @@ O modelo, desenvolvido e calibrado no dia medido, é agora extrapolado para o di
 
 </figure>
 
-## As opções de isolamento
+## Opções de isolamento
 
 Após reunião com os engenheiros de planta, foram avaliados dois isolantes: poliuretano (PUR) e espuma elastomérica (FEF), de 1" a 3".
 

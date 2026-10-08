@@ -1,15 +1,15 @@
 ---
-title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos la transferencia de calor en 150 m de tubería"
+title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos hasta en 70 % la ganancia térmica"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "El insumo llegaba caliente al silo y el producto presentaba degradación termo-higroscópica. Ajustamos un modelo 1D sección a sección contra la medición. Modelamos y previmos la temperatura en cada sección y propusimos un aislamiento térmico específico."
+resumo: "Proceso detallado de cómo conseguimos reducir hasta en 70 % la ganancia térmica del insumo fundamental"
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversación (sin compromiso)"
   href: "whatsappCta"
 seo:
-  title: "Producto empedrando en el silo: de 34,6 °C a 32,8 °C en la salida"
+  title: "Problema térmico en el transporte neumático de insumo fundamental en una planta, ganancias térmicas de hasta 70 %"
   description: "Degradación termo-higroscópica del insumo y empedramiento en el silo, en una línea de transporte neumático de 150 m. Medición de campo, modelo 1D ajustado sección a sección y propuesta de aislamiento."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con empedramiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
