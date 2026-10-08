@@ -86,8 +86,8 @@ collections:
             collapsed: true
             required: false
             fields:
-              - {label: "Título da aba", name: "title", widget: "string", required: false}
-              - {label: "Descrição para o Google", name: "description", widget: "text", required: false}
+              - {label: "Título SEO", name: "title", widget: "string", required: false}
+              - {label: "Meta descrição", name: "description", widget: "text", required: false}
           - label: "Botão principal — NÃO troque o texto"
             name: "ctaPrincipal"
             widget: "object"
@@ -281,7 +281,7 @@ collections:
               - label: "Texto do link"
                 name: "rotulo"
                 widget: "string"
-          - label: "Cards de serviços"
+          - label: "Blocos de serviços"
             name: "cards"
             widget: "list"
             summary: "{{fields.nome}}"
@@ -547,7 +547,7 @@ collections:
                 name: "destaque"
                 widget: "boolean"
                 default: false
-              - label: "Cards de plano de melhoria (etapa 4)"
+              - label: "Blocos de plano de melhoria (etapa 4)"
                 name: "cards"
                 widget: "list"
                 required: false
@@ -581,7 +581,7 @@ collections:
             collapsed: true
             required: false
             fields:
-              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Título SEO", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
           - label: "Palavra \"Prazo\" (texto fixo) — avançado"
             name: "prazoLabel"
@@ -602,7 +602,7 @@ collections:
           - label: "Resumo"
             name: "intro"
             widget: "text"
-          - label: "Cards do método"
+          - label: "Blocos do método"
             name: "cards"
             widget: "list"
             summary: "{{fields.titulo}}"
@@ -631,7 +631,7 @@ collections:
             collapsed: true
             required: false
             fields:
-              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Título SEO", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
           - label: "Descrição da seção (uso interno)"
             name: "sobre"
@@ -675,7 +675,7 @@ collections:
             collapsed: true
             required: false
             fields:
-              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Título SEO", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
           - label: "Descrição da seção (uso interno)"
             name: "sobre"
@@ -703,7 +703,7 @@ collections:
             collapsed: true
             required: false
             fields:
-              - {label: "Título da aba", name: "title", widget: "string", required: false}
+              - {label: "Título SEO", name: "title", widget: "string", required: false}
               - {label: "Descrição", name: "description", widget: "text", required: false}
           - label: "Descrição da seção (uso interno)"
             name: "sobre"
@@ -894,6 +894,7 @@ collections:
   # ─────────────────────────────────────────────────────────────
   - name: "articles"
     label: "Artigos Técnicos"
+    label_singular: "Artigo"
     description: "Casos e análises técnicas publicados em /articles. Um arquivo por artigo."
     folder: "marketing/articles"
     create: true
@@ -901,19 +902,20 @@ collections:
     sortable_fields: ['date', 'title']
     fields:
       - {label: "Título", name: "title", widget: "string"}
+      - {label: "Conteúdo", name: "body", widget: "markdown"}
       - {label: "Data de publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
       - {label: "Autor (assinatura publicada)", name: "autor", widget: "string", required: false, hint: "Ex.: Eng. Fernando Enrique Castillo Vicencio, CREA-PR 234812/D"}
       - {label: "Resumo (aparece na lista e no Google)", name: "resumo", widget: "text"}
       - {label: "Imagem de capa", name: "capa", widget: "image", required: false}
-      - {label: "Prévia social (og:image, JPEG 1200x630)", name: "og", widget: "image", required: false, hint: "Gerada por make_og_image.py — deixe vazio para usar a imagem padrão do site"}
+      - {label: "Imagem para redes sociais", name: "og", widget: "image", required: false, hint: "Aparece quando o artigo é compartilhado no WhatsApp ou no LinkedIn. Tamanho recomendado: 1200 x 630 px. Deixe vazio para usar a imagem padrão do site."}
       - label: "SEO (Google) — avançado"
         name: "seo"
         widget: "object"
         collapsed: true
         required: false
         fields:
-          - {label: "Título da aba", name: "title", widget: "string", required: false}
-          - {label: "Descrição para o Google", name: "description", widget: "text", required: false}
+          - {label: "Título SEO", name: "title", widget: "string", required: false}
+          - {label: "Meta descrição", name: "description", widget: "text", required: false}
       - label: "Botão de contato (fim do artigo) — NÃO troque o texto"
         name: "cta"
         widget: "object"
@@ -922,5 +924,4 @@ collections:
         fields:
           - {label: "Texto do botão", name: "label", widget: "string", hint: "Mantenha: Agendar conversa (sem compromisso)"}
           - {label: "Link (não altere)", name: "href", widget: "string", required: false}
-      - {label: "Corpo do artigo", name: "body", widget: "markdown"}
       - {label: "Descrição (uso interno)", name: "sobre", widget: "string", required: false}
