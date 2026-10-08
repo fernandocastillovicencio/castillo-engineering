@@ -9,8 +9,8 @@ cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 seo:
-  title: "Por que isolar a linha não alcança a faixa de 24 a 26 °C"
-  description: "Medição de campo e modelo térmico ajustado: o isolamento tira 2,4 °C da saída, mas a faixa de 24 a 26 °C não é alcançável pela tubulação."
+  title: "Por que isolar a linha não alcança a faixa exigida"
+  description: "Medição de campo e modelo térmico ajustado: o isolamento tira 2,4 °C da saída, mas a faixa exigida não é alcançável atuando sobre a tubulação."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
@@ -54,7 +54,7 @@ Assim, o cliente nos procurou com a finalidade de resolver este problema, solici
 
 O escopo do trabalho é a tubulação, da entrada à saída da linha: a temperatura de entrada é a condição de contorno do estudo, não uma variável de projeto.
 
-A planta adota a faixa de 24 a 26 °C na chegada ao silo como critério de recebimento do produto — é contra ela que os resultados deste artigo são comparados.
+O produto tem uma faixa de recebimento definida para a chegada ao silo — é contra ela que os resultados deste artigo são comparados.
 
 ## Qual foi a estratégia traçada?
 
@@ -198,7 +198,7 @@ Assim, define-se a melhor solução e modela-se a temperatura do produto em cada
 
 </figure>
 
-Com o PUR de 1½" e a linha na carga de referência, a saída fica em 30,0 °C no dia extremo de 34,9 °C, contra 32,4 °C sem isolamento. A saída continua acima do limite superior da faixa de 24 a 26 °C, e nenhuma espessura cobre essa diferença: para a saída cruzar 26 °C, a temperatura de entrada teria de ser cerca de 21,8 °C na carga de referência — e ainda mais baixa nas cargas menores, cerca de 18,6 °C a 30 % da carga.
+Com o PUR de 1½" e a linha na carga de referência, a saída fica em 30,0 °C no dia extremo de 34,9 °C, contra 32,4 °C sem isolamento. A saída continua acima do limite superior da faixa, e nenhuma espessura cobre essa diferença: para a saída cruzar o limite, a temperatura de entrada teria de ser cerca de 7 °C mais baixa na carga de referência — e ainda mais nas cargas menores.
 
 Cobrir os 4 vãos a céu aberto, os únicos sem cobertura, é uma medida adicional, de efeito menor que o do isolamento.
 
@@ -210,4 +210,4 @@ Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos 
 
 O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material.
 
-A faixa recomendada do produto não é alcançável atuando sobre a tubulação, com nenhuma espessura: o sistema reduz o ganho, mas não muda a entrada. A temperatura em que o produto empedra não é medida; o critério adotado é a faixa de recebimento da planta. A entrada de 29 °C é a condição de contorno deste estudo; atuar sobre ela é outro projeto. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.
+O limite de recebimento do produto não é alcançável atuando sobre a tubulação, com nenhuma espessura: o sistema reduz o ganho, mas não muda a entrada. A temperatura em que o produto empedra não é medida; o critério adotado é a faixa de recebimento. A entrada de 29 °C é a condição de contorno deste estudo; atuar sobre ela é outro projeto. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.

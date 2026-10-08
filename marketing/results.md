@@ -6,7 +6,7 @@ portifolio:
   intro: "Cada diagnóstico é verificado contra os dados da planta. Os casos técnicos ficam publicados em Artigos técnicos:"
   itens:
     - titulo: "Insumo quente no silo — 150 m de linha, 2 dias de medição de campo"
-      descricao: "Modelo 1D ajustado seção a seção: a saída caiu de 32,4 °C para 30,0 °C no dia extremo. A faixa exigida continuou fora de alcance — para cruzar 24 a 26 °C a entrada teria de ser cerca de 21,8 °C."
+      descricao: "Modelo 1D ajustado seção a seção: a saída caiu de 32,4 °C para 30,0 °C no dia extremo. A faixa exigida continuou fora de alcance — o modelo mostra que a diferença vem da entrada, não da tubulação."
     - titulo: "Vapor e condensado"
       descricao: "Onde o vapor vira desperdício: purga abrindo direto, condensado retido na linha, distribuição com perdas."
     - titulo: "Refrigeração"

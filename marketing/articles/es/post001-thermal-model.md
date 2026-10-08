@@ -9,8 +9,8 @@ cta:
   label: "Agendar conversación (sin compromiso)"
   href: "whatsappCta"
 seo:
-  title: "Por qué aislar la línea no alcanza el rango de 24 a 26 °C"
-  description: "Medición de campo y modelo térmico ajustado: el aislamiento quita 2,4 °C a la salida, pero el rango de 24 a 26 °C no es alcanzable por la tubería."
+  title: "Por qué aislar la línea no alcanza el rango exigido"
+  description: "Medición de campo y modelo térmico ajustado: el aislamiento quita 2,4 °C a la salida, pero el rango exigido no es alcanzable actuando sobre la tubería."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con apelmazamiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 
@@ -54,7 +54,7 @@ Así, el cliente nos contactó con la finalidad de resolver este problema, solic
 
 El alcance del trabajo es la tubería, de la entrada a la salida de la línea: la temperatura de entrada es la condición de frontera del estudio, no una variable de proyecto.
 
-La planta adopta el rango de 24 a 26 °C en la llegada al silo como criterio de recepción del producto — es contra él que se comparan los resultados de este artículo.
+El producto tiene un rango de recepción definido para la llegada al silo — es contra él que se comparan los resultados de este artículo.
 
 ## ¿Cuál fue la estrategia trazada?
 
@@ -198,7 +198,7 @@ Así, se define la mejor solución y se modela la temperatura del producto en ca
 
 </figure>
 
-Con el PUR de 1½" y la línea en la carga de referencia, la salida queda en 30,0 °C en el día extremo de 34,9 °C, contra 32,4 °C sin aislamiento. La salida continúa por encima del límite superior del rango de 24 a 26 °C, y ningún espesor cubre esa diferencia: para que la salida cruce 26 °C, la temperatura de entrada tendría que ser de aproximadamente 21,8 °C en la carga de referencia — y aún más baja en las cargas menores, aproximadamente 18,6 °C a 30 % de la carga.
+Con el PUR de 1½" y la línea en la carga de referencia, la salida queda en 30,0 °C en el día extremo de 34,9 °C, contra 32,4 °C sin aislamiento. La salida continúa por encima del límite superior del rango, y ningún espesor cubre esa diferencia: para que la salida cruce el límite, la temperatura de entrada tendría que ser unos 7 °C más baja en la carga de referencia — y aún más en las cargas menores.
 
 Cubrir los 4 tramos a cielo abierto, los únicos sin cobertura, es una medida adicional, de efecto menor que el del aislamiento.
 
@@ -210,4 +210,4 @@ Con el sistema propuesto, el PUR de 1½" con chapa de acero inoxidable en los tr
 
 El modelo entrega la temperatura prevista en cada sección de medición, y no solo la elección del material.
 
-El rango recomendado del producto no es alcanzable actuando sobre la tubería, con ningún espesor: el sistema reduce la ganancia, pero no cambia la entrada. La temperatura en la que el producto se apelmaza no se mide; el criterio adoptado es el rango de recepción de la planta. La entrada de 29 °C es la condición de frontera de este estudio; actuar sobre ella es otro proyecto. Si su línea tiene ese perfil, el camino es el mismo: medir en campo y decidir con el número.
+El límite de recepción del producto no es alcanzable actuando sobre la tubería, con ningún espesor: el sistema reduce la ganancia, pero no cambia la entrada. La temperatura en la que el producto se apelmaza no se mide; el criterio adoptado es el rango de recepción. La entrada de 29 °C es la condición de frontera de este estudio; actuar sobre ella es otro proyecto. Si su línea tiene ese perfil, el camino es el mismo: medir en campo y decidir con el número.
