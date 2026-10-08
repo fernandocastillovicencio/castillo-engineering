@@ -10,7 +10,7 @@ cta:
   href: "whatsappCta"
 seo:
   title: "Producto apelmazándose en el silo: de 34,6 °C a 32,8 °C en la salida"
-  description: "Producto apelmazándose en el silo por insumo caliente: medición en campo y modelo 1D ajustado sección a sección. En la carga mínima la salida va de 34,6 °C a 32,8 °C; en la de referencia, de 32,4 °C a 30,0 °C, con la ganancia de la ruta bajando cerca de 70%."
+  description: "Degradación termo-higroscópica del insumo y apelmazamiento en el silo, en una línea de transporte neumático de 150 m. Medición de campo, modelo 1D ajustado sección a sección y propuesta de aislamiento."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con apelmazamiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 

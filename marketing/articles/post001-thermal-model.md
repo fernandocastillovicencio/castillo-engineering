@@ -1,8 +1,8 @@
 ---
-title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos a transferência de calor em 150m de tubulação"
+title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos a transferência de calor em 150 m de tubulação"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "O insumo chegava aquecido ao silo e o produto apresentava degradação termo-higroscópica. Ajustamos um modelo 1D seção contra a medição. Modelamos e previmos a temperatura em cada seção e propomos um isolamento térmico específico"
+resumo: "O insumo chegava aquecido ao silo e o produto apresentava degradação termo-higroscópica. Ajustamos um modelo 1D seção a seção contra a medição. Modelamos e previmos a temperatura em cada seção e propomos um isolamento térmico específico."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
@@ -10,7 +10,7 @@ cta:
   href: "whatsappCta"
 seo:
   title: "Produto empedrando no silo: de 34,6 °C para 32,8 °C na saída"
-  description: "Produto empedrando no silo por insumo aquecido: medição em campo e modelo 1D ajustado seção a seção. Na carga mínima a saída vai de 34,6 °C para 32,8 °C; na de referência, de 32,4 °C para 30,0 °C, com o ganho da rota caindo cerca de 70%."
+  description: "Degradação termo-higroscópica do insumo e empedramento no silo, numa linha de transporte pneumático de 150 m. Medição de campo, modelo 1D ajustado seção a seção e proposta de isolamento."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
