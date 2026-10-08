@@ -99,6 +99,17 @@ collections:
           - label: "Resumo"
             name: "intro"
             widget: "text"
+          - label: "Link para os artigos (gancho no fim da seção)"
+            name: "link"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Endereço"
+                name: "href"
+                widget: "string"
+              - label: "Texto do link"
+                name: "rotulo"
+                widget: "string"
           - label: "Camadas de problemas"
             name: "camadas"
             widget: "list"
@@ -239,6 +250,17 @@ collections:
           - label: "Resumo"
             name: "intro"
             widget: "text"
+          - label: "Link para a página de investimento"
+            name: "link"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Endereço"
+                name: "href"
+                widget: "string"
+              - label: "Texto do link"
+                name: "rotulo"
+                widget: "string"
           - label: "Cards de serviços"
             name: "cards"
             widget: "list"
@@ -338,6 +360,17 @@ collections:
                   - label: "Descrição"
                     name: "descricao"
                     widget: "text"
+              - label: "Link para o caso publicado"
+                name: "link"
+                widget: "object"
+                required: false
+                fields:
+                  - label: "Endereço"
+                    name: "href"
+                    widget: "string"
+                  - label: "Texto do link"
+                    name: "rotulo"
+                    widget: "string"
           - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
@@ -798,6 +831,7 @@ collections:
             fields:
               - {label: "Texto alternativo do logo", name: "logoAlt", widget: "string"}
               - {label: "Descrição do logo (leitores de tela)", name: "logoAria", widget: "string"}
+              - {label: "Link para os artigos (aparece só no computador)", name: "navArtigos", widget: "string", required: false}
               - {label: "Botão WhatsApp (celular)", name: "ctaWhatsAppMobile", widget: "string"}
               - {label: "Descrição do botão (leitores de tela)", name: "ctaWhatsAppMobileAria", widget: "string"}
               - {label: "Botão agendar (celular)", name: "ctaPrincipalMobile", widget: "string", hint: "Mantenha: Agendar conversa"}
@@ -848,6 +882,7 @@ collections:
     fields:
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Autor (assinatura publicada)", name: "autor", widget: "string", required: false, hint: "Ex.: Eng. Fernando Enrique Castillo Vicencio, CREA-PR 234812/D"}
       - {label: "Resumo (aparece na lista e no Google)", name: "resumo", widget: "text"}
       - {label: "Imagem de capa", name: "capa", widget: "image", required: false}
       - {label: "Prévia social (og:image, JPEG 1200x630)", name: "og", widget: "image", required: false, hint: "Gerada por make_og_image.py — deixe vazio para usar a imagem padrão do site"}

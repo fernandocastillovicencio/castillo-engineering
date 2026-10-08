@@ -11,7 +11,7 @@ cards:
   - titulo: "Faixas de confiança"
     texto: "As oportunidades são quantificadas em faixas: o cenário mais provável e o conservador mostram o potencial com honestidade — e viram critério de verificação depois."
   - titulo: "Verificação de resultado"
-    texto: "Economia estimada em R$/mês contra a fatura e os registros de produção: linha de base em contrato, regressão ajustada por produção e clima, com R² e CV(RMSE) documentados. A resolução possível é dita na proposta, não prometida."
+    texto: "Economia estimada em R$/mês contra a fatura e os registros de produção: linha de base em contrato e regressão ajustada por produção e clima, com os critérios de aceitação do ajuste definidos antes da linha de base e acordados na proposta. Se o ajuste não passar nesses critérios, a linha de base é revisada com você antes de reportar qualquer número. Em problema de produto, o critério é a temperatura ou a qualidade no ponto de uso."
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"

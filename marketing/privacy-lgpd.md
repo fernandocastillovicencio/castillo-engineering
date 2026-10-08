@@ -19,7 +19,7 @@ ultimaAtualizacao: "Última atualização: setembro de 2026."
 
 ## 1. Coleta de Dados (minimização)
 
-Coletamos apenas os dados necessários para o diagnóstico e o contato: nome, empresa, cargo, e-mail, WhatsApp, setor, cidade/UF e a descrição do problema térmico. Não solicitamos documento, dado sensível ou informação além do necessário — a minimização é uma regra do nosso método, não só da lei.
+Coletamos apenas os dados necessários para o contato e o diagnóstico: nome, WhatsApp e a descrição do problema térmico. Dados adicionais (empresa, cargo, setor, cidade/UF, faturas ou registros de operação) são fornecidos por você quando fizer sentido para a análise. Não solicitamos documento nem dado sensível — a minimização é uma regra do nosso método, não só da lei.
 
 ## 2. Finalidade do Uso
 
@@ -35,7 +35,7 @@ Os dados são mantidos pelo prazo máximo de 12 meses após o último contato, s
 
 ## 5. Direitos do Titular
 
-De acordo com a LGPD, você pode solicitar a qualquer momento o acesso, a correção ou a exclusão dos seus dados, pelo e-mail: contato@castilloeng.com.br. A Castillo Engenharia atua como controladora; um encarregado (DPA) está disponível para atender solicitações pelo mesmo canal.
+De acordo com a LGPD, você pode solicitar a qualquer momento o acesso, a correção ou a exclusão dos seus dados, pelo e-mail: contato@castilloengenharia.com.br. A Castillo Engenharia atua como controladora; um encarregado (DPO) está disponível para atender solicitações pelo mesmo canal.
 
 ## 6. Incidentes de Segurança
 

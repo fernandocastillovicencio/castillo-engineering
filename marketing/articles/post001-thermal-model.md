@@ -1,6 +1,7 @@
 ---
 title: "Insumo quente no silo: o diagnóstico em 150 m de tubo"
 date: 2026-10-07
+autor: "Eng. Mecânico Fernando Enrique Castillo Vicencio, CREA-PR 234812/D"
 resumo: "Medição de campo e modelo 1D por seção: a saída cai de 32,4 °C para 30,0 °C no dia extremo, mas a faixa de 24 a 26 °C exigiria uma entrada de ~21,8 °C."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
@@ -23,7 +24,7 @@ Para atenuar ou evitar este problema, os engenheiros do cliente instalaram uma c
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/render-panel.avif" alt="Representação da linha e da cobertura, em quatro vistas." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/render-panel.avif" alt="Representação da linha e da cobertura, em quatro vistas." width="2576" height="1308" loading="lazy" decoding="async"/>
 
 <figcaption>Representação da linha e da cobertura, em quatro vistas.</figcaption>
 
@@ -35,7 +36,7 @@ A empresa deseja evitar ou diminuir este efeito termo-higroscópico do produto d
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/product-degradation.avif" alt="Representação do produto aglutinado no silo, sem e com degradação termo-higroscópica." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/product-degradation.avif" alt="Representação do produto aglutinado no silo, sem e com degradação termo-higroscópica." width="1024" height="559" loading="lazy" decoding="async"/>
 
 <figcaption>Representação do produto aglutinado no silo, sem e com degradação termo-higroscópica.</figcaption>
 
@@ -83,7 +84,7 @@ $$
 
 <figure class="figure-narrow">
 
-<img src="/images/articles/post001-thermal-model/fig-section-balance.svg" alt="O balanço, termo a termo, na seção do tubo." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-section-balance.svg" alt="O balanço, termo a termo, na seção do tubo." width="601" height="635" loading="lazy" decoding="async"/>
 
 <figcaption>O balanço, termo a termo, na seção do tubo.</figcaption>
 
@@ -93,7 +94,7 @@ O coeficiente convectivo adota o maior valor entre a convecção natural e a for
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-calibration.svg" alt="O modelo contra a medição de campo, seção por seção." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-calibration.svg" alt="O modelo contra a medição de campo, seção por seção." width="1229" height="691" loading="lazy" decoding="async"/>
 
 <figcaption>O modelo contra a medição de campo, seção por seção.</figcaption>
 
@@ -107,7 +108,7 @@ $$
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-thermal-march.svg" alt="O ganho de cada metro somando ao longo do produto." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-thermal-march.svg" alt="O ganho de cada metro somando ao longo do produto." width="758" height="413" loading="lazy" decoding="async"/>
 
 <figcaption>O ganho de cada metro somando ao longo do produto.</figcaption>
 
@@ -119,7 +120,7 @@ Foram identificados os pontos críticos: o ganho de calor se concentra nos trech
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-balance-per-section.svg" alt="O saldo do modelo, seção por seção." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-balance-per-section.svg" alt="O saldo do modelo, seção por seção." width="1229" height="690" loading="lazy" decoding="async"/>
 
 <figcaption>O saldo do modelo, seção por seção.</figcaption>
 
@@ -135,7 +136,7 @@ Os resultados são médias de 20 000 cenários por trecho de tubulação: na car
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-march-compare.svg" alt="O dia medido e o dia extremo, nas mesmas seções." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-march-compare.svg" alt="O dia medido e o dia extremo, nas mesmas seções." width="922" height="518" loading="lazy" decoding="async"/>
 
 <figcaption>O dia medido e o dia extremo, nas mesmas seções.</figcaption>
 
@@ -155,7 +156,7 @@ As condutividades adotadas são 0,032 W/(m·K) para o PUR e 0,038 W/(m·K) para 
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-pur-insulation.svg" alt="Perfil da linha sem isolante e com PUR em quatro espessuras, no dia extremo." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-pur-insulation.svg" alt="Perfil da linha sem isolante e com PUR em quatro espessuras, no dia extremo." width="1055" height="498" loading="lazy" decoding="async"/>
 
 <figcaption>O perfil da linha sem isolante e com PUR de 1", 1½", 2" e 3", no dia extremo.</figcaption>
 
@@ -165,7 +166,7 @@ No entanto, a diferença entre os dois ainda é pequena. Falta avaliar a variaç
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-pur-outlet.svg" alt="Temperatura de saída com PUR em cada espessura e carga." loading="lazy" decoding="async"/> <img src="/images/articles/post001-thermal-model/fig-fef-outlet.svg" alt="Temperatura de saída com FEF em cada espessura e carga." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-pur-outlet.svg" alt="Temperatura de saída com PUR em cada espessura e carga." width="989" height="616" loading="lazy" decoding="async"/> <img src="/images/articles/post001-thermal-model/fig-fef-outlet.svg" alt="Temperatura de saída com FEF em cada espessura e carga." width="989" height="616" loading="lazy" decoding="async"/>
 
 <figcaption>Comparação de cargas: saída com PUR (acima) e com FEF (abaixo).</figcaption>
 
@@ -181,7 +182,7 @@ No desempenho térmico os dois conjuntos praticamente empatam; a escolha se deci
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/pipe_insulation.avif" alt="A opção escolhida: PUR de 1½ polegadas com chapa de aço inoxidável." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/pipe_insulation.avif" alt="A opção escolhida: PUR de 1½ polegadas com chapa de aço inoxidável." width="1024" height="559" loading="lazy" decoding="async"/>
 
 <figcaption>A opção escolhida: PUR de 1½" com chapa de aço inoxidável.</figcaption>
 
@@ -191,7 +192,7 @@ Assim, define-se a melhor solução e modela-se a temperatura do produto em cada
 
 <figure>
 
-<img src="/images/articles/post001-thermal-model/fig-load-range.svg" alt="Com o PUR de 1½ polegadas: temperatura do produto em cada seção de medição, para cada carga." loading="lazy" decoding="async"/>
+<img src="/images/articles/post001-thermal-model/fig-load-range.svg" alt="Com o PUR de 1½ polegadas: temperatura do produto em cada seção de medição, para cada carga." width="1056" height="519" loading="lazy" decoding="async"/>
 
 <figcaption>Com o PUR de 1½": temperatura do produto em cada seção de medição, para cada carga — a carga mínima (20 %) é o pior caso.</figcaption>
 

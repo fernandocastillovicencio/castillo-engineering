@@ -30,6 +30,7 @@ a11y:
 header:
   logoAlt: "Logo da Castillo Engenharia - Engenharia de Fluidos e Térmica Industrial"
   logoAria: "Castillo Engenharia — página inicial"
+  navArtigos: "Artigos técnicos"
   ctaWhatsAppMobile: "WhatsApp"
   ctaWhatsAppMobileAria: "Conversar no WhatsApp"
   ctaPrincipalMobile: "Agendar conversa"
@@ -43,9 +44,9 @@ whatsappButton:
   ariaLabel: "Conversa de 30 minutos, sem compromisso"
   textoDesktop: "Entre em contato, sem compromisso"
 meta:
-  descriptionDefault: "Diagnóstico e análise de desempenho de vapor, refrigeração, bombas e secagem — verificando o resultado contra a fatura. Conversa de 30 minutos, sem compromisso."
+  descriptionDefault: "Diagnóstico, otimização e análise de desempenho em sistemas térmicos e de fluidos — verificando o resultado contra a fatura. Conversa de 30 minutos, sem compromisso."
 contato:
-  email: "contato@castilloeng.com.br"
+  email: "contato@castilloengenharia.com.br"
   telefone: "+55-41-93300-9505"
   cnpj: "67.015.526/0001-16"
   cep: "81.510-210 — Curitiba/PR — Brasil"
@@ -54,7 +55,7 @@ institucional:
 schemaOrg:
   "@type": ["ProfessionalService", "LocalBusiness"]
   legalName: "Castillo Engineering LTDA"
-  description: "Engenharia de fluidos e térmica. Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; análise documental NR-13/NR-36."
+  description: "Engenharia de fluidos e térmica industrial: diagnóstico, otimização e análise de desempenho em sistemas térmicos e de fluidos, com verificação de resultado contra a fatura."
   addressLocality: "Curitiba"
   addressRegion: "PR"
   postalCode: "81510-210"

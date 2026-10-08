@@ -23,9 +23,9 @@ const dataFmt = (d) =>
       <div class="articles-list">
         {posts.map((post) => (
           <article class="card-article">
-            <a href={`/articles/${post.id}`} class="card-article-link">
+            <a href={`/articles/${post.id}`} class="card-article-link" aria-label={`${post.data.title} — Ler artigo`}>
               {post.data.capa && (
-                <img src={post.data.capa} alt="" loading="lazy" decoding="async" />
+                <img src={post.data.capa} alt="" decoding="async" width="1600" height="900" />
               )}
               <div class="card-article-body">
                 <time datetime={post.data.date.toISOString().slice(0, 10)}>

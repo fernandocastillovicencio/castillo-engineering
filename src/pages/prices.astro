@@ -18,7 +18,7 @@ const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
 
       {dados.etapas.map((etapa) => (
         etapa.destaque ? (
-          <div class="box-dark mb-6">
+          <div class="box-dark mb-8">
             <h2 class="card-title">{etapa.titulo}</h2>
             <p>{etapa.texto}{etapa.textoDestaque && <strong>{etapa.textoDestaque}</strong>}</p>
             {etapa.prazo && <p class="prazo"><strong>{dados.prazoLabel}</strong> {etapa.prazo}</p>}
@@ -30,7 +30,7 @@ const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
             {etapa.nota && <p class="card-body mt-6">{etapa.nota}</p>}
           </div>
         ) : (
-          <div class="card mb-6">
+          <div class="card mb-8">
             <h2 class="card-title">{etapa.titulo}</h2>
             <p class="card-body">{etapa.texto}</p>
           </div>

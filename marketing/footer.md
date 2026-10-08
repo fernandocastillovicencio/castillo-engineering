@@ -23,14 +23,14 @@
 sobre: "RODAPÉ: chamada com botão, 3 colunas (empresa, navegação, contato) e copyright."
 cta:
   titulo: "Quer saber o que suas faturas e registros já dizem sobre a operação?"
-  texto: "Conversa de 30 minutos, sem compromisso, sobre vapor, refrigeração, bombas e secagem."
+  texto: "Conversa de 30 minutos, sem compromisso, sobre os sistemas térmicos e de fluidos da sua planta."
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 colunas:
-  - titulo: "Castillo Engineering LTDA"
+  - titulo: "Castillo Engenharia"
     paragrafos:
-      - "Diagnóstico e análise de desempenho de vapor, condensado, refrigeração, bombas e secagem; análise documental NR-13/NR-36."
-      - "CREA-PR ativo · ART quando o serviço exigir, ou a pedido do cliente (Lei 6.496/1977)"
+      - "Diagnóstico, otimização, análise de desempenho e solução de problemas em sistemas térmicos e de fluidos."
+      - "CREA-PJ 92764 · Responsável técnico: Eng. Mecânico Fernando Enrique Castillo Vicencio, CREA-PR 234812/D · ART quando o serviço exigir (Lei 6.496/1977)"
   - titulo: "Navegação"
     links:
       - { label: "Início", href: "/" }
@@ -41,7 +41,7 @@ colunas:
   - titulo: "Contato"
     itens:
       - item: "Atendimento remoto — Brasil e América do Sul"
-      - { tipo: "email", label: "contato@castilloeng.com.br" }
+      - { tipo: "email", label: "contato@castilloengenharia.com.br" }
       - { tipo: "whatsapp", label: "(41) 9 3300-9505" }
       - item: "CNPJ: 67.015.526/0001-16"
       - item: "CEP: 81.510-210 — Curitiba/PR — Brasil"

@@ -62,6 +62,7 @@ const faqPageSchema = {
           </div>
         )
       ))}
+      {oqueResolvemos.link && <p class="text-center mt-8"><a class="link-cta" href={oqueResolvemos.link.href}>{oqueResolvemos.link.rotulo}</a></p>}
     </div>
   </section>
 
@@ -76,7 +77,18 @@ const faqPageSchema = {
     </div>
   </section>
 
-  <!-- 4. PARA QUEM -->
+  <!-- 4. RESULTADOS (a prova vem logo depois do método) -->
+  <section id="resultados">
+    <div class="container-site">
+      <h2 class="section-title">{resultados.title}</h2>
+      <div class="card"><h3 class="card-title">{resultados.portifolio.titulo}</h3><p class="card-body">{resultados.portifolio.intro}</p>
+        <ul class="item-grid">{resultados.portifolio.itens.map((item) => <li><strong>{item.titulo}</strong>{item.descricao}</li>)}</ul>
+        {resultados.portifolio.link && <a class="link-cta" href={resultados.portifolio.link.href}>{resultados.portifolio.link.rotulo}</a>}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PARA QUEM -->
   <section id="para-quem">
     <div class="container-site">
       <h2 class="section-title">{paraQuem.title}</h2>
@@ -88,7 +100,7 @@ const faqPageSchema = {
     </div>
   </section>
 
-  <!-- 5. POR QUE A CASTILLO -->
+  <!-- 6. POR QUE A CASTILLO -->
   <section id="por-que">
     <div class="container-site">
       <h2 class="section-title">{porQue.title}</h2>
@@ -98,7 +110,7 @@ const faqPageSchema = {
     </div>
   </section>
 
-  <!-- 6. INVESTIMENTO -->
+  <!-- 7. INVESTIMENTO -->
   <section id="investimento">
     <div class="container-site">
       <h2 class="section-title">{investimento.title}</h2>
@@ -111,7 +123,7 @@ const faqPageSchema = {
     </div>
   </section>
 
-  <!-- 7. FAQ -->
+  <!-- 8. FAQ -->
   <section id="faq">
     <div class="container-site">
       <h2 class="section-title">{faqData.title}</h2>
@@ -122,18 +134,7 @@ const faqPageSchema = {
     </div>
   </section>
 
-  <!-- 8. RESULTADOS -->
-  <section id="resultados">
-    <div class="container-site">
-      <h2 class="section-title">{resultados.title}</h2>
-      <div class="card"><h3 class="card-title">{resultados.portifolio.titulo}</h3><p class="card-body">{resultados.portifolio.intro}</p>
-        <ul class="item-grid">{resultados.portifolio.itens.map((item) => <li><strong>{item.titulo}</strong>{item.descricao}</li>)}</ul>
-        {resultados.portifolio.link && <a class="link-cta" href={resultados.portifolio.link.href}>{resultados.portifolio.link.rotulo}</a>}
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. CONTATO -->
+  <!-- 9. CONTATO (a antiga seção Resultados subiu para a 4ª posição) -->
   <section id="contato">
     <div class="container-site">
       <h2>{contato.title}</h2>

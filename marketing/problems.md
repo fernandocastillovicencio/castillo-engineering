@@ -1,7 +1,6 @@
 ---
 title: O que resolvemos
-intro: "Referências de oportunidade para plantas de porte médio, não promessa: o valor
-  de cada planta sai no diagnóstico."
+intro: "Estes são os problemas térmicos que resolvemos; o valor de cada planta sai no diagnóstico."
 camadas:
   - titulo: Eficiência Energética
     subtitulo: — redução de custos e da fatura de energia
@@ -32,4 +31,7 @@ camadas:
       - dor: Ar comprimido
         sintoma: Vazamentos; pressão alta demais
 sobre: "Seção O QUE RESOLVEMOS: duas camadas (energia e operação) com dores e sintomas."
+link:
+  href: "/articles"
+  rotulo: "Ver os casos publicados →"
 ---

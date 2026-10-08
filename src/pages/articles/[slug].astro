@@ -27,6 +27,26 @@ const dataPub = dados.date.toLocaleDateString('pt-BR', {
   timeZone: 'UTC',
 });
 const ctaHref = dados.cta?.href ?? 'whatsappCta';
+
+// Schema do artigo (rich results): autor identificado, data e imagem de prévia.
+// O publisher referencia o @id da Organization emitida pelo Layout.
+const siteUrl = siteConfig.siteUrl;
+const autorNome = (dados.autor ?? '').replace(/^Eng\.\s*Mecânico\s*/i, '').split(',')[0].trim();
+const autorCrea = (dados.autor ?? '').split(',').slice(1).join(',').trim();
+const artigoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: dados.title,
+  description: dados.seo?.description ?? dados.resumo,
+  image: `${siteUrl}${dados.og ?? dados.capa ?? '/images/og-castillo.png'}`,
+  datePublished: dados.date.toISOString().slice(0, 10),
+  inLanguage: 'pt-BR',
+  author: autorNome
+    ? { '@type': 'Person', name: autorNome, ...(autorCrea ? { identifier: autorCrea } : {}) }
+    : { '@type': 'Organization', name: 'Castillo Engenharia' },
+  publisher: { '@id': `${siteUrl}/#org` },
+  mainEntityOfPage: `${siteUrl}/articles/${post.id}`,
+};
 ---
 
 <Layout
@@ -35,10 +55,12 @@ const ctaHref = dados.cta?.href ?? 'whatsappCta';
   ogType="article"
   ogImage={dados.og}
 >
-  <section id="article">
+  <script type="application/ld+json" set:html={JSON.stringify(artigoSchema)} />
+
+  <article id="article">
     <div class="container-site">
       <p class="article-meta">
-        <a href="/articles">Artigos técnicos</a> · {dataPub}
+        <a href="/">Início</a> <span aria-hidden="true">/</span> <a href="/articles">Artigos técnicos</a> · {dataPub}{dados.autor && <span> · Por {dados.autor}</span>}
       </p>
       <h1>{dados.title}</h1>
       <p class="article-summary">{dados.resumo}</p>
@@ -61,9 +83,9 @@ const ctaHref = dados.cta?.href ?? 'whatsappCta';
           </a>
         </div>
       )}
-      <nav class="article-back">
+      <nav class="article-back" aria-label="Voltar para a lista de artigos">
         <a href="/articles">← Todos os artigos</a>
       </nav>
     </div>
-  </section>
+  </article>
 </Layout>

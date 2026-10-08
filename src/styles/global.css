@@ -10,8 +10,8 @@
   --color-castillo-slate: #1E293B;
   --color-castillo-ice: #F8FAFC;
   --color-impacto: #B45309;
-  --color-whatsapp: #22C55E;
-  --color-whatsapp-hover: #16A34A;
+  --color-whatsapp: #15803D;
+  --color-whatsapp-hover: #166534;
   --color-form-text: #1F2937;
   --color-form-placeholder: #6B7280;
   --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -23,8 +23,8 @@
    CATEGORIA 2 — BASE (comportamento global)
    ════════════════════════════════════════════════════════════════════ */
 html { scroll-behavior: smooth; }
-section[id] { scroll-margin-top: 5rem; }
-body { @apply bg-castillo-white flex flex-col min-h-screen; }
+section[id] { scroll-margin-top: 7rem; }
+body { @apply bg-castillo-white text-castillo-slate flex flex-col min-h-screen; }
 main { @apply flex-grow; }
 
 @layer components {
@@ -34,11 +34,11 @@ main { @apply flex-grow; }
 
   /* Layout */
   .container-site { @apply container mx-auto px-4; }
-  section { @apply py-16 md:py-20 bg-castillo-white; }
+  section { @apply py-12 md:py-16 bg-castillo-white; }
   .section-title { @apply text-3xl md:text-4xl font-bold text-castillo-blue text-center mb-4; }
-  .section-title + p { @apply text-xl text-castillo-slate text-center mb-12 max-w-3xl mx-auto; }
+  .section-title + p { @apply text-lg text-castillo-slate text-center mb-8 max-w-3xl mx-auto; }
   .grid-3 { @apply grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto; }
-  .grid-4 { @apply grid md:grid-cols-4 gap-8 max-w-5xl mx-auto; }
+  .grid-4 { @apply grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto; }
   .stack { @apply max-w-4xl mx-auto space-y-6; }
   .ctas { @apply flex flex-col sm:flex-row gap-4 justify-center; }
 
@@ -49,7 +49,7 @@ main { @apply flex-grow; }
   .lead { @apply text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto; }
   .legenda { @apply text-sm text-white/70; }
   .subtitulo { @apply text-castillo-slate font-normal text-base; }
-  .link-cta { @apply mt-3 text-sm inline-block text-castillo-orange font-bold underline hover:opacity-80; }
+  .link-cta { @apply mt-3 py-1 text-sm inline-block text-impacto font-bold underline hover:opacity-80; }
 
   /* Cartões e etiquetas */
   .card { @apply bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8; }
@@ -67,7 +67,7 @@ main { @apply flex-grow; }
 
   /* Botões */
   .btn { @apply px-8 py-4 rounded-lg font-bold transition-all text-lg inline-block; }
-  .btn[data-tipo=primario] { @apply bg-castillo-orange text-castillo-white hover:opacity-90 hover:scale-105; }
+  .btn[data-tipo=primario] { @apply bg-impacto text-castillo-white hover:bg-[#92400E] hover:scale-105; }
   .btn[data-tipo=contorno] { @apply border-2 border-castillo-blue text-castillo-blue hover:bg-castillo-blue hover:text-castillo-white; }
   .cta-wrap { @apply text-center mt-8; }
 
@@ -93,7 +93,15 @@ main { @apply flex-grow; }
   .header-logo img { @apply h-16 md:h-15 lg:h-20 w-auto object-contain; }
   .header-actions { @apply flex items-center gap-2; }
   .header-wa { @apply md:hidden bg-whatsapp text-white px-4 py-3 rounded-lg font-bold hover:bg-whatsapp-hover transition-colors text-sm whitespace-nowrap; }
-  .header-cta { @apply bg-castillo-orange text-castillo-white px-5 py-3 md:px-6 rounded-lg font-bold hover:opacity-90 transition-opacity text-sm md:text-base whitespace-normal md:whitespace-nowrap text-center; }
+  .header-cta { @apply bg-impacto text-castillo-white px-5 py-3 md:px-6 rounded-lg font-bold hover:bg-[#92400E] transition-colors text-sm md:text-base whitespace-normal md:whitespace-nowrap text-center; }
+  /* Link para os artigos: só a partir de 1024 px de largura.
+     Medido: entre 768 e 1023 o cabeçalho tem 0 px de folga e o rótulo quebra
+     em duas linhas; abaixo de 1024 ele fica oculto (o celular chega aos
+     artigos pela seção Resultados e pelo rodapé).
+     O peso e a opacidade evitam que ele dispute atenção com o CTA: branco/80
+     sobre o azul = 9,90:1 (segue AAA) contra 14,78:1 do branco puro. */
+  .header-nav { @apply hidden lg:block mr-auto lg:ml-5; }
+  .header-nav a { @apply py-1 font-medium text-white/80 transition-colors hover:text-castillo-orange hover:underline; }
   .txt-curto { @apply md:hidden; }
   .txt-longo { @apply hidden md:inline; }
 
@@ -101,13 +109,13 @@ main { @apply flex-grow; }
   .footer { @apply bg-castillo-blue text-castillo-white mt-auto; }
   .footer-inner { @apply container mx-auto px-4 py-8; }
   .footer-cta { @apply text-center mb-8 pb-8 border-b border-white/20; }
-  .footer-cta h2 { @apply text-2xl font-bold mb-4; }
+  .footer-cta h2 { @apply text-3xl md:text-4xl font-bold mb-4; }
   .footer-cta p { @apply text-white/70 mb-6; }
   .footer-cols { @apply grid md:grid-cols-3 gap-8; }
   .footer-cols p { @apply text-white/70 text-sm; }
   .footer h3 { @apply text-lg font-bold mb-4; }
   .footer ul { @apply text-sm text-white/70; }
-  .footer ul a { @apply underline hover:text-castillo-orange; }
+  .footer ul a { @apply underline inline-block py-1 hover:text-castillo-orange; }
   .footer-copy { @apply border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/70; }
 
   /* Botão flutuante de WhatsApp */
@@ -119,16 +127,16 @@ main { @apply flex-grow; }
   /* ══════════════════════════════════════════════════════════════════
      CATEGORIA 5 — HOME (uma subseção por seção da página inicial)
      ══════════════════════════════════════════════════════════════════ */
-  #como-funciona, #por-que, #faq { @apply bg-castillo-ice; }
+  #como-funciona, #para-quem, #investimento { @apply bg-castillo-ice; }
 
   /* Hero */
   #hero { @apply bg-castillo-blue text-castillo-white pt-16 pb-20 md:pt-24 md:pb-28; }
   #hero .container-site { @apply text-center; }
-  #hero h1 { @apply text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto; }
+  #hero h1 { @apply text-4xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto; }
   #hero .legenda { @apply mb-8; }
   #hero .ctas { @apply mb-8; }
   #hero .btn[data-tipo=contorno] { @apply border-castillo-white text-castillo-white hover:bg-castillo-white hover:text-castillo-blue; }
-  .hero-badge { @apply inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs md:text-sm text-white/80 border border-white/20 rounded-full px-4 py-1.5 mb-8; }
+  .hero-badge { @apply inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/80 border border-white/20 rounded-full px-4 py-1.5 mb-8; }
 
   /* O que resolvemos — tabela de dores */
   #o-que-resolvemos .card { @apply max-w-5xl mx-auto mb-8; }
@@ -148,11 +156,9 @@ main { @apply flex-grow; }
   #para-quem .chips { @apply justify-center mt-8; }
 
   /* Por que a Castillo */
-  #por-que .box-dark { @apply max-w-4xl mx-auto mt-10; }
 
   /* Resultados */
-  #resultados .container-site { @apply max-w-4xl; }
-  #resultados .card { @apply mb-8 text-left; }
+  #resultados .card { @apply max-w-4xl mx-auto mb-8 text-left; }
   #resultados .card > p { @apply mb-5; }
 
   /* Contato — formulário escuro */
@@ -171,7 +177,7 @@ main { @apply flex-grow; }
   #form-sucesso { @apply max-w-xl mx-auto bg-white text-castillo-blue rounded-lg p-8 shadow-sm; }
   #form-sucesso .card-title { @apply text-xl mb-3; }
   #form-sucesso .card-body { @apply mb-3; }
-  #form-sucesso a { @apply inline-block text-castillo-orange font-bold underline hover:opacity-80; }
+  #form-sucesso a { @apply inline-block py-1 text-impacto font-bold underline hover:opacity-80; }
 
   /* ══════════════════════════════════════════════════════════════════
      CATEGORIA 6 — PÁGINAS INTERNAS
@@ -207,9 +213,9 @@ main { @apply flex-grow; }
   #articles .intro-lista { @apply text-castillo-slate text-lg mb-12; }
   .articles-list { @apply grid gap-6; }
   .card-article-link { @apply block bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow; }
-  .card-article-link img { @apply w-full h-auto object-cover; }
+  .card-article-link img { @apply w-full h-auto object-cover; aspect-ratio: 16 / 9; }
   .card-article-body { @apply p-6 md:p-8 flex flex-col gap-2; }
-  .card-article-body time { @apply text-sm font-bold text-castillo-orange uppercase tracking-wider; }
+  .card-article-body time { @apply text-sm font-bold text-impacto uppercase tracking-wider; }
   .card-article-body h2 { @apply text-xl font-bold text-castillo-blue; }
   .card-article-body p { @apply text-castillo-slate text-sm; }
   .card-article-body .link-cta { @apply mt-2; }
@@ -217,12 +223,14 @@ main { @apply flex-grow; }
   /* Artigo (/articles/<slug>) */
   #article .container-site { @apply max-w-3xl; }
   .article-meta { @apply text-sm mb-2; }
-  .article-meta a { @apply text-castillo-orange font-bold hover:opacity-80; }
+  .article-meta a { @apply text-impacto font-bold hover:opacity-80; }
   #article h1 { @apply text-3xl md:text-4xl font-bold text-castillo-blue mb-4 leading-tight; }
   .article-summary { @apply text-lg md:text-xl text-castillo-slate mb-8; }
-  .article-cover { @apply w-full rounded-lg border border-gray-200 mb-10; }
+  .article-cover { @apply w-full rounded-lg border border-gray-200 mb-10; aspect-ratio: 16 / 9; object-fit: cover; }
   .article-body { @apply space-y-6 text-castillo-slate leading-relaxed; }
-  .article-body p { @apply text-base md:text-lg; }
+  .article-body p { @apply text-base md:text-lg max-w-[68ch]; }
+  /* Parágrafos que embrulham figuras não devem estreitar a imagem */
+  .article-body p:has(> img) { @apply max-w-none; }
   .article-body h2 { @apply text-2xl font-bold text-castillo-blue pt-6; }
   .article-body ul { @apply list-disc pl-6 space-y-2; }
   .article-body figure { @apply my-10; }
@@ -234,5 +242,37 @@ main { @apply flex-grow; }
   .article-body figcaption { @apply text-sm text-castillo-slate text-center mt-3; }
   .article-body .katex-display { @apply my-8 overflow-x-auto text-center; }
   .article-back { @apply mt-12 pt-6 border-t border-gray-200 text-sm; }
-  .article-back a { @apply text-castillo-orange font-bold underline hover:opacity-80; }
+  .article-back a { @apply text-impacto font-bold underline hover:opacity-80; }
+
+  /* ══════════════════════════════════════════════════════════════════
+     CATEGORIA 9 — CORREÇÕES DE UI E ACESSIBILIDADE
+     (medidas no navegador: alinhamento, alvos de toque, espaço morto)
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* Link solto no Investimento: entra centralizado como o resto da seção */
+  #investimento p:has(> .link-cta) { @apply text-center; }
+
+  /* Contêineres vazios não devem ocupar espaço (chips e grid sem itens) */
+  #para-quem .chips:empty, #investimento .grid-4:empty { @apply hidden; }
+
+  /* Último bloco de cada seção não precisa de margem extra no pé */
+  #o-que-resolvemos .card:last-child,
+  #resultados .card:last-child,
+  #hero .ctas:last-child { @apply mb-0; }
+
+  /* Alvos de toque (WCAG 2.5.8): resumos e links curtos ganham área clicável */
+  summary { @apply py-1; }
+
+  /* Foco visível em tudo que recebe teclado (WCAG 2.4.7).
+     O laranja da marca sobre branco dá 3,19:1 — suficiente para indicador
+     de interface (≥3:1) e melhor ainda sobre o azul (4,64:1). */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    @apply outline-2 outline-offset-2 outline-castillo-orange;
+  }
+
+  /* O botão flutuante de WhatsApp não deve cobrir os campos do formulário */
+  @media (max-width: 767px) {
+    #contato { padding-bottom: 6rem; }
+  }
 }

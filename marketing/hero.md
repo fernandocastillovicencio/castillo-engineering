@@ -2,10 +2,11 @@
 badge:
   - Engenharia de Fluidos e Térmica
   - Consultoria, Solução de Problemas e Otimização de Processos
-linhaAtendimento: Baseado em Curitiba/PR · Atendimento remoto em todo o Brasil e América do Sul.
+linhaAtendimento: Baseado em Curitiba/PR · Análise remota em todo o Brasil e América do Sul, com medição de campo quando o diagnóstico exigir.
 headline: Sua planta perde dinheiro em calor, vapor e frio.
 sub: Encontramos onde sua planta perde energia e mostramos o que fazer — verificado
-  contra a sua fatura. Produto empedrando ou fora de faixa também é problema térmico.
+  contra a sua fatura. Qualidade do produto, conforto no trabalho e consumo de energia
+  também são problemas térmicos.
 seo:
   title: Engenharia de Fluidos e Térmica Industrial | Castillo Engenharia
   description: "Engenharia de fluidos e térmica industrial: encontre onde sua
