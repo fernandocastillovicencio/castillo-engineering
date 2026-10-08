@@ -64,6 +64,11 @@ export const ui = {
     articleBackAria: 'Voltar para a lista de artigos',
     articleBack: '← Todos os artigos',
     articleBy: 'Por',
+    /** LinkedIn: compartilhar o artigo e seguir a página da empresa. */
+    shareLabel: 'Compartilhar',
+    shareAria: 'Compartilhar este artigo no LinkedIn',
+    followLabel: 'LinkedIn',
+    followAria: 'Siga a Castillo Engenharia no LinkedIn',
   },
   es: {
     langSwitchAria: 'Idioma del sitio',
@@ -84,5 +89,9 @@ export const ui = {
     articleBackAria: 'Volver a la lista de artículos',
     articleBack: '← Todos los artículos',
     articleBy: 'Por',
+    shareLabel: 'Compartir',
+    shareAria: 'Compartir este artículo en LinkedIn',
+    followLabel: 'LinkedIn',
+    followAria: 'Siga a Castillo Engenharia en LinkedIn',
   },
 } as const;

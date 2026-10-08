@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import LangSwitch from '../components/LangSwitch.astro';
+import LinkedInLink from '../components/LinkedInLink.astro';
 import { getEntry } from 'astro:content';
 import { DEFAULT_LANG, HTML_LANG, OG_LOCALE, entryId, homeHref, localize, otherLang, ui, type Lang } from '../i18n';
 import { siteSettings } from '../i18n/settings';
@@ -49,7 +50,10 @@ const schemaOrg = {
   description: siteConfig.schemaOrg.description,
   address: { '@type': 'PostalAddress', addressLocality: siteConfig.schemaOrg.addressLocality, addressRegion: siteConfig.schemaOrg.addressRegion, postalCode: siteConfig.schemaOrg.postalCode, addressCountry: siteConfig.schemaOrg.addressCountry },
   areaServed: siteConfig.schemaOrg.areaServed,
-  knowsAbout: siteConfig.schemaOrg.knowsAbout
+  knowsAbout: siteConfig.schemaOrg.knowsAbout,
+  // Perfis oficiais da empresa: é o que o Google usa para ligar a marca à
+  // página. Acrescentar aqui quando existir outro perfil institucional.
+  sameAs: ['https://www.linkedin.com/company/castillo-engenharia']
 };
 
 const colNavegacao = footerData.colunas.find((c) => c.links);
@@ -97,7 +101,7 @@ const absolutizar = (caminho: string) => {
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
     {GA4_ID && <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>}
     {GA4_ID && <script is:inline define:vars={{ GA4_ID }}>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',GA4_ID);</script>}
-    {GA4_ID && <script is:inline>document.addEventListener('click',function(e){var t=e.target,el=t&&t.closest?t.closest('a'):null;if(!el||typeof gtag!=='function')return;var h=el.getAttribute('href')||'';if(h.indexOf('wa.me')!==-1){gtag('event','whatsapp_click',{event_category:'contato',event_label:el.textContent.trim().slice(0,40)})}else if(h==='#contato'){gtag('event','cta_click',{event_category:'contato',event_label:el.textContent.trim().slice(0,40)})}});</script>}
+    {GA4_ID && <script is:inline>document.addEventListener('click',function(e){var t=e.target,el=t&&t.closest?t.closest('a'):null;if(!el||typeof gtag!=='function')return;var h=el.getAttribute('href')||'';if(h.indexOf('wa.me')!==-1){gtag('event','whatsapp_click',{event_category:'contato',event_label:el.textContent.trim().slice(0,40)})}else if(h==='#contato'){gtag('event','cta_click',{event_category:'contato',event_label:el.textContent.trim().slice(0,40)})}else if(h.indexOf('linkedin.com')!==-1){gtag('event','linkedin_click',{event_category:'social',event_label:(el.getAttribute('aria-label')||el.textContent.trim()).slice(0,40)})}});</script>}
     <title>{title}</title>
   </head>
   <body>
@@ -112,8 +116,12 @@ const absolutizar = (caminho: string) => {
           <a href={localize('/articles', lang)} aria-current={Astro.url.pathname.startsWith('/articles') ? 'page' : undefined}>{siteConfig.header.navArtigos}</a>
         </nav>
         <div class="header-actions">
+          {/* Acesso direto ao LinkedIn já no topo, em todas as páginas.
+              Abaixo de 768 px o cabeçalho tem 0 px de folga (medido; o logo,
+              o botão de WhatsApp e o CTA ocupam tudo), então no celular a
+              marca desce para a primeira linha do hero. */}
+          <LinkedInLink label={ui[lang].followAria} />
           {altUrl && showSwitch && <LangSwitch lang={lang} altUrl={altUrl} class="hidden xl:flex" />}
-          <a class="header-wa" href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label={siteConfig.header.ctaWhatsAppMobileAria}>{siteConfig.header.ctaWhatsAppMobile}</a>
           <a class="header-cta" href={ctaWhatsAppUrl} target="_blank" rel="noopener noreferrer"><span class="txt-curto">{siteConfig.header.ctaPrincipalMobile}</span><span class="txt-longo">{siteConfig.header.ctaPrincipalDesktop}</span></a>
         </div>
       </div>
@@ -141,7 +149,12 @@ const absolutizar = (caminho: string) => {
             })}</ul>
           </div>
         </div>
-        <div class="footer-copy"><p>{footerData.copyright}</p></div>
+        <div class="footer-copy">
+          <p>{footerData.copyright}</p>
+          <p class="footer-social">
+            <LinkedInLink label={ui[lang].followAria} text={ui[lang].followLabel} />
+          </p>
+        </div>
       </div>
     </footer>
 

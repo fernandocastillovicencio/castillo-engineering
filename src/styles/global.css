@@ -12,6 +12,10 @@
   --color-impacto: #B45309;
   --color-whatsapp: #15803D;
   --color-whatsapp-hover: #166534;
+  /* Azul do LinkedIn: cor da marca, usada só para identificar o perfil da
+     empresa. Mesmo critério do verde do WhatsApp — é exceção deliberada à
+     paleta, não cor de texto qualquer. #0A66C2 sobre branco = 5,69:1. */
+  --color-linkedin: #0A66C2;
   --color-form-text: #1F2937;
   --color-form-placeholder: #6B7280;
   --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -141,7 +145,18 @@ main { @apply flex-grow; }
   .footer h3 { @apply text-lg font-bold mb-4; }
   .footer ul { @apply text-sm text-white/70; }
   .footer ul a { @apply underline inline-block py-1 hover:text-castillo-orange; }
-  .footer-copy { @apply border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/70; }
+  /* Rodapé: copyright à esquerda e o perfil institucional à direita (no
+     celular empilha e centraliza). O link herda o branco/70 do rodapé e fica
+     laranja no hover, igual aos demais links. */
+  .footer-copy { @apply border-t border-white/20 mt-8 pt-8 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 text-center text-sm text-white/70; }
+  .footer-social a { @apply inline-flex items-center gap-2 py-1 text-white/70 transition-colors hover:text-castillo-orange; }
+  /* A marca do LinkedIn é sempre a mesma peça: quadrado branco com o "in" azul.
+     No fundo azul do site é o que garante contraste (branco sobre azul = 14,78:1
+     e o azul do glifo sobre o branco = 5,69:1); sobre fundo branco ela não
+     aparece, então ali o glifo vai direto em azul. */
+  .linkedin-mark { @apply inline-flex items-center justify-center w-10 h-10 rounded-md bg-white text-linkedin transition-opacity; }
+  .linkedin-link { @apply inline-flex items-center gap-2 transition-opacity hover:opacity-80; }
+  .footer-social .linkedin-mark { @apply w-6 h-6; }
 
   /* Botão flutuante de WhatsApp */
   .fab { @apply fixed bottom-6 right-6 z-50 bg-whatsapp text-white px-4 py-3 rounded-full font-bold shadow-fab hover:bg-whatsapp-hover transition-colors flex items-center gap-2; }
@@ -286,6 +301,16 @@ main { @apply flex-grow; }
   .article-body .katex-display { @apply my-8 overflow-x-auto text-center; }
   .article-back { @apply mt-12 pt-6 border-t border-gray-200 text-sm; }
   .article-back a { @apply text-impacto font-bold underline hover:opacity-80; }
+  /* A faixa final vira duas pontas: voltar à lista (esquerda) e compartilhar
+     (direita), na mesma altura. No celular empilha em coluna. */
+  .article-back { @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3; }
+  /* O compartilhar é um <a> dentro de .article-back, então herda de
+     ".article-back a" (laranja, negrito, sublinhado) — as duas pontas da
+     faixa ficam simétricas de propósito. Aqui só o que é próprio dele:
+     ícone + rótulo lado a lado, e py-1 para dar 28 px de altura (o texto
+     sozinho dava 20 px, abaixo dos 24 px mínimos do WCAG 2.5.8). */
+  .article-share { @apply inline-flex items-center gap-2 py-1; }
+  .article-back a.article-share { @apply text-linkedin; }
 
   /* ══════════════════════════════════════════════════════════════════
      CATEGORIA 9 — CORREÇÕES DE UI E ACESSIBILIDADE

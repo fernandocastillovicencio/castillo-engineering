@@ -1,0 +1,49 @@
+---
+/**
+ * LinkedIn da empresa — o mesmo bloco em todos os lugares onde ele aparece.
+ *
+ * A marca é sempre a mesma peça: quadrado branco com o "in" azul da marca.
+ * Isso resolve dois fundos diferentes com o mesmo desenho:
+ *   - sobre o azul do site (cabeçalho, hero, rodapé): o quadrado branco
+ *     destaca (14,78:1) e o azul do glifo sobre branco lê a 5,69:1;
+ *   - sobre fundo branco o quadrado sumiria, então nesses casos usa-se
+ *     `variant="glifo"`, que é o glifo azul direto (5,69:1 sobre branco).
+ *
+ * Sem script de terceiro: é um <a href> e um SVG. O widget oficial do
+ * LinkedIn exigiria abrir a CSP do site e mexer no aviso de privacidade.
+ */
+interface Props {
+  /** Nome acessível do link (vem do dicionário de idioma). */
+  label: string;
+  /** Texto visível ao lado da marca. Sem ele, fica só o ícone. */
+  text?: string;
+  /** `marca` = quadrado branco com o glifo (fundos escuros).
+   *  `glifo` = glifo azul direto (fundos claros). */
+  variant?: 'marca' | 'glifo';
+  class?: string;
+}
+const { label, text, variant = 'marca', class: cls = '' } = Astro.props;
+const URL = 'https://www.linkedin.com/company/castillo-engenharia';
+---
+
+<a
+  class={`linkedin-link ${cls}`}
+  href={URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={label}
+  title={label}
+>
+  {variant === 'marca' ? (
+    <span class="linkedin-mark">
+      <svg class="w-1/2 h-1/2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C21.4 8.75 23 10.8 23 14.3V21h-4v-6c0-1.6-.6-2.7-2-2.7-1.15 0-1.83.77-2.13 1.52-.1.27-.13.64-.13 1.02V21h-4V9Z"></path>
+      </svg>
+    </span>
+  ) : (
+    <svg class="w-4 h-4 text-linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C21.4 8.75 23 10.8 23 14.3V21h-4v-6c0-1.6-.6-2.7-2-2.7-1.15 0-1.83.77-2.13 1.52-.1.27-.13.64-.13 1.02V21h-4V9Z"></path>
+    </svg>
+  )}
+  {text && <span>{text}</span>}
+</a>

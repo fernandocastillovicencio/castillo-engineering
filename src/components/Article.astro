@@ -90,6 +90,21 @@ const artigoSchema = {
     )}
     <nav class="article-back" aria-label={t.articleBackAria}>
       <a href={listaArtigos}>{t.articleBack}</a>
+      {/* Compartilhar vem depois do botão de contato e em estilo secundário:
+          o CTA de conversão continua sozinho como ação principal da página. */}
+      <a
+        class="article-share"
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${artigoUrl}?utm_source=linkedin&utm_medium=social&utm_campaign=compartilhar-artigo`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t.shareAria}
+        title={t.shareAria}
+      >
+        <svg class="w-4 h-4 text-linkedin" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C21.4 8.75 23 10.8 23 14.3V21h-4v-6c0-1.6-.6-2.7-2-2.7-1.15 0-1.83.77-2.13 1.52-.1.27-.13.64-.13 1.02V21h-4V9Z"></path>
+        </svg>
+        {t.shareLabel}
+      </a>
     </nav>
   </div>
 </article>
