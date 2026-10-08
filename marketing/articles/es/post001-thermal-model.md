@@ -2,7 +2,7 @@
 title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos la transferencia de calor en 150 m de tubería"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "El insumo llegaba caliente al silo y el producto presentaba degradación termo-higroscópica. Ajustamos un modelo 1D sección a sección contra la medición. Modelamos y predijimos la temperatura en cada sección y propusimos un aislamiento térmico específico."
+resumo: "El insumo llegaba caliente al silo y el producto presentaba degradación termo-higroscópica. Ajustamos un modelo 1D sección a sección contra la medición. Modelamos y previmos la temperatura en cada sección y propusimos un aislamiento térmico específico."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
@@ -14,7 +14,7 @@ seo:
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con empedramiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 
-En estas últimas semanas, un cliente nos contactó con un problema térmico industrial que no estaba logrando resolver.
+En estas últimas semanas, un cliente nos buscó con un problema térmico industrial que no estaba consiguiendo resolver.
 
 ## El problema
 
@@ -44,7 +44,7 @@ La empresa desea evitar o disminuir este efecto termo-higroscópico del producto
 
 ## Lo que el cliente necesita
 
-Así, el cliente nos contactó con la finalidad de resolver este problema, solicitando:
+Así, el cliente nos buscó con la finalidad de resolver este problema, solicitando:
 
 - El sistema que disminuirá o atenuará la degradación termo-higroscópica.
 
