@@ -18,15 +18,15 @@ Nestas últimas semanas, um cliente nos procurou com um problema térmico indust
 
 ## O problema
 
-A planta do cliente é uma indústria de produção de alimentos, onde várias linhas de produtos diferentes operam ao mesmo tempo. Uma das principais linhas de transporte pneumático de insumo, em tubo de aço inoxidável, percorre aproximadamente 150 metros no nível superior da instalação, de uma sala a outra, com 4 vãos a céu aberto, ficando exposta à intempérie e ao calor residual de outros equipamentos, gerando degradação termo-higroscópica — o calor e a umidade fazem o produto aglutinar e empedrar.
+A planta do cliente é uma indústria de produção de alimentos, onde várias linhas de produtos diferentes operam ao mesmo tempo. Uma das principais linhas de transporte pneumático de insumo, em tubo de aço inoxidável, percorre aproximadamente 150 metros no nível superior da instalação, de uma sala a outra, com 4 vãos a céu aberto, ficando exposta à intempérie e ao calor de outros equipamentos, gerando degradação termo-higroscópica, gerando problemas operacionais.
 
-Para atenuar ou evitar este problema, os engenheiros do cliente instalaram uma cobertura sobre a linha. A cobertura reduziu a radiação solar direta, mas ela própria aquece e irradia sobre o tubo, e o problema não estava resolvido: o produto continuava a apresentar degradação termo-higroscópica.
+Para atenuar ou evitar este problema, os engenheiros do cliente instalaram uma cobertura sobre a linha. Esta cobertura ou teto reduziu a radiação solar, mas ela própria aquece e irradia sobre o tubo, e o problema não estava resolvido: o produto continuava a apresentar degradação termo-higroscópica.
 
 <figure>
 
 <img src="/images/articles/post001-thermal-model/render-panel.avif" alt="Representação da linha e da cobertura, em quatro vistas." width="2576" height="1308" loading="lazy" decoding="async"/>
 
-<figcaption>Representação da linha e da cobertura, em quatro vistas.</figcaption>
+<figcaption>Representação da linha e da cobertura.</figcaption>
 
 </figure>
 
@@ -54,11 +54,11 @@ Assim, o cliente nos procurou com a finalidade de resolver este problema, solici
 
 O escopo do trabalho é a tubulação, da entrada à saída da linha: a temperatura de entrada é a condição de contorno do estudo, não uma variável de projeto.
 
-O produto tem uma faixa de recebimento definida para a chegada ao silo — é contra ela que os resultados deste artigo são comparados.
+A base de temperatura, foi definida pelo cliente em 29°C.
 
 ## Qual foi a estratégia traçada?
 
-Como engenheiros, precisamos ser não somente teórico mas, antes de tudo, resolver os problemas da vida real. Na indústria, quando a urgência do cliente é alta, não adianta montar uma estratégia muito detalhada, como a simulação CFD 3D de toda a linha: o engenheiro deve conhecer as ferramentas e priorizar a solução. Foi o que fizemos aqui: dois dias de medição em campo e um modelo térmico unidimensional, em vez de CFD em 150 metros de tubulação.
+Como engenheiros, precisamos ser não somente teórico mas, antes de tudo, resolver os problemas da vida real. Na indústria, quando a urgência do cliente é alta, não adianta montar uma estratégia muito detalhada, como a simulação CFD 3D de toda a linha. O engenheiro deve conhecer as ferramentas e priorizar a solução de acordo com as necessidades do cliente. Foi o que fizemos aqui: dois dias de medição em campo e um modelo térmico unidimensional, em vez de CFD em 150 metros de tubulação.
 
 Assim, após reuniões com o cliente, pode-se estabelecer uma estratégia que inclua:
 
@@ -72,11 +72,11 @@ Assim, após reuniões com o cliente, pode-se estabelecer uma estratégia que in
 
 - Elaborar a estratégia de redução da transferência de calor entre a tubulação e o ambiente ao redor.
 
-- Especificar a solução e prever as temperaturas no dia extremo adotado.
+- Especificar a solução e prever as temperaturas no dia extremo adotado (design-day).
 
 ## O modelo
 
-O modelo foi desenvolvido com os conceitos básicos de Transferência de Calor: foi estabelecido um balanço linear em cada seção de medição:
+O modelo foi desenvolvido com os conceitos básicos de Transferência de Calor, utilizando um balanço de energia em cada seção de medição:
 
 $$
 q_{sol} + q_{rad} + q_{conv} = q_{\text{líquido}}
@@ -90,7 +90,7 @@ $$
 
 </figure>
 
-O coeficiente convectivo adota o maior valor entre a convecção natural e a forçada. O modelo foi calibrado com as medições de superfície de campo, feitas com pirômetro de infravermelho — que lê a temperatura aparente, dependente da emissividade da superfície.
+O coeficiente convectivo adota o maior valor entre a convecção natural e a forçada (correlações de Churchill). O modelo foi calibrado com as medições de superfície de campo do teto e da superfície da tubulação.
 
 <figure>
 
@@ -114,9 +114,9 @@ $$
 
 </figure>
 
-Os dados de processo do cliente não são divulgados: os resultados aparecem em temperatura e em ganho de calor por metro. Ficam fora do modelo o efeito do ar de transporte e as condições de umidade.
+Os resultados são vistos em temperatura e em ganho de calor por metro, considerando as simplificações adotadas
 
-Foram identificados os pontos críticos: o ganho de calor se concentra nos trechos sem sombra, e o pico está na seção E, no meio da linha. Nas seções abrigadas o saldo cai, e uma delas é negativa: a tubulação perde calor para o ambiente. A figura traz o saldo do modelo, seção por seção: das 12 seções instrumentadas, 10 entraram na calibração — as seções D e J ficaram em quarentena (carga baixa) e a E foi aceita com a ressalva do viés do pirômetro.
+Foram identificados os pontos críticos: o ganho de calor se concentra nos trechos sem sombra, e o pico está na seção E, no meio da linha. Nas seções con sombra o saldo de energia cai, e uma delas é negativa: a tubulação perde calor para o ambiente, como pode ser visto na figura.
 
 <figure>
 
@@ -128,11 +128,9 @@ Foram identificados os pontos críticos: o ganho de calor se concentra nos trech
 
 ## O dia extremo
 
-O ASHRAE Handbook (edição SI de 2017) indica 28,8 °C como temperatura de projeto (0,4 %) para a região. Por conta do El Niño, o cliente nos solicitou um dia extremo de 34,9 °C, acima da temperatura de projeto indicada pela norma.
+O ASHRAE Handbook indica 28,8 °C como temperatura de projeto para a cidade analisada. Por conta do fenômeno de El Niño, o cliente nos solicitou um dia extremo de 34,9 °C, acima da temperatura de projeto indicada pela norma.
 
 O modelo, desenvolvido e calibrado no dia medido, é agora extrapolado para o dia extremo: a 34,9 °C a rota passa a adicionar 3,4 °C ao produto.
-
-Os resultados são médias de 20 000 cenários por trecho de tubulação: na carga de referência a dispersão (p5–p95) é de cerca de ±0,3 °C e chega a ±0,6 °C nas cargas menores. O coeficiente convectivo interno adotado foi 25 W/(m²·K), o mais baixo dos três avaliados.
 
 <figure>
 
@@ -162,7 +160,7 @@ As condutividades adotadas são 0,032 W/(m·K) para o PUR e 0,038 W/(m·K) para 
 
 </figure>
 
-No entanto, a diferença entre os dois ainda é pequena. Falta avaliar a variação de carga: a medição foi feita com a linha na carga de referência (100 %), e com menos produto na linha o tempo de residência aumenta. No sistema sem isolamento, a elevação cresce quando a carga cai: na menor carga avaliada, 20 %, o produto sai a 34,6 °C, contra 32,4 °C na carga de referência. Com o PUR de 1½" e essa mesma carga, a saída fica em 32,8 °C, que é o pior caso de operação.
+No entanto, a diferença entre os dois ainda é pequena. Outra avaliação foi a mudança de carga do insumo, que pode mudar o tempo de residência dele na tubulação de 150m e, por tanto, na temperatura durante o seu transporte e na saída, que é a temperatura mais importante de todo este recorte de processo.
 
 <figure>
 
@@ -178,7 +176,7 @@ Pelo método do cotovelo, observa-se que as espessuras onde a diferença de temp
 
 ## Escolhendo o melhor isolante
 
-No desempenho térmico os dois conjuntos praticamente empatam; a escolha se decide pela manutenção. A FEF exige repintura periódica, enquanto a chapa de aço do PUR se lava e se inspeciona. Por isso o PUR de 1½" é o escolhido.
+No desempenho térmico os dois conjuntos são praticamente similares. Assim, a escolha se decide pela viabilidade operacional e de manutenção do isolante térmico. Neste ponto, de acordo com o cliente, o poliuretano leva vantagem. Considerando isto e o método do cotovelo, o PUR de 1½" é o escolhido.
 
 <figure>
 
@@ -198,16 +196,17 @@ Assim, define-se a melhor solução e modela-se a temperatura do produto em cada
 
 </figure>
 
-Com o PUR de 1½" e a linha na carga de referência, a saída fica em 30,0 °C no dia extremo de 34,9 °C, contra 32,4 °C sem isolamento. A saída continua acima do limite superior da faixa, e nenhuma espessura cobre essa diferença: para a saída cruzar o limite, a temperatura de entrada teria de ser cerca de 7 °C mais baixa na carga de referência — e ainda mais nas cargas menores.
+Com o PUR de 1½" e a linha na carga de referência, a saída fica em 30,0 °C no dia extremo de 34,9 °C, contra 32,4 °C sem isolamento, um ganho de 70% no desempenho térmico: baixou de 3,4°C para 1°C.
 
-Cobrir os 4 vãos a céu aberto, os únicos sem cobertura, é uma medida adicional, de efeito menor que o do isolamento.
 
 ## Conclusão
 
-Hoje, sem isolamento, a rota soma 3,4 °C e o produto chega ao silo a 32,4 °C no dia extremo. Na menor carga do envelope, 20 %, chega a 34,6 °C.
+Pode ser observar que, sem isolamento, o $$\Delta T$$ do equipamento chega a 5,6°C com 20% de carga e 3,4°C com 100% de carga do produto.
 
-Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos cobertos, a rota soma 1,0 °C e, na carga de referência, a saída fica em 30,0 °C: 2,4 °C menos do que hoje. Na menor carga, o pior caso de operação, a saída fica em 32,8 °C. Como alternativa, a FEF de 2" pintada de branco sai a 30,1 °C.
+Por sua vez, com o sistema proposta, o $$\Delta T$$ do equipamento chega a 3,8°C com 20% de carga e 1,0°C com 100% de carga do produto.
+
+Isto representa **um ganho de 35% e 70\%** respectivamente, para 20% e 100% de carga do produto, no dia mais quente estabelecido.
 
 O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material.
 
-O isolamento proposto reduz o ganho da rota de 3,4 °C para 1,0 °C, cerca de 70% menos, e leva a saída, no dia extremo, de 32,4 °C para 30,0 °C. O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material: cada trecho foi avaliado em 20 000 cenários, com dispersão de ±0,3 °C (p5–p95) na carga de referência. A temperatura em que o produto empedra não foi medida; o critério adotado é a faixa de recebimento. Atuar sobre a temperatura de entrada do insumo é outro projeto — este estudo entrega o que a tubulação pode dar. Se a sua linha tem esse perfil, o caminho é o mesmo: medir em campo e decidir com o número.
+Ficando assim, justificado o trabalho, a análise e a modelagem do problema.
