@@ -38,6 +38,7 @@ const faqPageSchema = {
         <a href={resolveCta(heroData.ctaPrincipal.href)} target={ctaTarget(heroData.ctaPrincipal.href)} rel={ctaTarget(heroData.ctaPrincipal.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{heroData.ctaPrincipal.label}</a>
         <a href={heroData.ctaSecundario.href} class="btn" data-tipo="contorno">{heroData.ctaSecundario.label}</a>
       </div>
+      <p><a class="hero-nav" href="/articles">{siteConfig.header.navArtigos} →</a></p>
     </div>
   </section>
 

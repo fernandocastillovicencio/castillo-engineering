@@ -137,6 +137,10 @@ main { @apply flex-grow; }
   #hero .ctas { @apply mb-8; }
   #hero .btn[data-tipo=contorno] { @apply border-castillo-white text-castillo-white hover:bg-castillo-white hover:text-castillo-blue; }
   .hero-badge { @apply inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/80 border border-white/20 rounded-full px-4 py-1.5 mb-8; }
+  /* Atalho para os artigos no topo do celular: no desktop o cabeçalho já o tem,
+     então aqui ele aparece só abaixo de 1024 px (sem duplicar).
+     Branco/80 sobre o azul = 9,90:1; o laranja no hover = 4,64:1. */
+  .hero-nav { @apply lg:hidden inline-block mt-6 py-1 font-medium text-white/80 underline transition-colors hover:text-castillo-orange; }
 
   /* O que resolvemos — tabela de dores */
   #o-que-resolvemos .card { @apply max-w-5xl mx-auto mb-8; }
