@@ -1,16 +1,16 @@
 ---
-title: "Medición en campo y modelo sección a sección: 70% menos ganancia de calor en la línea, 2,4 °C menos en la salida"
+title: "Medición en campo y modelo sección a sección: de 34,6 °C a 32,8 °C en la salida"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medición en campo, cálculo, modelo térmico 1D ajustado sección a sección y propuesta de aislamiento: la ganancia de la ruta baja de 3,4 °C a 1,0 °C y la salida, de 32,4 °C a 30,0 °C en el día extremo."
+resumo: "Medición en campo y modelo 1D ajustado sección a sección: en la envolvente de carga, la salida va de 34,6 °C a 32,4 °C sin aislamiento y de 32,8 °C a 30,0 °C con el aislamiento propuesto."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversación (sin compromiso)"
   href: "whatsappCta"
 seo:
-  title: "70% menos ganancia de calor: medición en campo y modelo sección a sección"
-  description: "Medición en campo y modelo 1D ajustado sección a sección: la ganancia de la ruta baja de 3,4 °C a 1,0 °C, cerca de 70% menos, y la salida, en el día extremo, de 32,4 °C a 30,0 °C."
+  title: "De 34,6 °C a 32,8 °C en la salida, con aislamiento térmico"
+  description: "Medición en campo y modelo 1D ajustado sección a sección: la ganancia de la ruta baja de 3,4 °C a 1,0 °C, cerca de 70% menos. En la carga de referencia la salida va de 32,4 °C a 30,0 °C; en la carga mínima (20 %), de 34,6 °C a 32,8 °C."
 sobre: "Caso real anonimizado: insumo en calentamiento en una línea de transporte neumático, con apelmazamiento en el silo. Medición de campo, modelo térmico 1D ajustado sección a sección, extrapolación para el día extremo y propuesta de aislamiento."
 ---
 
@@ -204,9 +204,9 @@ Cubrir los 4 tramos a cielo abierto, los únicos sin cobertura, es una medida ad
 
 ## Conclusión
 
-Hoy, sin aislamiento, la ruta suma 3,4 °C y el producto llega al silo a 32,4 °C en el día extremo.
+Hoy, sin aislamiento, la ruta suma 3,4 °C y el producto llega al silo a 32,4 °C en el día extremo. En la carga mínima de la envolvente, 20 %, llega a 34,6 °C.
 
-Con el sistema propuesto, el PUR de 1½" con chapa de acero inoxidable en los tramos cubiertos, la ruta suma 1,0 °C y, en la carga de referencia, la salida queda en 30,0 °C: 2,4 °C menos que hoy. En la menor carga del rango evaluado, el peor caso, la salida sube a 32,8 °C, aún fuera del rango. Como alternativa, la FEF de 2" pintada de blanco sale a 30,1 °C.
+Con el sistema propuesto, el PUR de 1½" con chapa de acero inoxidable en los tramos cubiertos, la ruta suma 1,0 °C y, en la carga de referencia, la salida queda en 30,0 °C: 2,4 °C menos que hoy. En la carga mínima, el peor caso de operación, la salida queda en 32,8 °C. Como alternativa, la FEF de 2" pintada de blanco sale a 30,1 °C.
 
 El modelo entrega la temperatura prevista en cada sección de medición, y no solo la elección del material.
 

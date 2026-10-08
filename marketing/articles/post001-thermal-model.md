@@ -1,16 +1,16 @@
 ---
-title: "Medição em campo e modelo seção a seção: 70% menos ganho de calor na linha, 2,4 °C a menos na saída"
+title: "Medição em campo e modelo seção a seção: de 34,6 °C para 32,8 °C na saída"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "Medição em campo, cálculo, modelo térmico 1D ajustado seção a seção e proposta de isolamento: o ganho da rota cai de 3,4 °C para 1,0 °C e a saída, de 32,4 °C para 30,0 °C no dia extremo."
+resumo: "Medição em campo e modelo 1D ajustado seção a seção: no envelope de carga, a saída vai de 34,6 °C a 32,4 °C sem isolamento e de 32,8 °C a 30,0 °C com o isolamento proposto."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
   label: "Agendar conversa (sem compromisso)"
   href: "whatsappCta"
 seo:
-  title: "70% menos ganho de calor: medição em campo e modelo seção a seção"
-  description: "Medição em campo e modelo 1D ajustado seção a seção: o ganho da rota cai de 3,4 °C para 1,0 °C, cerca de 70% menos, e a saída, no dia extremo, de 32,4 °C para 30,0 °C."
+  title: "De 34,6 °C para 32,8 °C na saída, com isolamento térmico"
+  description: "Medição em campo e modelo 1D ajustado seção a seção: o ganho da rota cai de 3,4 °C para 1,0 °C, cerca de 70% menos. Na carga de referência a saída vai de 32,4 °C para 30,0 °C; na carga mínima (20 %), de 34,6 °C para 32,8 °C."
 sobre: "Caso real anonimizado: insumo em aquecimento numa linha de transporte pneumático, com empedramento no silo. Medição de campo, modelo térmico 1D ajustado seção a seção, extrapolação para o dia extremo e proposta de isolamento."
 ---
 
@@ -204,9 +204,9 @@ Cobrir os 4 vãos a céu aberto, os únicos sem cobertura, é uma medida adicion
 
 ## Conclusão
 
-Hoje, sem isolamento, a rota soma 3,4 °C e o produto chega ao silo a 32,4 °C no dia extremo.
+Hoje, sem isolamento, a rota soma 3,4 °C e o produto chega ao silo a 32,4 °C no dia extremo. Na menor carga do envelope, 20 %, chega a 34,6 °C.
 
-Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos cobertos, a rota soma 1,0 °C e, na carga de referência, a saída fica em 30,0 °C: 2,4 °C menos do que hoje. Na menor carga do envelope avaliado, o pior caso, a saída sobe para 32,8 °C, ainda fora da faixa. Como alternativa, a FEF de 2" pintada de branco sai a 30,1 °C.
+Com o sistema proposto, o PUR de 1½" com chapa de aço inoxidável nos trechos cobertos, a rota soma 1,0 °C e, na carga de referência, a saída fica em 30,0 °C: 2,4 °C menos do que hoje. Na menor carga, o pior caso de operação, a saída fica em 32,8 °C. Como alternativa, a FEF de 2" pintada de branco sai a 30,1 °C.
 
 O modelo entrega a temperatura prevista em cada seção de medição, e não apenas a escolha do material.
 
