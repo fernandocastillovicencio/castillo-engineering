@@ -11,10 +11,20 @@
     <meta name="robots" content="noindex" />
     <title>Conteúdo — Castillo Engenharia</title>
     <!-- CMS carregado apenas nesta página de administração.
-         O site público NÃO inclui estes arquivos (peso zero nas páginas). -->
-    <link href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" rel="stylesheet" />
+         O site público NÃO inclui este arquivo (peso zero nas páginas).
+
+         Sem <link> de CSS de propósito: o Decap 3.x passou a embutir o CSS no
+         próprio bundle (CSS-in-JS) e não publica mais dist/decap-cms.css — o
+         dist/cms.css é um arquivo em branco, mantido só para builds antigos.
+         O <link> anterior apontava para o caminho inexistente e o navegador
+         bloqueava a resposta 404 (ERR_BLOCKED_BY_ORB) a cada abertura do painel.
+
+         Versão fixada (não ^3.0.0): com a faixa flutuante o painel trocava de
+         versão sozinho (hoje resolve para 3.16.3) e poderia quebrar sem nenhuma
+         alteração nossa. Ao subir de versão, trocar aqui e testar /admin/. -->
   </head>
   <body>
-    <script is:inline src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <noscript>Este painel precisa de JavaScript para carregar.</noscript>
+    <script is:inline src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
   </body>
 </html>

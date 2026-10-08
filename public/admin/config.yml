@@ -25,8 +25,28 @@ backend:
   base_url: https://netlify-cms-github-oauth-provider-azure.vercel.app
   auth_endpoint: auth
 
-locale: "pt_br"
+locale: "pt"
+# ⚠️ O código do idioma do painel é "pt" (minúsculo, sem região). Não existe
+# "pt_br"/"pt-BR" no Decap: com o valor errado o painel cai no inglês SEM
+# avisar. Como este arquivo carrega o bundle `decap-cms` (que já registra
+# todos os idiomas), basta o código certo aqui — nada de registerLocale.
+
 site_url: "https://castilloengenharia.com.br"
+
+# Logo do painel (tela de login e cabeçalho). O símbolo da marca é escuro
+# (#0a2b4d com laranja), então aparece bem no fundo claro do painel — o
+# arquivo "negative" (branco) NÃO serve aqui, é para os fundos escuros do site.
+logo:
+  src: "https://castilloengenharia.com.br/images/castillo-symbol.svg"
+  show_in_header: true
+
+# Nome dos arquivos criados pelo painel: sem acento e só ASCII, para a URL do
+# artigo não sair com caractere acentuado (o site já publica slugs em inglês).
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
 media_folder: "public/images"
 public_folder: "/images"
 
