@@ -4,9 +4,13 @@
  * Clicar troca a língua da página equivalente (ou da home do outro idioma).
  *
  * Aparece em dois lugares, nunca duplicado no mesmo tamanho de tela:
- *   - cabeçalho, a partir de 1024 px (classe recebida por prop)
- *   - primeira tela do celular, onde o cabeçalho não tem folga
+ *   - cabeçalho, a partir de 1280 px (folga medida; de 1024 a 1279 não cabe)
+ *   - primeira linha do hero (home) ou da trilha (artigo), abaixo de 1280 px
+ *
+ * O idioma atual é um <span>: um <a> sem href não é focável e some da árvore
+ * de acessibilidade, deixando o leitor de tela sem saber em que idioma está.
  */
+import Flag from './Flag.astro';
 import { HTML_LANG, homeHref, otherLang, ui, type Lang } from '../i18n';
 
 interface Props {
@@ -19,39 +23,31 @@ const { lang, altUrl, class: cls = '' } = Astro.props;
 const destino = altUrl ?? homeHref(otherLang(lang));
 const t = ui[lang]; // rótulos no idioma da página atual
 const naPaginaEs = lang === 'es';
+
+const itens = [
+  { code: 'pt' as const, href: naPaginaEs ? destino : null, atual: t.langPtAtual, rotulo: t.langPt },
+  { code: 'es' as const, href: naPaginaEs ? null : destino, atual: t.langEsAtual, rotulo: t.langEs },
+];
 ---
 
 <nav class={`lang-switch ${cls}`} aria-label={t.langSwitchAria}>
-  {/* Brasil — verde, losango amarelo e círculo azul */}
-  <a
-    class="lang-btn"
-    href={naPaginaEs ? destino : undefined}
-    hreflang={HTML_LANG.pt}
-    lang={HTML_LANG.pt}
-    title={t.langPt}
-    aria-label={t.langPt}
-    aria-current={naPaginaEs ? undefined : 'true'}
-  >
-    <svg class="lang-flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false">
-      <rect width="30" height="20" fill="#009C3B"></rect>
-      <path d="M15 3 26.6 10 15 17 3.4 10Z" fill="#FFDF00"></path>
-      <circle cx="15" cy="10" r="4.2" fill="#002776"></circle>
-      <path d="M11.2 8.4c2.5-.8 5.4-.5 7.8.8" fill="none" stroke="#fff" stroke-width="1.1"></path>
-    </svg>
-  </a>
-  {/* Espanha — vermelho, amarelo e vermelho */}
-  <a
-    class="lang-btn"
-    href={naPaginaEs ? undefined : destino}
-    hreflang={HTML_LANG.es}
-    lang={HTML_LANG.es}
-    title={t.langEs}
-    aria-label={t.langEs}
-    aria-current={naPaginaEs ? 'true' : undefined}
-  >
-    <svg class="lang-flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false">
-      <rect width="30" height="20" fill="#AA151B"></rect>
-      <rect y="5" width="30" height="10" fill="#F1BF00"></rect>
-    </svg>
-  </a>
+  {itens.map((item) =>
+    item.href ? (
+      <a
+        class="lang-btn"
+        href={item.href}
+        hreflang={HTML_LANG[item.code]}
+        lang={HTML_LANG[item.code]}
+        title={item.rotulo}
+        aria-label={item.rotulo}
+      >
+        <Flag code={item.code} />
+      </a>
+    ) : (
+      <span class="lang-btn" aria-current="true" lang={HTML_LANG[item.code]}>
+        <Flag code={item.code} />
+        <span class="sr-only">{item.atual}</span>
+      </span>
+    )
+  )}
 </nav>

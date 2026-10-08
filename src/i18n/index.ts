@@ -48,6 +48,9 @@ export const ui = {
     langSwitchAria: 'Idioma do site',
     langPt: 'Ver o site em português',
     langEs: 'Ver o site em español',
+    /** Texto lido pelo leitor de tela no idioma que já está ativo. */
+    langPtAtual: 'Português (idioma atual)',
+    langEsAtual: 'Español (idioma atual)',
     navAria: 'Navegação principal',
     articlesListTitle: 'Artigos técnicos — Castillo Engenharia',
     articlesListDescription:
@@ -66,6 +69,8 @@ export const ui = {
     langSwitchAria: 'Idioma del sitio',
     langPt: 'Ver el sitio en portugués',
     langEs: 'Ver el sitio en español',
+    langPtAtual: 'Portugués (idioma actual)',
+    langEsAtual: 'Español (idioma actual)',
     navAria: 'Navegación principal',
     articlesListTitle: 'Artículos técnicos — Castillo Engenharia',
     articlesListDescription:

@@ -101,10 +101,11 @@ main { @apply flex-grow; }
      O peso e a opacidade evitam que ele dispute atenção com o CTA: branco/80
      sobre o azul = 9,90:1 (segue AAA) contra 14,78:1 do branco puro. */
   .header-nav { @apply hidden lg:block mr-auto lg:ml-5; }
-  /* O link dos artigos ganha contorno de pílula: continua discreto (branco/90
-     sobre o azul = 11,8:1, contra 14,78:1 do branco puro) mas deixa de se
-     confundir com texto solto. */
-  .header-nav a { @apply inline-block rounded-lg border border-white/25 px-3 py-1.5 font-medium text-white/90 transition-colors hover:border-castillo-orange hover:text-castillo-orange; }
+  /* O link dos artigos vira pílula no laranja da marca: contorno e texto em
+     #D97706 (4,64:1 sobre o azul — AA para texto e acima dos 3:1 exigidos
+     para componente). Continua abaixo do CTA principal em peso, que é sólido.
+     No hover inverte: fundo laranja e texto azul (4,64:1). */
+  .header-nav a { @apply inline-block rounded-lg border border-castillo-orange px-3 py-1.5 font-medium text-castillo-orange transition-colors hover:bg-castillo-orange hover:text-castillo-blue; }
   .txt-curto { @apply md:hidden; }
   .txt-longo { @apply hidden md:inline; }
 
@@ -116,12 +117,18 @@ main { @apply flex-grow; }
      folga para o dedo.
      A bandeira ativa recebe o anel laranja; a outra fica a 60% de opacidade.
      O laranja #D97706 sobre branco = 3,03:1 e sobre o azul = 4,64:1: passa
-     nos 3:1 exigidos para componente de interface nos dois fundos. */
+     nos 3:1 exigidos para componente de interface nos dois fundos.
+     Cada bandeira leva um fio de 1 px: com 60% de opacidade o vermelho do ES
+     cai para 1,30:1 sobre o azul e o verde do BR para 2,14:1 sobre o branco,
+     abaixo dos 3:1 de 1.4.11; o fio devolve a silhueta (7,02:1 no azul e
+     4,13:1 no branco) sem virar moldura. */
   .lang-switch { @apply flex items-center gap-1; }
   .lang-btn { @apply inline-flex rounded-[3px] p-1.5 transition-opacity; }
   .lang-btn[aria-current] { @apply opacity-100 ring-2 ring-castillo-orange; }
   .lang-btn:not([aria-current]) { @apply opacity-60 hover:opacity-100 focus-visible:opacity-100; }
-  .lang-flag { @apply block h-5 w-[30px] rounded-[2px]; }
+  .lang-flag { @apply block h-5 w-[30px] rounded-[2px]; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55); }
+  /* Na página do artigo o fundo é branco: o fio precisa ser escuro. */
+  .article-lang .lang-flag { box-shadow: 0 0 0 1px rgba(15, 42, 62, 0.5); }
 
   /* Rodapé */
   .footer { @apply bg-castillo-blue text-castillo-white mt-auto; }
@@ -161,10 +168,12 @@ main { @apply flex-grow; }
        < 1024 px  → cabeçalho sem folga (0 px): a linha traz os dois;
        1024–1279  → o cabeçalho já traz o atalho, aqui ficam só as bandeiras;
        ≥ 1280 px  → o cabeçalho traz os dois e a linha desaparece.
-     Branco/90 sobre o azul = 11,8:1; o laranja no hover = 4,64:1. */
+     O atalho dos artigos usa o laranja #D97706 (4,64:1 sobre o azul) para
+     ganhar ressalte sem competir com o CTA principal, que é sólido; no hover
+     inverte (fundo laranja, texto azul). */
   .hero-top { @apply flex items-center gap-4 mb-6 xl:hidden; }
   .hero-top .lang-switch { @apply ml-auto; }
-  .hero-arts { @apply inline-flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm font-bold text-white/90 transition-colors hover:border-castillo-orange hover:text-castillo-orange lg:hidden; }
+  .hero-arts { @apply inline-flex items-center gap-2 rounded-lg border border-castillo-orange px-4 py-2 text-sm font-bold text-castillo-orange transition-colors hover:bg-castillo-orange hover:text-castillo-blue lg:hidden; }
 
   /* O que resolvemos — tabela de dores */
   #o-que-resolvemos .card { @apply max-w-5xl mx-auto mb-8; }
