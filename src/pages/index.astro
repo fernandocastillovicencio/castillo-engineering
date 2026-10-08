@@ -2,17 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
-const heroData = (await getEntry("site", "apresentacao"))!.data;
-const oqueResolvemos = (await getEntry("site", "o-que-resolvemos"))!.data;
-const comoFunciona = (await getEntry("site", "como-funciona"))!.data;
-const paraQuem = (await getEntry("site", "para-quem"))!.data;
-const porQue = (await getEntry("site", "por-que-a-castillo"))!.data;
-const investimento = (await getEntry("site", "investimento"))!.data;
-const faqData = (await getEntry("site", "perguntas-frequentes"))!.data;
-const resultados = (await getEntry("site", "resultados"))!.data;
-const contato = (await getEntry("site", "contato"))!.data;
+const heroData = (await getEntry("site", "hero"))!.data;
+const oqueResolvemos = (await getEntry("site", "problems"))!.data;
+const comoFunciona = (await getEntry("site", "process"))!.data;
+const paraQuem = (await getEntry("site", "sectors"))!.data;
+const porQue = (await getEntry("site", "why-us"))!.data;
+const investimento = (await getEntry("site", "services"))!.data;
+const faqData = (await getEntry("site", "faq"))!.data;
+const resultados = (await getEntry("site", "results"))!.data;
+const contato = (await getEntry("site", "contact"))!.data;
 
-const siteConfig = (await getEntry("site", "configuracao-do-site"))!.data;
+const siteConfig = (await getEntry("site", "settings"))!.data;
 const whatsappLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemAgendar)}`;
 const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
 const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
@@ -95,7 +95,6 @@ const faqPageSchema = {
       <div class="stack">{porQue.diferenciais.map((dif) => (
         <div class="card"><h3 class="card-title">{dif.titulo}</h3><p class="card-body">{dif.descricao}</p></div>
       ))}</div>
-      <div class="box-dark max-w-4xl mx-auto mt-10"><h3>{porQue.comoTrabalhamos.titulo}</h3><p>{porQue.comoTrabalhamos.paragrafo1}</p><p>{porQue.comoTrabalhamos.paragrafo2}</p></div>
     </div>
   </section>
 
@@ -104,6 +103,7 @@ const faqPageSchema = {
     <div class="container-site">
       <h2 class="section-title">{investimento.title}</h2>
       <p>{investimento.intro}</p>
+      {investimento.link && <p><a class="link-cta" href={investimento.link.href}>{investimento.link.rotulo}</a></p>}
       <div class="grid-4">{investimento.cards.map((card) => (
         <div class={card.destaque ? 'box-dark' : 'card'}><span class="selo">{card.nome}</span><p class="card-body">{card.inclui}</p></div>
       ))}</div>
@@ -128,6 +128,7 @@ const faqPageSchema = {
       <h2 class="section-title">{resultados.title}</h2>
       <div class="card"><h3 class="card-title">{resultados.portifolio.titulo}</h3><p class="card-body">{resultados.portifolio.intro}</p>
         <ul class="item-grid">{resultados.portifolio.itens.map((item) => <li><strong>{item.titulo}</strong>{item.descricao}</li>)}</ul>
+        {resultados.portifolio.link && <a class="link-cta" href={resultados.portifolio.link.href}>{resultados.portifolio.link.rotulo}</a>}
       </div>
     </div>
   </section>

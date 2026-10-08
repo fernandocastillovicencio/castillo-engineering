@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry, render } from 'astro:content';
 
-const privacy = await getEntry('site', 'pagina-privacidade-lgpd');
+const privacy = await getEntry('site', 'privacy-lgpd');
 const { Content } = await render(privacy);
 const dados = privacy.data;
 ---

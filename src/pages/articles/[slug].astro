@@ -1,0 +1,69 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import 'katex/dist/katex.min.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const dados = post.data;
+const { Content } = await render(post);
+
+const siteConfig = (await getEntry('site', 'settings'))!.data;
+const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
+const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
+const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
+
+const dataPub = dados.date.toLocaleDateString('pt-BR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const ctaHref = dados.cta?.href ?? 'whatsappCta';
+---
+
+<Layout
+  title={`${dados.seo?.title ?? dados.title} — Castillo Engenharia`}
+  description={dados.seo?.description ?? dados.resumo}
+  ogType="article"
+  ogImage={dados.og}
+>
+  <section id="article">
+    <div class="container-site">
+      <p class="article-meta">
+        <a href="/articles">Artigos técnicos</a> · {dataPub}
+      </p>
+      <h1>{dados.title}</h1>
+      <p class="article-summary">{dados.resumo}</p>
+      {dados.capa && (
+        <img class="article-cover" src={dados.capa} alt={dados.title} decoding="async" />
+      )}
+      <div class="article-body">
+        <Content />
+      </div>
+      {dados.cta && (
+        <div class="cta-wrap">
+          <a
+            class="btn"
+            data-tipo="primario"
+            href={resolveCta(ctaHref)}
+            target={ctaTarget(ctaHref)}
+            rel={ctaTarget(ctaHref) ? 'noopener noreferrer' : undefined}
+          >
+            {dados.cta.label}
+          </a>
+        </div>
+      )}
+      <nav class="article-back">
+        <a href="/articles">← Todos os artigos</a>
+      </nav>
+    </div>
+  </section>
+</Layout>

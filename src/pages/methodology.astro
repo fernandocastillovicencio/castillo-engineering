@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
-const methodData = (await getEntry('site', 'pagina-metodologia'))!.data;
+const methodData = (await getEntry('site', 'methodology'))!.data;
 const dados = methodData;
-const siteConfig = (await getEntry('site', 'configuracao-do-site'))!.data;
+const siteConfig = (await getEntry('site', 'settings'))!.data;
 const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
 const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
 const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);

@@ -4,8 +4,8 @@ badge:
   - Consultoria, Solução de Problemas e Otimização de Processos
 linhaAtendimento: Baseado em Curitiba/PR · Atendimento remoto em todo o Brasil e América do Sul.
 headline: Sua planta perde dinheiro em calor, vapor e frio.
-sub: Nós encontramos onde a energia se perde — e mostramos o que fazer. Com
-  método e verificação contra a sua fatura.
+sub: Encontramos onde sua planta perde energia e mostramos o que fazer — verificado
+  contra a sua fatura. Produto empedrando ou fora de faixa também é problema térmico.
 seo:
   title: Engenharia de Fluidos e Térmica Industrial | Castillo Engenharia
   description: "Engenharia de fluidos e térmica industrial: encontre onde sua

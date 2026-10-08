@@ -22,7 +22,7 @@
 #   a11y → acessibilidade (skip link)
 # ═══════════════════════════════════════════════════════════════
 sobre: "Configuração global do site: URL, WhatsApp, contatos, CNPJ/CREA, textos do header, botão WhatsApp e dados do Schema.org. NÃO edite sem orientação do dev."
-siteUrl: "https://castilloeng.com.br"
+siteUrl: "https://castilloengenharia.com.br"
 formspree:
   endpoint: "https://formspree.io/f/mqernvvb"
 a11y:

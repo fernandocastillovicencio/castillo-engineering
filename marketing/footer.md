@@ -36,6 +36,7 @@ colunas:
       - { label: "Início", href: "/" }
       - { label: "Metodologia", href: "/methodology" }
       - { label: "Investimento", href: "/prices" }
+      - { label: "Artigos técnicos", href: "/articles" }
       - { label: "Política de Privacidade (LGPD)", href: "/privacy-lgpd" }
   - titulo: "Contato"
     itens:

@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const dataFmt = (d) =>
+  d.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Layout
+  title="Artigos técnicos — Castillo Engenharia"
+  description="Casos reais de engenharia industrial: diagnóstico medido, modelado e verificado em campo."
+>
+  <section id="articles">
+    <div class="container-site">
+      <h1>Artigos técnicos</h1>
+      <p class="intro-lista">
+        Casos reais de engenharia industrial, do diagnóstico à solução: o que
+        medimos, como modelamos e o que o número decidiu.
+      </p>
+      <div class="articles-list">
+        {posts.map((post) => (
+          <article class="card-article">
+            <a href={`/articles/${post.id}`} class="card-article-link">
+              {post.data.capa && (
+                <img src={post.data.capa} alt="" loading="lazy" decoding="async" />
+              )}
+              <div class="card-article-body">
+                <time datetime={post.data.date.toISOString().slice(0, 10)}>
+                  {dataFmt(post.data.date)}
+                </time>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.resumo}</p>
+                <span class="link-cta">Ler artigo</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -196,4 +196,43 @@ main { @apply flex-grow; }
   #nao-encontrada h1 { @apply text-6xl md:text-8xl font-bold text-castillo-blue mb-4; }
   #nao-encontrada .lead { @apply text-castillo-slate; }
   #nao-encontrada .card-body { @apply mb-8; }
+
+  /* ════════════════════════════════════════════════════════════════════
+     CATEGORIA 7 — ARTIGOS TÉCNICOS (/articles)
+     ════════════════════════════════════════════════════════════════════ */
+
+  /* Lista de artigos (/articles) */
+  #articles .container-site { @apply max-w-4xl; }
+  #articles h1 { @apply text-3xl md:text-4xl font-bold text-castillo-blue mb-3; }
+  #articles .intro-lista { @apply text-castillo-slate text-lg mb-12; }
+  .articles-list { @apply grid gap-6; }
+  .card-article-link { @apply block bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow; }
+  .card-article-link img { @apply w-full h-auto object-cover; }
+  .card-article-body { @apply p-6 md:p-8 flex flex-col gap-2; }
+  .card-article-body time { @apply text-sm font-bold text-castillo-orange uppercase tracking-wider; }
+  .card-article-body h2 { @apply text-xl font-bold text-castillo-blue; }
+  .card-article-body p { @apply text-castillo-slate text-sm; }
+  .card-article-body .link-cta { @apply mt-2; }
+
+  /* Artigo (/articles/<slug>) */
+  #article .container-site { @apply max-w-3xl; }
+  .article-meta { @apply text-sm mb-2; }
+  .article-meta a { @apply text-castillo-orange font-bold hover:opacity-80; }
+  #article h1 { @apply text-3xl md:text-4xl font-bold text-castillo-blue mb-4 leading-tight; }
+  .article-summary { @apply text-lg md:text-xl text-castillo-slate mb-8; }
+  .article-cover { @apply w-full rounded-lg border border-gray-200 mb-10; }
+  .article-body { @apply space-y-6 text-castillo-slate leading-relaxed; }
+  .article-body p { @apply text-base md:text-lg; }
+  .article-body h2 { @apply text-2xl font-bold text-castillo-blue pt-6; }
+  .article-body ul { @apply list-disc pl-6 space-y-2; }
+  .article-body figure { @apply my-10; }
+  .article-body figure img { @apply block w-full rounded-lg border border-gray-200 bg-white; }
+  .article-body figure img + img { @apply mt-4; }
+  /* Diagrama vertical (ex.: fig-section-balance, aspecto ~1:1): ocupa menos largura,
+     a proporção é preservada porque só a largura é limitada. */
+  .article-body figure.figure-narrow img { @apply mx-auto max-w-[340px]; }
+  .article-body figcaption { @apply text-sm text-castillo-slate text-center mt-3; }
+  .article-body .katex-display { @apply my-8 overflow-x-auto text-center; }
+  .article-back { @apply mt-12 pt-6 border-t border-gray-200 text-sm; }
+  .article-back a { @apply text-castillo-orange font-bold underline hover:opacity-80; }
 }

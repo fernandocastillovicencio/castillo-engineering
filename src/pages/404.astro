@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
-const notFound = (await getEntry('site', 'pagina-nao-encontrada'))!.data;
-const siteConfig = (await getEntry("site", "configuracao-do-site"))!.data;
+const notFound = (await getEntry('site', 'not-found'))!.data;
+const siteConfig = (await getEntry("site", "settings"))!.data;
 const dados = notFound;
 const whatsapp404 = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagem404)}`;
 ---

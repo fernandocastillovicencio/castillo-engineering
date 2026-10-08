@@ -1,7 +1,7 @@
 # ═══════════════════════════════════════════════════════════════
 # DECAP CMS — Configuração do Painel de Conteúdo
 # ═══════════════════════════════════════════════════════════════
-# A editora acessa: https://castilloeng.com.br/admin/
+# A editora acessa: https://castilloengenharia.com.br/admin/
 # Edita APENAS texto de marketing por formulários, em português.
 #
 # Design do painel (decisão do dono, 2026-09-01):
@@ -26,7 +26,7 @@ backend:
   auth_endpoint: auth
 
 locale: "pt_br"
-site_url: "https://castilloeng.com.br"
+site_url: "https://castilloengenharia.com.br"
 media_folder: "public/images"
 public_folder: "/images"
 
@@ -45,7 +45,7 @@ collections:
 
       - name: "apresentacao"
         label: "1. Apresentação (topo)"
-        file: "marketing/apresentacao.md"
+        file: "marketing/hero.md"
         fields:
           - label: "Selo (2 itens)"
             name: "badge"
@@ -91,7 +91,7 @@ collections:
 
       - name: "oque-resolvemos"
         label: "2. O que resolvemos"
-        file: "marketing/o-que-resolvemos.md"
+        file: "marketing/problems.md"
         fields:
           - label: "Título"
             name: "title"
@@ -152,7 +152,7 @@ collections:
 
       - name: "como-funciona"
         label: "3. Como funciona"
-        file: "marketing/como-funciona.md"
+        file: "marketing/process.md"
         fields:
           - label: "Título"
             name: "title"
@@ -178,7 +178,7 @@ collections:
 
       - name: "para-quem"
         label: "4. Para quem"
-        file: "marketing/para-quem.md"
+        file: "marketing/sectors.md"
         fields:
           - label: "Título"
             name: "title"
@@ -208,7 +208,7 @@ collections:
 
       - name: "por-que"
         label: "5. Por que a Castillo"
-        file: "marketing/por-que-a-castillo.md"
+        file: "marketing/why-us.md"
         fields:
           - label: "Título"
             name: "title"
@@ -224,19 +224,6 @@ collections:
               - label: "Descrição"
                 name: "descricao"
                 widget: "text"
-          - label: "Bloco 'Como trabalhamos'"
-            name: "comoTrabalhamos"
-            widget: "object"
-            fields:
-              - label: "Título do bloco"
-                name: "titulo"
-                widget: "string"
-              - label: "Parágrafo 1"
-                name: "paragrafo1"
-                widget: "text"
-              - label: "Parágrafo 2"
-                name: "paragrafo2"
-                widget: "text"
           - label: "Descrição da seção (uso interno)"
             name: "sobre"
             widget: "string"
@@ -244,7 +231,7 @@ collections:
 
       - name: "investimento"
         label: "6. Investimento"
-        file: "marketing/investimento.md"
+        file: "marketing/services.md"
         fields:
           - label: "Título"
             name: "title"
@@ -286,7 +273,7 @@ collections:
 
       - name: "perguntas-frequentes"
         label: "7. Perguntas Frequentes"
-        file: "marketing/perguntas-frequentes.md"
+        file: "marketing/faq.md"
         fields:
           - label: "Título"
             name: "title"
@@ -325,7 +312,7 @@ collections:
 
       - name: "resultados"
         label: "8. Resultados"
-        file: "marketing/resultados.md"
+        file: "marketing/results.md"
         fields:
           - label: "Título"
             name: "title"
@@ -358,7 +345,7 @@ collections:
 
       - name: "contato"
         label: "9. Contato"
-        file: "marketing/contato.md"
+        file: "marketing/contact.md"
         fields:
           - label: "Título"
             name: "title"
@@ -472,7 +459,7 @@ collections:
 
       - name: "investimento-pagina"
         label: "Investimento (/prices)"
-        file: "marketing/pagina-investimento.md"
+        file: "marketing/prices.md"
         fields:
           - label: "Título"
             name: "h1"
@@ -523,27 +510,6 @@ collections:
                 name: "nota"
                 widget: "text"
                 required: false
-          - label: "Bloco 'Como precificamos'"
-            name: "comoPrecificamos"
-            widget: "object"
-            fields:
-              - label: "Título"
-                name: "titulo"
-                widget: "string"
-              - label: "Pontos (3)"
-                name: "pontos"
-                widget: "list"
-                summary: "{{fields.destaque}}"
-                fields:
-                  - label: "Texto em destaque"
-                    name: "destaque"
-                    widget: "string"
-                  - label: "Explicação"
-                    name: "texto"
-                    widget: "text"
-              - label: "Texto de risco"
-                name: "risco"
-                widget: "text"
           - label: "Botão"
             name: "cta"
             widget: "object"
@@ -575,7 +541,7 @@ collections:
 
       - name: "metodologia-pagina"
         label: "Metodologia (/methodology)"
-        file: "marketing/pagina-metodologia.md"
+        file: "marketing/methodology.md"
         fields:
           - label: "Título"
             name: "h1"
@@ -621,7 +587,7 @@ collections:
 
       - name: "404-pagina"
         label: "404 / Página não encontrada"
-        file: "marketing/pagina-nao-encontrada.md"
+        file: "marketing/not-found.md"
         fields:
           - label: "Código (ex: 404)"
             name: "codigo"
@@ -665,7 +631,7 @@ collections:
 
       - name: "privacidade-pagina"
         label: "Privacidade LGPD (/privacy-lgpd)"
-        file: "marketing/pagina-privacidade-lgpd.md"
+        file: "marketing/privacy-lgpd.md"
         fields:
           - label: "Título"
             name: "h1"
@@ -700,7 +666,7 @@ collections:
 
       - name: "rodape"
         label: "Rodapé"
-        file: "marketing/rodape.md"
+        file: "marketing/footer.md"
         fields:
           - label: "Chamada (com botão)"
             name: "cta"
@@ -777,7 +743,7 @@ collections:
 
       - name: "configuracao-site"
         label: "Configuração do site (AVANÇADA — não editar)"
-        file: "marketing/configuracao-do-site.md"
+        file: "marketing/settings.md"
         description: "⚠️ Campos avançados. Não altere nada aqui — mantido no painel apenas para preservar os dados. Quem edita: o dono, via repositório."
         fields:
           - label: "Descrição da seção (uso interno)"
@@ -868,3 +834,38 @@ collections:
               - {label: "País", name: "addressCountry", widget: "string"}
               - {label: "Região atendida", name: "areaServed", widget: "list", required: false}
               - {label: "Áreas de atuação", name: "knowsAbout", widget: "list", required: false}
+
+  # ─────────────────────────────────────────────────────────────
+  # 4. ARTIGOS TÉCNICOS (página /articles)
+  # ─────────────────────────────────────────────────────────────
+  - name: "articles"
+    label: "Artigos Técnicos"
+    description: "Casos e análises técnicas publicados em /articles. Um arquivo por artigo."
+    folder: "marketing/articles"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ['date', 'title']
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data de publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Resumo (aparece na lista e no Google)", name: "resumo", widget: "text"}
+      - {label: "Imagem de capa", name: "capa", widget: "image", required: false}
+      - {label: "Prévia social (og:image, JPEG 1200x630)", name: "og", widget: "image", required: false, hint: "Gerada por make_og_image.py — deixe vazio para usar a imagem padrão do site"}
+      - label: "SEO (Google) — avançado"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {label: "Título da aba", name: "title", widget: "string", required: false}
+          - {label: "Descrição para o Google", name: "description", widget: "text", required: false}
+      - label: "Botão de contato (fim do artigo) — NÃO troque o texto"
+        name: "cta"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {label: "Texto do botão", name: "label", widget: "string", hint: "Mantenha: Agendar conversa (sem compromisso)"}
+          - {label: "Link (não altere)", name: "href", widget: "string", required: false}
+      - {label: "Corpo do artigo", name: "body", widget: "markdown"}
+      - {label: "Descrição (uso interno)", name: "sobre", widget: "string", required: false}

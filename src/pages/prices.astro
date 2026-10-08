@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 
-const priceData = (await getEntry('site', 'pagina-investimento'))!.data;
+const priceData = (await getEntry('site', 'prices'))!.data;
 const dados = priceData;
-const siteConfig = (await getEntry('site', 'configuracao-do-site'))!.data;
+const siteConfig = (await getEntry('site', 'settings'))!.data;
 const ctaWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.mensagemCta)}`;
 const resolveCta = (href) => (href === 'whatsappCta' ? ctaWhatsAppUrl : href);
 const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
@@ -36,12 +36,6 @@ const ctaTarget = (href) => (href === 'whatsappCta' ? '_blank' : undefined);
           </div>
         )
       ))}
-
-      <div class="card mb-8">
-        <h2 class="card-title">{dados.comoPrecificamos.titulo}</h2>
-        <div class="space-y-4">{dados.comoPrecificamos.pontos.map((ponto) => <p class="card-body"><strong>{ponto.destaque}</strong> {ponto.texto}</p>)}</div>
-        <p class="card-body mt-4">{dados.comoPrecificamos.risco}</p>
-      </div>
 
       <div class="cta-wrap"><a href={resolveCta(dados.cta.href)} target={ctaTarget(dados.cta.href)} rel={ctaTarget(dados.cta.href) ? 'noopener noreferrer' : undefined} class="btn" data-tipo="primario">{dados.cta.label}</a></div>
     </div>

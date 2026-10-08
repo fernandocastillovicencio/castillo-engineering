@@ -42,7 +42,11 @@ README.md
 npmrc
 
 # Documentacao interna de estrutura do site (guia do editor, nao conteudo publico)
-marketing/ESTRUTURA.md
+marketing/STRUCTURE.md
 
 # Dossies internos de migracao/status do agente (nao sao conteudo publico)
 migracoes_pendentes_*.md
+MIGRACAO-DOMINIO.md
+
+# Estado das reuniões multiagente (plugin roundtable) — nunca publicar
+.roundtable/
