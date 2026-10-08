@@ -1,8 +1,8 @@
 ---
-title: "Producto apelmazándose en el silo: medición en campo y modelo sección a sección, de 34,6 °C a 32,8 °C en la salida"
+title: "Transporte neumático con problemas de calentamiento: cómo resolvimos el problema y redujimos la transferencia de calor en 150 m de tubería"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "El insumo llegaba caliente al silo y el producto se apelmazaba. Medimos la línea en campo y ajustamos un modelo 1D sección a sección contra la medición: en la envolvente de carga, la salida va de 34,6 °C a 32,4 °C sin aislamiento y de 32,8 °C a 30,0 °C con el aislamiento propuesto."
+resumo: "El insumo llegaba caliente al silo y el producto presentaba degradación termo-higroscópica. Ajustamos un modelo 1D por secciones contra la medición. Modelamos y predijimos la temperatura en cada sección y propusimos un aislamiento térmico específico."
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:

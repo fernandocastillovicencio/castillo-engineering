@@ -1,8 +1,8 @@
 ---
-title: "Produto empedrando no silo: medição em campo e modelo seção a seção, de 34,6 °C para 32,8 °C na saída"
+title: "Transporte pneumático com problemas de aquecimento: como resolvemos o problema e reduzimos a transferência de calor em 150m de tubulação"
 date: 2026-10-07
 autor: "Fernando Castillo Vicencio"
-resumo: "O insumo chegava aquecido ao silo e o produto empedrava. Medimos a linha em campo e ajustamos um modelo 1D seção a seção contra a medição: no envelope de carga, a saída vai de 34,6 °C a 32,4 °C sem isolamento e de 32,8 °C a 30,0 °C com o isolamento proposto."
+resumo: "O insumo chegava aquecido ao silo e o produto apresentava degradação termo-higroscópica. Ajustamos um modelo 1D seção contra a medição. Modelamos e previmos a temperatura em cada seção e propomos um isolamento térmico específico"
 capa: "/images/articles/post001-thermal-model/thumbnail.avif"
 og: "/images/articles/post001-thermal-model/og.jpg"
 cta:
